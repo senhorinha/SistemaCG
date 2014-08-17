@@ -1,38 +1,28 @@
 package modelo;
 
-public class Ponto {
+import java.util.ArrayList;
 
-	private int x, y;
-	private String nome;
+public class Ponto extends ObjetoGeometrico {
 
-	public Ponto(int x, int y, String nome) {
-		this.x = x;
-		this.y = y;
+	public Ponto(String nome, Coordenada c) {
 		this.nome = nome;
+		this.tipo = "ponto";
+		this.coordenadas.add(c);
 	}
 
-	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
+	@Override
 	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	@Override
+	String getTipo() {
+		return tipo;
+	}
+
+	@Override
+	ArrayList<Coordenada> obterPontos() {
+		return coordenadas;
 	}
 
 }

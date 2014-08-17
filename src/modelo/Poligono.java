@@ -1,33 +1,28 @@
 package modelo;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public class Poligono {
+public class Poligono extends ObjetoGeometrico {
 
-	private String nome;
-	private List<Reta> retas;
-
-	public Poligono(List<Reta> retas, String nome) {
+	public Poligono(String nome, ArrayList<Coordenada> coordenadas) {
 		this.nome = nome;
-		this.retas = retas;
+		this.tipo = "poligono";
+		this.coordenadas = coordenadas;
 	}
 
-	public Poligono(String nome, List<Ponto> pontosExtremos) {
-		this.nome = nome;
-		criarRetas(pontosExtremos);
-	}
-
-	// TODO: Implementar um algoritmo que transforme os pontos em retas.
-	private void criarRetas(List<Ponto> pontosExtremos) {
-
-	}
-
+	@Override
 	public String getNome() {
 		return nome;
 	}
 
-	public List<Reta> getRetas() {
-		return retas;
+	@Override
+	String getTipo() {
+		return tipo;
+	}
+
+	@Override
+	ArrayList<Coordenada> obterPontos() {
+		return coordenadas;
 	}
 
 }

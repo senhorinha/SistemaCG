@@ -1,44 +1,37 @@
 package modelo;
 
-public class Reta {
+import java.util.ArrayList;
 
-	private Ponto a;
-	private Ponto b;
-	private String nome;
+public class Reta extends ObjetoGeometrico {
 
-	public Reta(Ponto a, Ponto b, String nome) {
-		this.a = a;
-		this.b = b;
+	public Reta(String nome, Coordenada a, Coordenada b) {
 		this.nome = nome;
+		this.tipo = "reta";
+		this.coordenadas.add(a);
+		this.coordenadas.add(b);
 	}
 
-	public Ponto getA() {
-		return a;
-	}
-
-	public void setA(Ponto a) {
-		this.a = a;
-	}
-
-	public Ponto getB() {
-		return b;
-	}
-
-	public void setB(Ponto b) {
-		this.b = b;
-	}
-
-	public int[] getCoordenadasDosPontos() {
-		int[] coordenadas = { a.getX(), a.getY(), b.getX(), b.getY() };
-		return coordenadas;
-	}
-
+	@Override
 	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	@Override
+	String getTipo() {
+		return tipo;
+	}
+
+	@Override
+	ArrayList<Coordenada> obterPontos() {
+		return coordenadas;
+	}
+
+	public Coordenada obterP1() {
+		return coordenadas.get(0);
+	}
+
+	public Coordenada obterP2() {
+		return coordenadas.get(1);
 	}
 
 }

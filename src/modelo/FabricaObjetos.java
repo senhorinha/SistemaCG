@@ -15,12 +15,12 @@ public class FabricaObjetos {
 		return fabrica;
 	}
 
-	public Ponto criarPonto(int x, int y, String nome) {
-		return new Ponto(x, y, nome);
+	public Ponto criarPonto(String nome, Coordenada c) {
+		return new Ponto(nome, c);
 	}
 
-	public Reta criarReta(Ponto a, Ponto b, String nome) {
-		return new Reta(a, b, nome);
+	public Reta criarReta(String nome, Coordenada a, Coordenada b) {
+		return new Reta(nome, a, b);
 	}
 
 	public Poligono criarPoligono() {
