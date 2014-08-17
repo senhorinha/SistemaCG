@@ -2,12 +2,42 @@ package modelo;
 
 public class Reta {
 
-	Ponto a, b;
-	String nome;
+	private Ponto a;
+	private Ponto b;
+	private String nome;
 
-	Reta(Ponto a, Ponto b, String nome) {
+	public Reta(Ponto a, Ponto b, String nome) {
 		this.a = a;
 		this.b = b;
+		this.nome = nome;
+	}
+
+	public Ponto getA() {
+		return a;
+	}
+
+	public void setA(Ponto a) {
+		this.a = a;
+	}
+
+	public Ponto getB() {
+		return b;
+	}
+
+	public void setB(Ponto b) {
+		this.b = b;
+	}
+
+	public int[] getCoordenadasDoPontos() {
+		int[] coordenadas = { a.getX(), a.getY(), b.getX(), b.getY() };
+		return coordenadas;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
