@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Menu class="javax.swing.JMenuBar" name="barraDeMenu">
+    <Menu class="javax.swing.JMenuBar" name="menuBar">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="fileMenu">
           <Properties>
@@ -64,7 +64,7 @@
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="barraDeMenu"/>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="menuBar"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -88,10 +88,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="painelPrincipal" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="painelPrincipal" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -104,13 +101,14 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="painelDeAcoes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="painelDeDesenho" max="32767" attributes="0"/>
+                  <Component id="painelDeDesenho" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="painelDeAcoes" max="32767" attributes="0"/>
+              <Component id="painelDeAcoes" alignment="0" max="32767" attributes="0"/>
               <Component id="painelDeDesenho" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
@@ -120,7 +118,7 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Menu de Fun&#xe7;&#xf5;es"/>
+                <TitledBorder title="Menu de Funcoes"/>
               </Border>
             </Property>
           </Properties>
@@ -129,15 +127,16 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="painelDeObjetos" pref="225" max="32767" attributes="0"/>
-                  <Component id="painelWindow" alignment="0" max="32767" attributes="0"/>
+                  <Component id="painelWindow" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="painelDeObjetos" min="-2" pref="209" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="painelDeObjetos" min="-2" pref="202" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="painelWindow" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -146,19 +145,11 @@
             <Container class="javax.swing.JScrollPane" name="painelDeObjetos">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                    <EmptyBorder/>
-                  </Border>
-                </Property>
-                <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder>
-                      <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Objetos"/>
-                      </Border>
-                    </TitledBorder>
+                    <TitledBorder title="Objetos"/>
                   </Border>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Painel de Objetos"/>
               </Properties>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
@@ -170,6 +161,7 @@
                     <TitledBorder title="Window"/>
                   </Border>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Window"/>
               </Properties>
 
               <Layout>
@@ -180,7 +172,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="504" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="380" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -189,17 +181,23 @@
         </Container>
         <Container class="javax.swing.JPanel" name="painelDeDesenho">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="fe" green="fe" red="fe" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Viewport"/>
+                <TitledBorder title="Viewport">
+                  <Color PropertyName="color" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+                </TitledBorder>
               </Border>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="871" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="777" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
