@@ -6,7 +6,6 @@ public class Reta extends ObjetoGeometrico {
 
 	public Reta(String nome, Coordenada a, Coordenada b) {
 		this.nome = nome;
-		this.tipo = "reta";
 		this.coordenadas.add(a);
 		this.coordenadas.add(b);
 	}
@@ -14,11 +13,6 @@ public class Reta extends ObjetoGeometrico {
 	@Override
 	public String getNome() {
 		return nome;
-	}
-
-	@Override
-	public String getTipo() {
-		return tipo;
 	}
 
 	@Override
