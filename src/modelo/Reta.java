@@ -28,7 +28,7 @@ public class Reta {
 		this.b = b;
 	}
 
-	public int[] getCoordenadasDoPontos() {
+	public int[] getCoordenadasDosPontos() {
 		int[] coordenadas = { a.getX(), a.getY(), b.getX(), b.getY() };
 		return coordenadas;
 	}

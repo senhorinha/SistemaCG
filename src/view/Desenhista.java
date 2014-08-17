@@ -17,7 +17,7 @@ public class Desenhista {
 
 	public void desenhar(Reta reta, Color cor) {
 		this.mudarCor(cor);
-		int[] coordenadas = reta.getCoordenadasDoPontos();
+		int[] coordenadas = reta.getCoordenadasDosPontos();
 		grafico.drawLine(coordenadas[0], coordenadas[1], coordenadas[2],
 				coordenadas[3]);
 	}
