@@ -1,10 +1,10 @@
 package modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Poligono extends ObjetoGeometrico {
 
-	public Poligono(String nome, ArrayList<Coordenada> coordenadas) {
+	public Poligono(String nome, List<Coordenada> coordenadas) {
 		this.nome = nome;
 		this.tipo = "poligono";
 		this.coordenadas = coordenadas;
@@ -21,7 +21,7 @@ public class Poligono extends ObjetoGeometrico {
 	}
 
 	@Override
-	public ArrayList<Coordenada> obterCoordenadas() {
+	public List<Coordenada> obterCoordenadas() {
 		return coordenadas;
 	}
 

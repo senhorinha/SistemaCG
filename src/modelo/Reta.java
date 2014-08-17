@@ -1,6 +1,6 @@
 package modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Reta extends ObjetoGeometrico {
 
@@ -22,7 +22,7 @@ public class Reta extends ObjetoGeometrico {
 	}
 
 	@Override
-	public ArrayList<Coordenada> obterCoordenadas() {
+	public List<Coordenada> obterCoordenadas() {
 		return coordenadas;
 	}
 
