@@ -1,36 +1,26 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DisplayFile {
 
-	static DisplayFile displayFile = null;
-	FabricaObjetos fabrica;
-	ArrayList<ObjetoGeometrico> objetos;
+	private static DisplayFile displayFile = null;
+	List<ObjetoGeometrico> objetos;
 
 	private DisplayFile() {
-
 		objetos = new ArrayList<ObjetoGeometrico>();
-		fabrica = FabricaObjetos.obterInstancia();
-
 	}
 
-	static DisplayFile obterInstancia() {
-		if (displayFile == null)
+	public static DisplayFile obterInstancia() {
+		if (displayFile == null) {
 			return new DisplayFile();
+		}
 		return displayFile;
 	}
 
-	Ponto criarPonto(String nome, Coordenada c) {
-		Ponto ponto = fabrica.criarPonto(nome, c);
-		objetos.add(ponto);
-		return ponto;
-	}
-
-	Reta criarReta(String nome, Coordenada a, Coordenada b) {
-		Reta reta = fabrica.criarReta(nome, a, b);
-		objetos.add(reta);
-		return reta;
+	public boolean adicionar(ObjetoGeometrico objeto) {
+		return objetos.add(objeto);
 	}
 
 }
