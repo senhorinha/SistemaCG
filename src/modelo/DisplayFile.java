@@ -1,12 +1,13 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DisplayFile {
 
 	static DisplayFile displayFile = null;
 	FabricaObjetos fabrica;
-	ArrayList objetos;
+	List objetos;
 
 	private DisplayFile() {
 
