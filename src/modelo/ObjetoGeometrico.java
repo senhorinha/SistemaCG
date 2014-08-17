@@ -8,10 +8,10 @@ public abstract class ObjetoGeometrico {
 	String tipo;
 	ArrayList<Coordenada> coordenadas;
 
-	abstract String getNome();
+	public abstract String getNome();
 
-	abstract String getTipo();
+	public abstract String getTipo();
 
-	abstract ArrayList<Coordenada> obterPontos();
+	public abstract ArrayList<Coordenada> obterCoordenadas();
 
 }

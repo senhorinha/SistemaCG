@@ -17,12 +17,12 @@ public class Reta extends ObjetoGeometrico {
 	}
 
 	@Override
-	String getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
 	@Override
-	ArrayList<Coordenada> obterPontos() {
+	public ArrayList<Coordenada> obterCoordenadas() {
 		return coordenadas;
 	}
 
