@@ -1,11 +1,13 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Reta extends ObjetoGeometrico {
 
 	public Reta(String nome, Coordenada a, Coordenada b) {
 		this.nome = nome;
+		this.coordenadas = new ArrayList<Coordenada>();
 		this.coordenadas.add(a);
 		this.coordenadas.add(b);
 	}
