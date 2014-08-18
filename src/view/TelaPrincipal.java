@@ -32,6 +32,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         painelDeAcoes = new javax.swing.JPanel();
         painelDeObjetos = new javax.swing.JScrollPane();
         painelWindow = new javax.swing.JPanel();
+        painelDeZoom = new javax.swing.JPanel();
+        botaoZoomIn = new javax.swing.JButton();
+        botaoZoomOut = new javax.swing.JButton();
+        painelDeNavegacao = new javax.swing.JPanel();
+        botaoNavegacaoParaBaixo = new javax.swing.JButton();
+        botaoNavegacaoParaCima = new javax.swing.JButton();
+        botaoNavegacaoParaDireita = new javax.swing.JButton();
+        botaoNavegacaoParaEsquerda = new javax.swing.JButton();
         painelDeDesenho = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -53,22 +61,108 @@ public class TelaPrincipal extends javax.swing.JFrame {
         painelWindow.setBorder(javax.swing.BorderFactory.createTitledBorder("Window"));
         painelWindow.setToolTipText("Window");
 
+        painelDeZoom.setBorder(javax.swing.BorderFactory.createTitledBorder("Zoom"));
+        painelDeZoom.setToolTipText("Painel de Zoom");
+
+        botaoZoomIn.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/zoom_in.png")); // NOI18N
+        botaoZoomIn.setToolTipText("Zoom in");
+
+        botaoZoomOut.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/zoom_out.png")); // NOI18N
+        botaoZoomOut.setToolTipText("Zoom out");
+
+        javax.swing.GroupLayout painelDeZoomLayout = new javax.swing.GroupLayout(painelDeZoom);
+        painelDeZoom.setLayout(painelDeZoomLayout);
+        painelDeZoomLayout.setHorizontalGroup(
+            painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelDeZoomLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botaoZoomIn, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botaoZoomOut)
+                .addGap(21, 21, 21))
+        );
+        painelDeZoomLayout.setVerticalGroup(
+            painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelDeZoomLayout.createSequentialGroup()
+                .addGroup(painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoZoomOut)
+                    .addComponent(botaoZoomIn))
+                .addGap(0, 2, Short.MAX_VALUE))
+        );
+
+        painelDeNavegacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Navegação"));
+        painelDeNavegacao.setToolTipText("Painel de Navegacao");
+
+        botaoNavegacaoParaBaixo.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/seta_baixo.png")); // NOI18N
+        botaoNavegacaoParaBaixo.setToolTipText("Mover para baixo");
+
+        botaoNavegacaoParaCima.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/seta_cima.png")); // NOI18N
+        botaoNavegacaoParaCima.setToolTipText("Mover para cima");
+
+        botaoNavegacaoParaDireita.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/seta_direita.png")); // NOI18N
+        botaoNavegacaoParaDireita.setToolTipText("Mover para direita");
+
+        botaoNavegacaoParaEsquerda.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/seta_esquerda.png")); // NOI18N
+        botaoNavegacaoParaEsquerda.setToolTipText("Mover para esquerda");
+
+        javax.swing.GroupLayout painelDeNavegacaoLayout = new javax.swing.GroupLayout(painelDeNavegacao);
+        painelDeNavegacao.setLayout(painelDeNavegacaoLayout);
+        painelDeNavegacaoLayout.setHorizontalGroup(
+            painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelDeNavegacaoLayout.createSequentialGroup()
+                .addGroup(painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelDeNavegacaoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(botaoNavegacaoParaEsquerda)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botaoNavegacaoParaDireita))
+                    .addGroup(painelDeNavegacaoLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(botaoNavegacaoParaCima)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(painelDeNavegacaoLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(botaoNavegacaoParaBaixo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        painelDeNavegacaoLayout.setVerticalGroup(
+            painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDeNavegacaoLayout.createSequentialGroup()
+                .addComponent(botaoNavegacaoParaCima, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoNavegacaoParaEsquerda, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoNavegacaoParaDireita, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoNavegacaoParaBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout painelWindowLayout = new javax.swing.GroupLayout(painelWindow);
         painelWindow.setLayout(painelWindowLayout);
         painelWindowLayout.setHorizontalGroup(
             painelWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelWindowLayout.createSequentialGroup()
+                .addGroup(painelWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(painelDeNavegacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(painelDeZoom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         painelWindowLayout.setVerticalGroup(
             painelWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGroup(painelWindowLayout.createSequentialGroup()
+                .addComponent(painelDeZoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(painelDeNavegacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 196, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout painelDeAcoesLayout = new javax.swing.GroupLayout(painelDeAcoes);
         painelDeAcoes.setLayout(painelDeAcoesLayout);
         painelDeAcoesLayout.setHorizontalGroup(
             painelDeAcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelDeObjetos, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+            .addComponent(painelDeObjetos)
             .addComponent(painelWindow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         painelDeAcoesLayout.setVerticalGroup(
@@ -222,13 +316,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem adionarFormaMenuItem;
+    private javax.swing.JButton botaoNavegacaoParaBaixo;
+    private javax.swing.JButton botaoNavegacaoParaCima;
+    private javax.swing.JButton botaoNavegacaoParaDireita;
+    private javax.swing.JButton botaoNavegacaoParaEsquerda;
+    private javax.swing.JButton botaoZoomIn;
+    private javax.swing.JButton botaoZoomOut;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JPanel painelDeAcoes;
     private javax.swing.JPanel painelDeDesenho;
+    private javax.swing.JPanel painelDeNavegacao;
     private javax.swing.JScrollPane painelDeObjetos;
+    private javax.swing.JPanel painelDeZoom;
     private javax.swing.JPanel painelPrincipal;
     private javax.swing.JPanel painelWindow;
     private javax.swing.JMenuItem sairMenuItem;
