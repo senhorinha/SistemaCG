@@ -87,7 +87,7 @@ public class SobreDialog extends javax.swing.JDialog {
         jTextPane1.setText("Atividade Prática - Computação Gráfica\n\nAutores:\n\nRafael Schmidt Melchert (https://github.com/Rafinha88)\nThiago Senhorinha Rose (https://github.com/thisenrose)\n\nOrientador:\n\nAldo von Wangenheim (http://www.inf.ufsc.br/~awangenh/)"); // NOI18N
         jScrollPane1.setViewportView(jTextPane1);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/ctc.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/ctc.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

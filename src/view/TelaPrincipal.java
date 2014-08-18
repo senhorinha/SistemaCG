@@ -64,10 +64,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         painelDeZoom.setBorder(javax.swing.BorderFactory.createTitledBorder("Zoom"));
         painelDeZoom.setToolTipText("Painel de Zoom");
 
-        botaoZoomIn.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/zoom_in.png")); // NOI18N
+        botaoZoomIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/zoom_in.png"))); // NOI18N
         botaoZoomIn.setToolTipText("Zoom in");
 
-        botaoZoomOut.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/zoom_out.png")); // NOI18N
+        botaoZoomOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/zoom_out.png"))); // NOI18N
         botaoZoomOut.setToolTipText("Zoom out");
 
         javax.swing.GroupLayout painelDeZoomLayout = new javax.swing.GroupLayout(painelDeZoom);
@@ -93,16 +93,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         painelDeNavegacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Navegação"));
         painelDeNavegacao.setToolTipText("Painel de Navegacao");
 
-        botaoNavegacaoParaBaixo.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/seta_baixo.png")); // NOI18N
+        botaoNavegacaoParaBaixo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/seta_baixo.png"))); // NOI18N
         botaoNavegacaoParaBaixo.setToolTipText("Mover para baixo");
 
-        botaoNavegacaoParaCima.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/seta_cima.png")); // NOI18N
+        botaoNavegacaoParaCima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/seta_cima.png"))); // NOI18N
         botaoNavegacaoParaCima.setToolTipText("Mover para cima");
 
-        botaoNavegacaoParaDireita.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/seta_direita.png")); // NOI18N
+        botaoNavegacaoParaDireita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/seta_direita.png"))); // NOI18N
         botaoNavegacaoParaDireita.setToolTipText("Mover para direita");
 
-        botaoNavegacaoParaEsquerda.setIcon(new javax.swing.ImageIcon("/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/seta_esquerda.png")); // NOI18N
+        botaoNavegacaoParaEsquerda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/seta_esquerda.png"))); // NOI18N
         botaoNavegacaoParaEsquerda.setToolTipText("Mover para esquerda");
 
         javax.swing.GroupLayout painelDeNavegacaoLayout = new javax.swing.GroupLayout(painelDeNavegacao);
@@ -136,7 +136,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(botaoNavegacaoParaDireita, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoNavegacaoParaBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout painelWindowLayout = new javax.swing.GroupLayout(painelWindow);
@@ -155,7 +155,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(painelDeZoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(painelDeNavegacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 196, Short.MAX_VALUE))
+                .addGap(0, 201, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout painelDeAcoesLayout = new javax.swing.GroupLayout(painelDeAcoes);
@@ -170,13 +170,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(painelDeAcoesLayout.createSequentialGroup()
                 .addComponent(painelDeObjetos, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(painelWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(painelWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         painelDeDesenho.setBackground(new java.awt.Color(254, 254, 254));
         painelDeDesenho.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Viewport", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.darkGray));
-        painelDeDesenho.setToolTipText("");
+        painelDeDesenho.setToolTipText("Viewport");
 
         javax.swing.GroupLayout painelDeDesenhoLayout = new javax.swing.GroupLayout(painelDeDesenho);
         painelDeDesenho.setLayout(painelDeDesenhoLayout);

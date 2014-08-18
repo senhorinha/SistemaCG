@@ -136,7 +136,6 @@
                       <Component id="painelDeObjetos" min="-2" pref="202" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="painelWindow" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -182,7 +181,7 @@
                           <Component id="painelDeZoom" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="painelDeNavegacao" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="196" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="201" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -226,7 +225,7 @@
                     <Component class="javax.swing.JButton" name="botaoZoomIn">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/zoom_in.png"/>
+                          <Image iconType="3" name="/resources/imagens/zoom_in.png"/>
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Zoom in"/>
                       </Properties>
@@ -234,7 +233,7 @@
                     <Component class="javax.swing.JButton" name="botaoZoomOut">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/zoom_out.png"/>
+                          <Image iconType="3" name="/resources/imagens/zoom_out.png"/>
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Zoom out"/>
                       </Properties>
@@ -288,7 +287,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="botaoNavegacaoParaBaixo" min="-2" pref="28" max="-2" attributes="0"/>
-                              <EmptySpace pref="13" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -297,7 +296,7 @@
                     <Component class="javax.swing.JButton" name="botaoNavegacaoParaBaixo">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/seta_baixo.png"/>
+                          <Image iconType="3" name="/resources/imagens/seta_baixo.png"/>
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Mover para baixo"/>
                       </Properties>
@@ -305,7 +304,7 @@
                     <Component class="javax.swing.JButton" name="botaoNavegacaoParaCima">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/seta_cima.png"/>
+                          <Image iconType="3" name="/resources/imagens/seta_cima.png"/>
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Mover para cima"/>
                       </Properties>
@@ -313,7 +312,7 @@
                     <Component class="javax.swing.JButton" name="botaoNavegacaoParaDireita">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/seta_direita.png"/>
+                          <Image iconType="3" name="/resources/imagens/seta_direita.png"/>
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Mover para direita"/>
                       </Properties>
@@ -321,7 +320,7 @@
                     <Component class="javax.swing.JButton" name="botaoNavegacaoParaEsquerda">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="/home/thiago/workspace/java/SistemaCGNetbeans/resources/imagens/seta_esquerda.png"/>
+                          <Image iconType="3" name="/resources/imagens/seta_esquerda.png"/>
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Mover para esquerda"/>
                       </Properties>
@@ -344,7 +343,7 @@
                 </TitledBorder>
               </Border>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="toolTipText" type="java.lang.String" value="Viewport"/>
           </Properties>
 
           <Layout>
