@@ -11,7 +11,7 @@ public class Window {
 		this.ywMax = yMax;
 	}
 
-	void zoomIn() {
+	public void zoomIn() {
 		int proporcaoX = xwMax / 10;
 		int proporcaoY = ywMax / 10;
 		xwMax = xwMax - proporcaoX;
@@ -19,30 +19,30 @@ public class Window {
 
 	}
 
-	void zoomOut() {
+	public void zoomOut() {
 		int proporcaoX = xwMax / 10;
 		int proporcaoY = ywMax / 10;
 		xwMax = xwMax + proporcaoX;
 		ywMax = ywMax + proporcaoY;
 	}
 
-	void moverEsquerda() {
-		xwMin = xwMin + 1;
-		xwMax = xwMax + 1;
+	public void moverEsquerda() {
+		xwMin = xwMin + 10;
+		xwMax = xwMax + 10;
 	}
 
-	void moverDireita() {
-		xwMin = xwMin - 1;
-		xwMax = xwMax - 1;
+	public void moverDireita() {
+		xwMin = xwMin - 10;
+		xwMax = xwMax - 10;
 	}
 
-	void moverCima() {
-		ywMin = ywMin - 1;
-		ywMax = ywMax - 1;
+	public void moverCima() {
+		ywMin = ywMin - 10;
+		ywMax = ywMax - 10;
 	}
 
-	void moverBaixo() {
-		ywMin = ywMin + 1;
-		ywMax = ywMax + 1;
+	public void moverBaixo() {
+		ywMin = ywMin + 10;
+		ywMax = ywMax + 10;
 	}
 }
