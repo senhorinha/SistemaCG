@@ -2,6 +2,8 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.List;
 
 import modelo.Poligono;
 import modelo.Ponto;
@@ -17,20 +19,31 @@ public class Desenhista {
 
 	public void desenhar(Reta reta, Color cor) {
 		this.mudarCor(cor);
-		int[] coordenadas = reta.getCoordenadasDosPontos();
-		grafico.drawLine(coordenadas[0], coordenadas[1], coordenadas[2],
-				coordenadas[3]);
+		int coordenadaX1 = reta.obterP1().getX();
+		int coordenadaY1 = reta.obterP1().getY();
+		int coordenadaX2 = reta.obterP2().getX();
+		int coordenadaY2 = reta.obterP2().getY();
+		grafico.drawLine(coordenadaX1, coordenadaY1, coordenadaX2, coordenadaY2);
 	}
 
 	public void desenhar(Ponto ponto, Color cor) {
 		this.mudarCor(cor);
-		grafico.drawLine(ponto.getX(), ponto.getY(), ponto.getX(), ponto.getY());
+		int coordenadaX = ponto.obterCoordenadas().get(0).getX();
+		int coordenadaY = ponto.obterCoordenadas().get(0).getY();
+		grafico.drawLine(coordenadaX, coordenadaY, coordenadaX, coordenadaY);
 	}
 
 	public void desenhar(Poligono poligono, Color cor) {
-		for (Reta reta : poligono.getRetas()) {
-			desenhar(reta, cor);
+		int nPoints = poligono.obterCoordenadas().size();
+		int[] xPoints = new int[nPoints];
+		int[] yPoints = new int[nPoints];
+		
+		for (int i = 0; i < poligono.obterCoordenadas().size(); i++ ) {
+			xPoints[i] = poligono.obterCoordenadas().get(i).getX();
+			yPoints[i] = poligono.obterCoordenadas().get(i).getY();
 		}
+		
+		grafico.drawPolygon(xPoints, yPoints, nPoints);
 	}
 
 	private void mudarCor(Color cor) {
