@@ -6,7 +6,7 @@ import java.util.List;
 public class DisplayFile {
 
 	private static DisplayFile displayFile = null;
-	List<ObjetoGeometrico> objetos;
+	private List<ObjetoGeometrico> objetos;
 
 	private DisplayFile() {
 		objetos = new ArrayList<ObjetoGeometrico>();
@@ -21,6 +21,10 @@ public class DisplayFile {
 
 	public boolean adicionar(ObjetoGeometrico objeto) {
 		return objetos.add(objeto);
+	}
+	
+	public List<ObjetoGeometrico> getObjetos() {
+		return objetos;
 	}
 
 }

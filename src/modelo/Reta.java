@@ -1,5 +1,7 @@
 package modelo;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +30,16 @@ public class Reta extends ObjetoGeometrico {
 
 	public Coordenada obterP2() {
 		return coordenadas.get(1);
+	}
+
+	@Override
+	public void desenhar(Graphics grafico, Color cor) {
+		grafico.setColor(cor);
+		int coordenadaX1 = this.obterP1().getX();
+		int coordenadaY1 = this.obterP1().getY();
+		int coordenadaX2 = this.obterP2().getX();
+		int coordenadaY2 = this.obterP2().getY();
+		grafico.drawLine(coordenadaX1, coordenadaY1, coordenadaX2, coordenadaY2);
 	}
 
 }

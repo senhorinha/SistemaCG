@@ -4,7 +4,7 @@ public class Window {
 
 	int xwMin, ywMin, xwMax, ywMax;
 
-	Window(int xMax, int yMax) {
+	public Window(int xMax, int yMax) {
 		this.xwMin = 0;
 		this.ywMin = 0;
 		this.xwMax = xMax;
