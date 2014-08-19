@@ -14,7 +14,7 @@ public class DisplayFile {
 
 	public static DisplayFile obterInstancia() {
 		if (displayFile == null) {
-			return new DisplayFile();
+			displayFile = new DisplayFile();
 		}
 		return displayFile;
 	}
@@ -22,7 +22,7 @@ public class DisplayFile {
 	public boolean adicionar(ObjetoGeometrico objeto) {
 		return objetos.add(objeto);
 	}
-	
+
 	public List<ObjetoGeometrico> getObjetos() {
 		return objetos;
 	}
