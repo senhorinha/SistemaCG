@@ -39,6 +39,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
@@ -285,6 +286,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 		botaoAdicionarObjeto.setIcon(new javax.swing.ImageIcon(getClass()
 				.getResource("/resources/imagens/add.png"))); // NOI18N
+		botaoAdicionarObjeto.setToolTipText("Adicionar Objeto");
 		botaoAdicionarObjeto
 				.addActionListener(new java.awt.event.ActionListener() {
 					@Override
@@ -295,6 +297,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 		botaoRemoverObjeto.setIcon(new javax.swing.ImageIcon(getClass()
 				.getResource("/resources/imagens/remove.png"))); // NOI18N
+		botaoRemoverObjeto.setToolTipText("Remover Objeto");
 		botaoRemoverObjeto
 				.addActionListener(new java.awt.event.ActionListener() {
 					@Override
