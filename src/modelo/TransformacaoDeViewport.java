@@ -2,12 +2,12 @@ package modelo;
 
 import java.util.List;
 
-public class TransformadaDeViewport implements Transformacao {
+public class TransformacaoDeViewport implements Transformacao {
 
 	private int xvpMin, yvpMin, xvpMax, yvpMax;
 	private int xwMin, ywMin, xwMax, ywMax;
 
-	public TransformadaDeViewport(int xwMin, int ywMin, int xwMax, int ywMax) {
+	public TransformacaoDeViewport(int xwMin, int ywMin, int xwMax, int ywMax) {
 		this.yvpMin = 0;
 		this.yvpMin = 0;
 		this.xvpMax = 480;
