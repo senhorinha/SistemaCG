@@ -6,20 +6,20 @@
 
 package view;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
 import modelo.Coordenada;
 import modelo.DisplayFile;
+import modelo.Poligono;
 import modelo.Ponto;
 import modelo.Reta;
 
@@ -43,12 +43,14 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 	public static final int TAB_POLIGONO = 2;
 	public static final String REGEX_PARA_INTEIRO = "\\d+";
 
+	private List<Coordenada> coordenadasDoPoligono;
+
 	/**
 	 * Creates new form AdicionarFormaDialog
 	 */
 	public AdicionarFormaDialog(java.awt.Frame parent, boolean modal) {
 		super(parent, modal);
-
+		coordenadasDoPoligono = new ArrayList<Coordenada>();
 		initComponents();
 
 		// Close the dialog when Esc is pressed
@@ -79,6 +81,7 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
@@ -105,8 +108,10 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 		coordenadaInicialRetaYLabel = new javax.swing.JLabel();
 		coordenadaInicialRetaYTextField = new javax.swing.JTextField();
 		painelPoligono = new javax.swing.JPanel();
-		jScrollPane1 = new javax.swing.JScrollPane();
+		painelDeRolagemDoPoligono = new javax.swing.JScrollPane();
+		listaDeCoordenadasDoPoligono = new java.awt.List();
 		botaoAdicionarPonto = new javax.swing.JButton();
+		botaoRemoverPonto = new javax.swing.JButton();
 		nomeTextField = new javax.swing.JTextField();
 
 		jLabel1.setText("X:");
@@ -417,10 +422,11 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 
 		painelFormas.addTab("Reta", painelReta);
 
-		jScrollPane1.setBorder(javax.swing.BorderFactory
+		painelDeRolagemDoPoligono.setBorder(javax.swing.BorderFactory
 				.createTitledBorder("Pontos"));
+		painelDeRolagemDoPoligono.setViewportView(listaDeCoordenadasDoPoligono);
 
-		botaoAdicionarPonto.setText("Adicionar Ponto");
+		botaoAdicionarPonto.setText("Adicionar");
 		botaoAdicionarPonto.setToolTipText("Clique para adicionar ponto.");
 		botaoAdicionarPonto
 				.addActionListener(new java.awt.event.ActionListener() {
@@ -430,29 +436,45 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 					}
 				});
 
+		botaoRemoverPonto.setText("Remover");
+		botaoRemoverPonto
+				.addActionListener(new java.awt.event.ActionListener() {
+					@Override
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						botaoRemoverPontoActionPerformed(evt);
+					}
+				});
+
 		javax.swing.GroupLayout painelPoligonoLayout = new javax.swing.GroupLayout(
 				painelPoligono);
 		painelPoligono.setLayout(painelPoligonoLayout);
-		painelPoligonoLayout.setHorizontalGroup(painelPoligonoLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						painelPoligonoLayout
-								.createSequentialGroup()
-								.addGap(60, 60, 60)
-								.addComponent(jScrollPane1,
-										javax.swing.GroupLayout.PREFERRED_SIZE,
-										244,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(67, Short.MAX_VALUE))
-				.addGroup(
-						javax.swing.GroupLayout.Alignment.TRAILING,
-						painelPoligonoLayout
-								.createSequentialGroup()
-								.addContainerGap(
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)
-								.addComponent(botaoAdicionarPonto)
-								.addGap(124, 124, 124)));
+		painelPoligonoLayout
+				.setHorizontalGroup(painelPoligonoLayout
+						.createParallelGroup(
+								javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(
+								painelPoligonoLayout
+										.createSequentialGroup()
+										.addContainerGap(60, Short.MAX_VALUE)
+										.addGroup(
+												painelPoligonoLayout
+														.createParallelGroup(
+																javax.swing.GroupLayout.Alignment.TRAILING)
+														.addGroup(
+																painelPoligonoLayout
+																		.createSequentialGroup()
+																		.addComponent(
+																				botaoAdicionarPonto)
+																		.addPreferredGap(
+																				javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+																		.addComponent(
+																				botaoRemoverPonto))
+														.addComponent(
+																painelDeRolagemDoPoligono,
+																javax.swing.GroupLayout.PREFERRED_SIZE,
+																244,
+																javax.swing.GroupLayout.PREFERRED_SIZE))
+										.addContainerGap(67, Short.MAX_VALUE)));
 		painelPoligonoLayout
 				.setVerticalGroup(painelPoligonoLayout
 						.createParallelGroup(
@@ -462,13 +484,20 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 										.createSequentialGroup()
 										.addContainerGap()
 										.addComponent(
-												jScrollPane1,
+												painelDeRolagemDoPoligono,
 												javax.swing.GroupLayout.PREFERRED_SIZE,
 												133,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addPreferredGap(
 												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(botaoAdicionarPonto)
+										.addGroup(
+												painelPoligonoLayout
+														.createParallelGroup(
+																javax.swing.GroupLayout.Alignment.BASELINE)
+														.addComponent(
+																botaoAdicionarPonto)
+														.addComponent(
+																botaoRemoverPonto))
 										.addContainerGap(
 												javax.swing.GroupLayout.DEFAULT_SIZE,
 												Short.MAX_VALUE)));
@@ -554,6 +583,16 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
+	private void botaoRemoverPontoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoRemoverPontoActionPerformed
+		int indiceSelecionado = this.listaDeCoordenadasDoPoligono
+				.getSelectedIndex();
+		if (indiceSelecionado != -1) {
+			this.listaDeCoordenadasDoPoligono.remove(indiceSelecionado);
+			this.coordenadasDoPoligono.remove(indiceSelecionado);
+		}
+		;
+	}// GEN-LAST:event_botaoRemoverPontoActionPerformed
+
 	private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_okButtonActionPerformed
 		boolean semErros = true;
 		switch (this.painelFormas.getSelectedIndex()) {
@@ -564,6 +603,7 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 			semErros = criarReta();
 			break;
 		case TAB_POLIGONO:
+			semErros = criarPoligono();
 			break;
 		}
 		if (semErros) {
@@ -574,11 +614,11 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 	private boolean criarPonto() {
 		boolean semErros = false;
 
-		semErros = validarInteiro(this.coordenadaPontoXTextField,
+		semErros = Validador.validarInteiro(this.coordenadaPontoXTextField,
 				this.coordenadaPontoXLabel);
-		semErros &= validarInteiro(this.coordenadaPontoYTextField,
+		semErros &= Validador.validarInteiro(this.coordenadaPontoYTextField,
 				this.coordenadaPontoYLabel);
-		semErros &= validarString(this.nomeTextField, this.nomeLabel);
+		semErros &= Validador.validarString(this.nomeTextField, this.nomeLabel);
 
 		if (semErros) {
 			String nome = this.nomeTextField.getText();
@@ -592,41 +632,21 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 		return semErros;
 	}
 
-	public boolean validarInteiro(JTextField textField, JLabel label) {
-		String valor = textField.getText();
-		boolean semErro = true;
-		if (!(valor.matches(REGEX_PARA_INTEIRO))) {
-			marcarInvalido(label);
-			semErro = false;
-		} else {
-			marcarValido(label);
-		}
-		return semErro;
-	}
-
-	public boolean validarString(JTextField textField, JLabel label) {
-		boolean semErro = true;
-		if (textField.getText() == null || textField.getText().isEmpty()) {
-			textField.setForeground(Color.RED);
-			marcarInvalido(label);
-			semErro = false;
-		} else {
-			marcarValido(label);
-		}
-		return semErro;
-	}
-
 	public boolean criarReta() {
 		boolean semErros = false;
-		semErros = this.validarInteiro(this.coordenadaInicialRetaXTextField,
+		semErros = Validador.validarInteiro(
+				this.coordenadaInicialRetaXTextField,
 				this.coordenadaInicialRetaXLabel);
-		semErros &= this.validarInteiro(this.coordenadaInicialRetaYTextField,
+		semErros &= Validador.validarInteiro(
+				this.coordenadaInicialRetaYTextField,
 				this.coordenadaInicialRetaYLabel);
-		semErros &= this.validarInteiro(this.coordenadaFinalRetaXTextField,
+		semErros &= Validador.validarInteiro(
+				this.coordenadaFinalRetaXTextField,
 				this.coordenadaFInalRetaXLabel);
-		semErros &= this.validarInteiro(this.coordenadaFinalRetaYTextField,
+		semErros &= Validador.validarInteiro(
+				this.coordenadaFinalRetaYTextField,
 				this.coordenadaFinalRetaYLabel);
-		semErros &= validarString(this.nomeTextField, this.nomeLabel);
+		semErros &= Validador.validarString(this.nomeTextField, this.nomeLabel);
 
 		if (semErros) {
 			String nome = this.nomeTextField.getText();
@@ -647,12 +667,24 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 
 	}
 
-	public void marcarInvalido(JLabel label) {
-		label.setForeground(Color.RED);
+	private boolean criarPoligono() {
+		boolean semErro = Validador.validarString(nomeTextField, nomeLabel);
+		semErro &= coordenadasDoPoligono.size() < 3;
+		if (semErro) {
+			DisplayFile.obterInstancia()
+					.adicionar(
+							new Poligono(nomeTextField.getText(),
+									coordenadasDoPoligono));
+		}
+		return semErro;
 	}
 
-	public void marcarValido(JLabel label) {
-		label.setForeground(Color.BLACK);
+	public void adicionarCoordenadaAoPoligono(Coordenada coordenada) {
+		coordenadasDoPoligono.add(coordenada);
+		String descricao = "Ponto ".concat(String.valueOf(
+				coordenadasDoPoligono.size()).concat(
+				" X:" + coordenada.getX() + " Y:" + coordenada.getY()));
+		this.listaDeCoordenadasDoPoligono.add(descricao);
 	}
 
 	private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cancelButtonActionPerformed
@@ -669,7 +701,7 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 	private void botaoAdicionarPontoActionPerformed(
 			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAdicionarPontoActionPerformed
 		AdicionarPontoDialog adicionarPontoDialog = new AdicionarPontoDialog(
-				((java.awt.Frame) getParent()), rootPaneCheckingEnabled);
+				null, this, rootPaneCheckingEnabled);
 		adicionarPontoDialog.setLocationRelativeTo(this);
 		adicionarPontoDialog.setVisible(true);
 	}// GEN-LAST:event_botaoAdicionarPontoActionPerformed
@@ -682,37 +714,29 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton botaoAdicionarPonto;
+	private javax.swing.JButton botaoRemoverPonto;
 	private javax.swing.JButton cancelButton;
 	private javax.swing.JLabel coordenadaFInalRetaXLabel;
 	private javax.swing.JTextField coordenadaFinalRetaXTextField;
 	private javax.swing.JLabel coordenadaFinalRetaYLabel;
 	private javax.swing.JTextField coordenadaFinalRetaYTextField;
 	private javax.swing.JLabel coordenadaInicialRetaXLabel;
-	private javax.swing.JLabel coordenadaInicialRetaXLabel1;
-	private javax.swing.JLabel coordenadaInicialRetaXLabel2;
 	private javax.swing.JTextField coordenadaInicialRetaXTextField;
-	private javax.swing.JTextField coordenadaInicialRetaXTextField1;
-	private javax.swing.JTextField coordenadaInicialRetaXTextField2;
 	private javax.swing.JLabel coordenadaInicialRetaYLabel;
-	private javax.swing.JLabel coordenadaInicialRetaYLabel1;
-	private javax.swing.JLabel coordenadaInicialRetaYLabel2;
 	private javax.swing.JTextField coordenadaInicialRetaYTextField;
-	private javax.swing.JTextField coordenadaInicialRetaYTextField1;
-	private javax.swing.JTextField coordenadaInicialRetaYTextField2;
 	private javax.swing.JLabel coordenadaPontoXLabel;
 	private javax.swing.JTextField coordenadaPontoXTextField;
 	private javax.swing.JLabel coordenadaPontoYLabel;
 	private javax.swing.JTextField coordenadaPontoYTextField;
 	private javax.swing.JLabel jLabel1;
-	private javax.swing.JScrollPane jScrollPane1;
+	private java.awt.List listaDeCoordenadasDoPoligono;
 	private javax.swing.JLabel nomeLabel;
 	private javax.swing.JTextField nomeTextField;
 	private javax.swing.JButton okButton;
 	private javax.swing.JPanel painelCoordenadasFinalReta;
 	private javax.swing.JPanel painelCoordenadasInicialReta;
-	private javax.swing.JPanel painelCoordenadasInicialReta1;
-	private javax.swing.JPanel painelCoordenadasInicialReta2;
 	private javax.swing.JPanel painelCoordenadasPonto;
+	private javax.swing.JScrollPane painelDeRolagemDoPoligono;
 	private javax.swing.JTabbedPane painelFormas;
 	private javax.swing.JPanel painelPoligono;
 	private javax.swing.JPanel painelPonto;
