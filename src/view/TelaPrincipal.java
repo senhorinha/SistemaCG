@@ -6,6 +6,7 @@
 
 package view;
 
+import modelo.ObjetoGeometrico;
 
 /**
  *
@@ -25,6 +26,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		this.painelDeDesenho.repaint();
 	}
 
+	public void adicionarObjeto(ObjetoGeometrico objetoGeometrico) {
+		listaDeObjetos.add(objetoGeometrico.getNome());
+	}
+
 	/**
 	 * This method is called from within the constructor to initialize the form.
 	 * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,12 +37,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
 		painelPrincipal = new javax.swing.JPanel();
 		painelDeAcoes = new javax.swing.JPanel();
-		painelDeObjetos = new javax.swing.JScrollPane();
 		painelWindow = new javax.swing.JPanel();
 		painelDeZoom = new javax.swing.JPanel();
 		botaoZoomIn = new javax.swing.JButton();
@@ -47,7 +52,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		botaoNavegacaoParaCima = new javax.swing.JButton();
 		botaoNavegacaoParaDireita = new javax.swing.JButton();
 		botaoNavegacaoParaEsquerda = new javax.swing.JButton();
-		painelDeDesenho = new PainelDeDesenho();
+		painelDeObjetos = new javax.swing.JScrollPane();
+		listaDeObjetos = new java.awt.List();
+		painelDeDesenho = new javax.swing.JPanel();
 		menuBar = new javax.swing.JMenuBar();
 		fileMenu = new javax.swing.JMenu();
 		sairMenuItem = new javax.swing.JMenuItem();
@@ -62,10 +69,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 		painelDeAcoes.setBorder(javax.swing.BorderFactory
 				.createTitledBorder("Menu de Funcoes"));
-
-		painelDeObjetos.setBorder(javax.swing.BorderFactory
-				.createTitledBorder("Objetos"));
-		painelDeObjetos.setToolTipText("Painel de Objetos");
 
 		painelWindow.setBorder(javax.swing.BorderFactory
 				.createTitledBorder("Window"));
@@ -272,16 +275,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGap(0, 201, Short.MAX_VALUE)));
 
+		painelDeObjetos.setBorder(javax.swing.BorderFactory
+				.createTitledBorder("Objetos"));
+		painelDeObjetos.setToolTipText("Painel de Objetos");
+		painelDeObjetos.setViewportView(listaDeObjetos);
+
 		javax.swing.GroupLayout painelDeAcoesLayout = new javax.swing.GroupLayout(
 				painelDeAcoes);
 		painelDeAcoes.setLayout(painelDeAcoesLayout);
 		painelDeAcoesLayout.setHorizontalGroup(painelDeAcoesLayout
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addComponent(painelDeObjetos)
 				.addComponent(painelWindow,
-						javax.swing.GroupLayout.Alignment.TRAILING,
 						javax.swing.GroupLayout.DEFAULT_SIZE,
-						javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+						javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+				.addComponent(painelDeObjetos));
 		painelDeAcoesLayout
 				.setVerticalGroup(painelDeAcoesLayout
 						.createParallelGroup(
@@ -289,10 +296,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 						.addGroup(
 								painelDeAcoesLayout
 										.createSequentialGroup()
+										.addContainerGap()
 										.addComponent(
 												painelDeObjetos,
 												javax.swing.GroupLayout.PREFERRED_SIZE,
-												202,
+												188,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addPreferredGap(
 												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -492,9 +500,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	private javax.swing.JMenu editMenu;
 	private javax.swing.JMenu fileMenu;
 	private javax.swing.JMenu helpMenu;
+	private java.awt.List listaDeObjetos;
 	private javax.swing.JMenuBar menuBar;
 	private javax.swing.JPanel painelDeAcoes;
-	private PainelDeDesenho painelDeDesenho;
+	private javax.swing.JPanel painelDeDesenho;
 	private javax.swing.JPanel painelDeNavegacao;
 	private javax.swing.JScrollPane painelDeObjetos;
 	private javax.swing.JPanel painelDeZoom;

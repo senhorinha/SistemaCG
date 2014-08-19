@@ -19,6 +19,7 @@ import javax.swing.KeyStroke;
 
 import modelo.Coordenada;
 import modelo.DisplayFile;
+import modelo.ObjetoGeometrico;
 import modelo.Poligono;
 import modelo.Ponto;
 import modelo.Reta;
@@ -609,6 +610,11 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 			break;
 		}
 		if (semErros) {
+			List<ObjetoGeometrico> objetos = DisplayFile.obterInstancia()
+					.getObjetos();
+			int utlimo = objetos.size() - 1;
+			((TelaPrincipal) this.getParent()).adicionarObjeto(objetos
+					.get(utlimo));
 			((TelaPrincipal) this.getParent()).atualizarPainelDeDesenho();
 			doClose(RET_OK);
 		}
