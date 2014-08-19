@@ -6,7 +6,12 @@
 
 package view;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.util.List;
+
 import modelo.DisplayFile;
+import modelo.ObjetoGeometrico;
 
 /**
  *
@@ -14,12 +19,20 @@ import modelo.DisplayFile;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
+    }
+    
+    public void desenharNaViewport() {
+    	List<ObjetoGeometrico> objetos = DisplayFile.obterInstancia().getObjetos();
+    	for(int i=0; i < objetos.size(); i++) {
+    		objetos.get(i).desenhar(this.getGraphics(), Color.black);
+    		this.repaint();
+    	}
+    	
     }
 
     /**
