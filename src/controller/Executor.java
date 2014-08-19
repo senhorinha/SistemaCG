@@ -1,6 +1,5 @@
 package controller;
 
-import view.Desenhista;
 import view.TelaPrincipal;
 
 public class Executor {
