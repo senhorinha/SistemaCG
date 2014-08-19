@@ -17,9 +17,9 @@ public class Viewport {
 		this.ywMax = ywMax;
 	}
 
-	void transformada(int xw, int yw) {
+	Coordenada transformada(int xw, int yw) {
 		int xvp = (xw - xwMin) / (xwMax - xwMin) * (xvpMax - xvpMin);
 		int yvp = (1 - (yw - ywMin) / (ywMax - ywMin)) * (yvpMax - yvpMin);
-
+		return new Coordenada(xvp, yvp);
 	}
 }
