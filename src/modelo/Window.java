@@ -16,7 +16,8 @@ public class Window {
 		int proporcaoY = ywMax / 10;
 		xwMax = xwMax - proporcaoX;
 		ywMax = ywMax - proporcaoY;
-
+		xwMin = xwMin - proporcaoX;
+		ywMin = ywMin - proporcaoY;
 	}
 
 	public void zoomOut() {
@@ -24,6 +25,8 @@ public class Window {
 		int proporcaoY = ywMax / 10;
 		xwMax = xwMax + proporcaoX;
 		ywMax = ywMax + proporcaoY;
+		xwMin = xwMin + proporcaoX;
+		ywMin = ywMin + proporcaoY;
 	}
 
 	public void moverEsquerda() {
