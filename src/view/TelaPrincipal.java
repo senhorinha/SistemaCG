@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package view;
 
+import modelo.DisplayFile;
 import modelo.ObjetoGeometrico;
 
 /**
@@ -38,6 +38,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
@@ -54,6 +55,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		botaoNavegacaoParaEsquerda = new javax.swing.JButton();
 		painelDeObjetos = new javax.swing.JScrollPane();
 		listaDeObjetos = new java.awt.List();
+		botaoAdicionarObjeto = new javax.swing.JButton();
+		botaoRemoverObjeto = new javax.swing.JButton();
 		painelDeDesenho = new PainelDeDesenho();
 		menuBar = new javax.swing.JMenuBar();
 		fileMenu = new javax.swing.JMenu();
@@ -273,12 +276,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
 												javax.swing.GroupLayout.PREFERRED_SIZE,
 												javax.swing.GroupLayout.DEFAULT_SIZE,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(0, 201, Short.MAX_VALUE)));
+										.addGap(0, 207, Short.MAX_VALUE)));
 
 		painelDeObjetos.setBorder(javax.swing.BorderFactory
 				.createTitledBorder("Objetos"));
 		painelDeObjetos.setToolTipText("Painel de Objetos");
 		painelDeObjetos.setViewportView(listaDeObjetos);
+
+		botaoAdicionarObjeto.setIcon(new javax.swing.ImageIcon(getClass()
+				.getResource("/resources/imagens/add.png"))); // NOI18N
+		botaoAdicionarObjeto
+				.addActionListener(new java.awt.event.ActionListener() {
+					@Override
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						botaoAdicionarObjetoActionPerformed(evt);
+					}
+				});
+
+		botaoRemoverObjeto.setIcon(new javax.swing.ImageIcon(getClass()
+				.getResource("/resources/imagens/remove.png"))); // NOI18N
+		botaoRemoverObjeto
+				.addActionListener(new java.awt.event.ActionListener() {
+					@Override
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						botaoRemoverObjetoActionPerformed(evt);
+					}
+				});
 
 		javax.swing.GroupLayout painelDeAcoesLayout = new javax.swing.GroupLayout(
 				painelDeAcoes);
@@ -288,7 +311,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
 				.addComponent(painelWindow,
 						javax.swing.GroupLayout.DEFAULT_SIZE,
 						javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(painelDeObjetos));
+				.addComponent(painelDeObjetos,
+						javax.swing.GroupLayout.Alignment.TRAILING)
+				.addGroup(
+						painelDeAcoesLayout
+								.createSequentialGroup()
+								.addGap(33, 33, 33)
+								.addComponent(botaoAdicionarObjeto)
+								.addGap(27, 27, 27)
+								.addComponent(botaoRemoverObjeto)
+								.addContainerGap(
+										javax.swing.GroupLayout.DEFAULT_SIZE,
+										Short.MAX_VALUE)));
 		painelDeAcoesLayout
 				.setVerticalGroup(painelDeAcoesLayout
 						.createParallelGroup(
@@ -303,7 +337,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
 												188,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+										.addGroup(
+												painelDeAcoesLayout
+														.createParallelGroup(
+																javax.swing.GroupLayout.Alignment.LEADING)
+														.addComponent(
+																botaoAdicionarObjeto)
+														.addComponent(
+																botaoRemoverObjeto))
+										.addPreferredGap(
+												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 										.addComponent(
 												painelWindow,
 												javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -425,6 +469,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
+	private void botaoAdicionarObjetoActionPerformed(
+			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAdicionarObjetoActionPerformed
+		AdicionarFormaDialog adicionarFormDialog = new AdicionarFormaDialog(
+				this, rootPaneCheckingEnabled);
+		adicionarFormDialog.setLocationRelativeTo(this);
+		adicionarFormDialog.setVisible(true);
+	}// GEN-LAST:event_botaoAdicionarObjetoActionPerformed
+
+	private void botaoRemoverObjetoActionPerformed(
+			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoRemoverObjetoActionPerformed
+		int indiceSelecionado = this.listaDeObjetos.getSelectedIndex();
+		if (indiceSelecionado != -1) {
+			this.listaDeObjetos.remove(indiceSelecionado);
+			DisplayFile.obterInstancia().remover(indiceSelecionado);
+			this.atualizarPainelDeDesenho();
+		}
+	}// GEN-LAST:event_botaoRemoverObjetoActionPerformed
+
 	private void sairMenuItemActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_sairMenuItemActionPerformed
 		System.exit(0);
 	}// GEN-LAST:event_sairMenuItemActionPerformed
@@ -491,10 +553,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JMenuItem adionarFormaMenuItem;
+	private javax.swing.JButton botaoAdicionarObjeto;
 	private javax.swing.JButton botaoNavegacaoParaBaixo;
 	private javax.swing.JButton botaoNavegacaoParaCima;
 	private javax.swing.JButton botaoNavegacaoParaDireita;
 	private javax.swing.JButton botaoNavegacaoParaEsquerda;
+	private javax.swing.JButton botaoRemoverObjeto;
 	private javax.swing.JButton botaoZoomIn;
 	private javax.swing.JButton botaoZoomOut;
 	private javax.swing.JMenu editMenu;
@@ -503,7 +567,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	private java.awt.List listaDeObjetos;
 	private javax.swing.JMenuBar menuBar;
 	private javax.swing.JPanel painelDeAcoes;
-	private javax.swing.JPanel painelDeDesenho;
+	private PainelDeDesenho painelDeDesenho;
 	private javax.swing.JPanel painelDeNavegacao;
 	private javax.swing.JScrollPane painelDeObjetos;
 	private javax.swing.JPanel painelDeZoom;

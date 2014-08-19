@@ -23,6 +23,10 @@ public class DisplayFile {
 		return objetos.add(objeto);
 	}
 
+	public void remover(int indice) {
+		objetos.remove(indice);
+	}
+
 	public List<ObjetoGeometrico> getObjetos() {
 		return objetos;
 	}
