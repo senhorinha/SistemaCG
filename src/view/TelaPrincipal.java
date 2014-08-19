@@ -54,7 +54,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		botaoNavegacaoParaEsquerda = new javax.swing.JButton();
 		painelDeObjetos = new javax.swing.JScrollPane();
 		listaDeObjetos = new java.awt.List();
-		painelDeDesenho = new javax.swing.JPanel();
+		painelDeDesenho = new PainelDeDesenho();
 		menuBar = new javax.swing.JMenuBar();
 		fileMenu = new javax.swing.JMenu();
 		sairMenuItem = new javax.swing.JMenuItem();
