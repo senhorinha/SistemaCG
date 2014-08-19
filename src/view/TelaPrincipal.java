@@ -6,12 +6,15 @@
 
 package view;
 
+import modelo.DisplayFile;
+
 /**
  *
  * @author thiago
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form TelaPrincipal
      */
@@ -278,6 +281,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
        adicionarFormDialog.setVisible(true);
     }//GEN-LAST:event_adionarFormaMenuItemActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
