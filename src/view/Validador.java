@@ -24,7 +24,6 @@ public class Validador {
 	public static boolean validarString(JTextField textField, JLabel label) {
 		boolean semErro = true;
 		if (textField.getText() == null || textField.getText().isEmpty()) {
-			textField.setForeground(Color.RED);
 			marcarInvalido(label);
 			semErro = false;
 		} else {
