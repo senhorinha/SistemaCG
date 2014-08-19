@@ -70,6 +70,7 @@ public class SobreDialog extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
 
         setTitle("Sobre");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
