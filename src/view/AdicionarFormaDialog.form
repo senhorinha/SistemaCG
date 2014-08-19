@@ -80,6 +80,7 @@
     <Component class="javax.swing.JButton" name="okButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="OK"/>
+        <Property name="toolTipText" type="java.lang.String" value="Confirmar adi&#xe7;&#xe3;o de objeto"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okButtonActionPerformed"/>
@@ -91,6 +92,7 @@
     <Component class="javax.swing.JButton" name="cancelButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="toolTipText" type="java.lang.String" value="Cancelar adi&#xe7;&#xe3;o de objeto"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelButtonActionPerformed"/>
@@ -173,7 +175,7 @@
                               <Component id="coordenadaPontoYLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="coordenadaPontoYTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="57" max="32767" attributes="0"/>
+                          <EmptySpace pref="60" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -228,7 +230,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
                       <Component id="painelCoordenadasInicialReta" min="-2" pref="80" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="painelCoordenadasFinalReta" min="-2" pref="80" max="-2" attributes="0"/>
@@ -383,8 +385,9 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="botaoAdicionarPonto" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="botaoRemoverPonto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                           </Group>
                           <Component id="painelDeRolagemDoPoligono" min="-2" pref="244" max="-2" attributes="0"/>
                       </Group>
@@ -399,8 +402,8 @@
                       <Component id="painelDeRolagemDoPoligono" min="-2" pref="133" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="botaoAdicionarPonto" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="botaoRemoverPonto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoAdicionarPonto" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoRemoverPonto" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -425,7 +428,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="botaoAdicionarPonto">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Adicionar"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/resources/imagens/add.png"/>
+                </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Clique para adicionar ponto."/>
               </Properties>
               <Events>
@@ -434,7 +439,10 @@
             </Component>
             <Component class="javax.swing.JButton" name="botaoRemoverPonto">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Remover"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/resources/imagens/remove.png"/>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Clique para remover o ponto selecionado"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoRemoverPontoActionPerformed"/>
