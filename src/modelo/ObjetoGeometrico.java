@@ -15,8 +15,12 @@ public abstract class ObjetoGeometrico implements Cloneable {
 
 	public abstract void desenhar(Graphics grafico, Color cor);
 
+	public void transformarCoordenadas(Transformacao transformacao) {
+		transformacao.executar(this.coordenadas);
+	}
+
 	@Override
-	protected Object clone() throws CloneNotSupportedException {
+	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
 	}
 }
