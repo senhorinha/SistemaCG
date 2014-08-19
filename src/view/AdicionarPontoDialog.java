@@ -35,84 +35,128 @@ public class AdicionarPontoDialog extends javax.swing.JDialog {
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+	// <editor-fold defaultstate="collapsed"
+	// desc="Generated Code">//GEN-BEGIN:initComponents
+	private void initComponents() {
 
-        botaoCancelar = new javax.swing.JButton();
-        botaoSalvar = new javax.swing.JButton();
-        poligonoPontoXLabel = new javax.swing.JLabel();
-        poligonoPontoYLabel = new javax.swing.JLabel();
-        poligonoPontoXTextField = new javax.swing.JTextField();
-        poligonoPontoYTextField = new javax.swing.JTextField();
+		botaoCancelar = new javax.swing.JButton();
+		botaoSalvar = new javax.swing.JButton();
+		poligonoPontoXLabel = new javax.swing.JLabel();
+		poligonoPontoYLabel = new javax.swing.JLabel();
+		poligonoPontoXTextField = new javax.swing.JTextField();
+		poligonoPontoYTextField = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Adicionar Ponto");
-        setResizable(false);
+		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+		setTitle("Adicionar Ponto");
+		setResizable(false);
 
-        botaoCancelar.setText("Cancelar");
-        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCancelarActionPerformed(evt);
-            }
-        });
+		botaoCancelar.setText("Cancelar");
+		botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botaoCancelarActionPerformed(evt);
+			}
+		});
 
-        botaoSalvar.setText("Salvar");
-        botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoSalvarActionPerformed(evt);
-            }
-        });
+		botaoSalvar.setText("Salvar");
+		botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botaoSalvarActionPerformed(evt);
+			}
+		});
 
-        poligonoPontoXLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        poligonoPontoXLabel.setText("X:");
+		poligonoPontoXLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+		poligonoPontoXLabel.setText("X:");
 
-        poligonoPontoYLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        poligonoPontoYLabel.setText("Y:");
+		poligonoPontoYLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+		poligonoPontoYLabel.setText("Y:");
 
-        poligonoPontoXTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                poligonoPontoXTextFieldActionPerformed(evt);
-            }
-        });
+		poligonoPontoXTextField
+				.addActionListener(new java.awt.event.ActionListener() {
+					@Override
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						poligonoPontoXTextFieldActionPerformed(evt);
+					}
+				});
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(poligonoPontoXLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(poligonoPontoXTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(poligonoPontoYLabel))
-                    .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(poligonoPontoYTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoCancelar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(poligonoPontoXLabel)
-                    .addComponent(poligonoPontoYLabel)
-                    .addComponent(poligonoPontoYTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(poligonoPontoXTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoSalvar)
-                    .addComponent(botaoCancelar))
-                .addContainerGap())
-        );
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
+				getContentPane());
+		getContentPane().setLayout(layout);
+		layout.setHorizontalGroup(layout
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(
+						layout.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(poligonoPontoXLabel)
+								.addPreferredGap(
+										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addGroup(
+										layout.createParallelGroup(
+												javax.swing.GroupLayout.Alignment.LEADING)
+												.addGroup(
+														layout.createSequentialGroup()
+																.addComponent(
+																		poligonoPontoXTextField,
+																		javax.swing.GroupLayout.PREFERRED_SIZE,
+																		66,
+																		javax.swing.GroupLayout.PREFERRED_SIZE)
+																.addGap(9, 9, 9)
+																.addComponent(
+																		poligonoPontoYLabel))
+												.addComponent(
+														botaoSalvar,
+														javax.swing.GroupLayout.PREFERRED_SIZE,
+														72,
+														javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addPreferredGap(
+										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addGroup(
+										layout.createParallelGroup(
+												javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(
+														poligonoPontoYTextField,
+														javax.swing.GroupLayout.PREFERRED_SIZE,
+														66,
+														javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addComponent(botaoCancelar))
+								.addContainerGap(
+										javax.swing.GroupLayout.DEFAULT_SIZE,
+										Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(
+						javax.swing.GroupLayout.Alignment.TRAILING,
+						layout.createSequentialGroup()
+								.addContainerGap(13, Short.MAX_VALUE)
+								.addGroup(
+										layout.createParallelGroup(
+												javax.swing.GroupLayout.Alignment.BASELINE)
+												.addComponent(
+														poligonoPontoXLabel)
+												.addComponent(
+														poligonoPontoYLabel)
+												.addComponent(
+														poligonoPontoYTextField,
+														javax.swing.GroupLayout.PREFERRED_SIZE,
+														javax.swing.GroupLayout.DEFAULT_SIZE,
+														javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addComponent(
+														poligonoPontoXTextField,
+														javax.swing.GroupLayout.PREFERRED_SIZE,
+														javax.swing.GroupLayout.DEFAULT_SIZE,
+														javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addPreferredGap(
+										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addGroup(
+										layout.createParallelGroup(
+												javax.swing.GroupLayout.Alignment.BASELINE)
+												.addComponent(botaoSalvar)
+												.addComponent(botaoCancelar))
+								.addContainerGap()));
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+		pack();
+	}// </editor-fold>//GEN-END:initComponents
 
 	private void poligonoPontoXTextFieldActionPerformed(
 			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_poligonoPontoXTextFieldActionPerformed
@@ -131,7 +175,7 @@ public class AdicionarPontoDialog extends javax.swing.JDialog {
 				poligonoPontoYLabel);
 		if (semErros) {
 			int x = Integer.parseInt(poligonoPontoXTextField.getText());
-			int y = Integer.parseInt(poligonoPontoXTextField.getText());
+			int y = Integer.parseInt(poligonoPontoYTextField.getText());
 			Coordenada coordenada = new Coordenada(x, y);
 			((AdicionarFormaDialog) dialogoPai)
 					.adicionarCoordenadaAoPoligono(coordenada);
@@ -140,12 +184,12 @@ public class AdicionarPontoDialog extends javax.swing.JDialog {
 
 	}// GEN-LAST:event_botaoSalvarActionPerformed
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoCancelar;
-    private javax.swing.JButton botaoSalvar;
-    private javax.swing.JLabel poligonoPontoXLabel;
-    private javax.swing.JTextField poligonoPontoXTextField;
-    private javax.swing.JLabel poligonoPontoYLabel;
-    private javax.swing.JTextField poligonoPontoYTextField;
-    // End of variables declaration//GEN-END:variables
+	// Variables declaration - do not modify//GEN-BEGIN:variables
+	private javax.swing.JButton botaoCancelar;
+	private javax.swing.JButton botaoSalvar;
+	private javax.swing.JLabel poligonoPontoXLabel;
+	private javax.swing.JTextField poligonoPontoXTextField;
+	private javax.swing.JLabel poligonoPontoYLabel;
+	private javax.swing.JTextField poligonoPontoYTextField;
+	// End of variables declaration//GEN-END:variables
 }
