@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 
@@ -17,6 +18,8 @@ public class PainelDeDesenho extends JPanel {
 
 	private Transformacao transformacaoDeViewport;
 	private final Window window;
+	private boolean viewportConfigurado;
+	private boolean windowConfigurado;
 
 	public PainelDeDesenho() {
 		super();
@@ -24,32 +27,43 @@ public class PainelDeDesenho extends JPanel {
 		transformacaoDeViewport = new TransformacaoDeViewport(window);
 	}
 
-	public void configurarViewportCom(int xMin, int yMin, int xMax, int yMax) {
-		((TransformacaoDeViewport) this.transformacaoDeViewport)
-				.setXvpMin(xMin);
-		((TransformacaoDeViewport) this.transformacaoDeViewport)
-				.setYvpMin(yMin);
-		((TransformacaoDeViewport) this.transformacaoDeViewport)
-				.setXvpMax(xMax);
-		((TransformacaoDeViewport) this.transformacaoDeViewport)
-				.setYvpMax(yMax);
+	public void configurarViewport() {
+		if (!viewportConfigurado) {
+			Rectangle medidas = this.getBounds();
+			((TransformacaoDeViewport) this.transformacaoDeViewport)
+					.setXvpMin((int) medidas.getMinX());
+			((TransformacaoDeViewport) this.transformacaoDeViewport)
+					.setYvpMin((int) medidas.getMinY());
+			((TransformacaoDeViewport) this.transformacaoDeViewport)
+					.setXvpMax((int) medidas.getMaxX());
+			((TransformacaoDeViewport) this.transformacaoDeViewport)
+					.setYvpMax((int) medidas.getMaxY());
+			viewportConfigurado = true;
+		}
 	}
 
-	public void configurarWindowCom(int xMin, int yMin, int xMax, int yMax) {
-		window.setxMin(xMin);
-		window.setyMin(yMin);
-		window.setxMax(xMax);
-		window.setyMax(yMax);
+	public void configurarWindowCom() {
+		if (!windowConfigurado) {
+			Rectangle medidas = this.getBounds();
+			window.setxMin((int) medidas.getMinX());
+			window.setyMin((int) medidas.getMinY());
+			window.setxMax((int) medidas.getMaxX());
+			window.setyMax((int) medidas.getMaxY());
+			windowConfigurado = true;
+		}
 	}
 
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		this.configurarViewport();
+		this.configurarWindowCom();
 		DisplayFile instance = DisplayFile.obterInstancia();
 		for (ObjetoGeometrico objetoGrafico : instance.getObjetos()) {
 			try {
 				ObjetoGeometrico clone = (ObjetoGeometrico) objetoGrafico
 						.clone();
+				clone.transformarCoordenadas(transformacaoDeViewport);
 				clone.desenhar(g, Color.RED);
 			} catch (CloneNotSupportedException e) {
 				// TODO Auto-generated catch block
