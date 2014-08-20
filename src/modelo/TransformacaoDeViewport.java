@@ -7,9 +7,15 @@ public class TransformacaoDeViewport implements Transformacao {
 	private int xvpMin, yvpMin, xvpMax, yvpMax;
 	private final Window window;
 
-	public TransformacaoDeViewport(Window window, int xvpMax, int yvpMax,
-			int xwMax, int ywMax) {
+	public TransformacaoDeViewport(Window window) {
 		this.window = window;
+	}
+
+	public TransformacaoDeViewport(Window window, int xvpMin, int yvpMin,
+			int xvpMax, int yvpMax) {
+		this.window = window;
+		this.xvpMin = xvpMin;
+		this.yvpMin = yvpMin;
 		this.xvpMax = xvpMax;
 		this.yvpMax = yvpMax;
 	}
@@ -62,10 +68,6 @@ public class TransformacaoDeViewport implements Transformacao {
 
 	public void setYvpMax(int yvpMax) {
 		this.yvpMax = yvpMax;
-	}
-
-	public TransformacaoDeViewport(Window window) {
-		this.window = window;
 	}
 
 }
