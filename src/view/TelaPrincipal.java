@@ -5,8 +5,10 @@
  */
 package view;
 
+import modelo.Direcao;
 import modelo.DisplayFile;
 import modelo.ObjetoGeometrico;
+import modelo.Zoom;
 
 /**
  *
@@ -85,10 +87,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		botaoZoomIn.setIcon(new javax.swing.ImageIcon(getClass().getResource(
 				"/resources/imagens/zoom_in.png"))); // NOI18N
 		botaoZoomIn.setToolTipText("Zoom in");
+		botaoZoomIn.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botaoZoomInActionPerformed(evt);
+			}
+		});
 
 		botaoZoomOut.setIcon(new javax.swing.ImageIcon(getClass().getResource(
 				"/resources/imagens/zoom_out.png"))); // NOI18N
 		botaoZoomOut.setToolTipText("Zoom out");
+		botaoZoomOut.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botaoZoomOutActionPerformed(evt);
+			}
+		});
 
 		javax.swing.GroupLayout painelDeZoomLayout = new javax.swing.GroupLayout(
 				painelDeZoom);
@@ -133,18 +147,46 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		botaoNavegacaoParaBaixo.setIcon(new javax.swing.ImageIcon(getClass()
 				.getResource("/resources/imagens/seta_baixo.png"))); // NOI18N
 		botaoNavegacaoParaBaixo.setToolTipText("Mover para baixo");
+		botaoNavegacaoParaBaixo
+				.addActionListener(new java.awt.event.ActionListener() {
+					@Override
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						botaoNavegacaoParaBaixoActionPerformed(evt);
+					}
+				});
 
 		botaoNavegacaoParaCima.setIcon(new javax.swing.ImageIcon(getClass()
 				.getResource("/resources/imagens/seta_cima.png"))); // NOI18N
 		botaoNavegacaoParaCima.setToolTipText("Mover para cima");
+		botaoNavegacaoParaCima
+				.addActionListener(new java.awt.event.ActionListener() {
+					@Override
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						botaoNavegacaoParaCimaActionPerformed(evt);
+					}
+				});
 
 		botaoNavegacaoParaDireita.setIcon(new javax.swing.ImageIcon(getClass()
 				.getResource("/resources/imagens/seta_direita.png"))); // NOI18N
 		botaoNavegacaoParaDireita.setToolTipText("Mover para direita");
+		botaoNavegacaoParaDireita
+				.addActionListener(new java.awt.event.ActionListener() {
+					@Override
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						botaoNavegacaoParaDireitaActionPerformed(evt);
+					}
+				});
 
 		botaoNavegacaoParaEsquerda.setIcon(new javax.swing.ImageIcon(getClass()
 				.getResource("/resources/imagens/seta_esquerda.png"))); // NOI18N
 		botaoNavegacaoParaEsquerda.setToolTipText("Mover para esquerda");
+		botaoNavegacaoParaEsquerda
+				.addActionListener(new java.awt.event.ActionListener() {
+					@Override
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						botaoNavegacaoParaEsquerdaActionPerformed(evt);
+					}
+				});
 
 		javax.swing.GroupLayout painelDeNavegacaoLayout = new javax.swing.GroupLayout(
 				painelDeNavegacao);
@@ -471,6 +513,34 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
+
+	private void botaoZoomInActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoZoomInActionPerformed
+		this.painelDeDesenho.aplicarZoom(Zoom.IN);
+	}// GEN-LAST:event_botaoZoomInActionPerformed
+
+	private void botaoZoomOutActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoZoomOutActionPerformed
+		this.painelDeDesenho.aplicarZoom(Zoom.OUT);
+	}// GEN-LAST:event_botaoZoomOutActionPerformed
+
+	private void botaoNavegacaoParaCimaActionPerformed(
+			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoNavegacaoParaCimaActionPerformed
+		this.painelDeDesenho.moverWindow(Direcao.CIMA);
+	}// GEN-LAST:event_botaoNavegacaoParaCimaActionPerformed
+
+	private void botaoNavegacaoParaDireitaActionPerformed(
+			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoNavegacaoParaDireitaActionPerformed
+		this.painelDeDesenho.moverWindow(Direcao.DIREITA);
+	}// GEN-LAST:event_botaoNavegacaoParaDireitaActionPerformed
+
+	private void botaoNavegacaoParaBaixoActionPerformed(
+			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoNavegacaoParaBaixoActionPerformed
+		this.painelDeDesenho.moverWindow(Direcao.BAIXO);
+	}// GEN-LAST:event_botaoNavegacaoParaBaixoActionPerformed
+
+	private void botaoNavegacaoParaEsquerdaActionPerformed(
+			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoNavegacaoParaEsquerdaActionPerformed
+		this.painelDeDesenho.moverWindow(Direcao.ESQUERDA);
+	}// GEN-LAST:event_botaoNavegacaoParaEsquerdaActionPerformed
 
 	private void botaoAdicionarObjetoActionPerformed(
 			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAdicionarObjetoActionPerformed

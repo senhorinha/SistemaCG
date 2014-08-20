@@ -230,6 +230,9 @@
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Zoom in"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoZoomInActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="botaoZoomOut">
                       <Properties>
@@ -238,6 +241,9 @@
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Zoom out"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoZoomOutActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -301,6 +307,9 @@
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Mover para baixo"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoNavegacaoParaBaixoActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="botaoNavegacaoParaCima">
                       <Properties>
@@ -309,6 +318,9 @@
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Mover para cima"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoNavegacaoParaCimaActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="botaoNavegacaoParaDireita">
                       <Properties>
@@ -317,6 +329,9 @@
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Mover para direita"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoNavegacaoParaDireitaActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="botaoNavegacaoParaEsquerda">
                       <Properties>
@@ -325,6 +340,9 @@
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Mover para esquerda"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoNavegacaoParaEsquerdaActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
