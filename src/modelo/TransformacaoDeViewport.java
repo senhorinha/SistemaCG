@@ -22,19 +22,19 @@ public class TransformacaoDeViewport implements Transformacao {
 
 	@Override
 	public void executar(List<Coordenada> coordenadas) {
-		int xw, yw, xvp, yvp;
-		int xwMin = window.getxMin();
-		int ywMin = window.getyMin();
-		int xwMax = window.getxMax();
-		int ywMax = window.getyMax();
+		float xw, yw, xvp, yvp;
+		float xwMin = window.getxMin();
+		float ywMin = window.getyMin();
+		float xwMax = window.getxMax();
+		float ywMax = window.getyMax();
 		for (Coordenada c : coordenadas) {
 
 			xw = c.getX();
 			yw = c.getY();
-			xvp = (xw - xwMin) / (xwMax - xwMin) * (xvpMax - xvpMin);
-			yvp = (1 - (yw - ywMin) / (ywMax - ywMin)) * (yvpMax - yvpMin);
-			c.setX(xvp);
-			c.setY(yvp);
+			xvp = ((xw - xwMin) / (xwMax - xwMin) * (xvpMax - xvpMin));
+			yvp = ((1 - (yw - ywMin) / (ywMax - ywMin)) * (yvpMax - yvpMin));
+			c.setX((int) xvp);
+			c.setY((int) yvp);
 		}
 	}
 
