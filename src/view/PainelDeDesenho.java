@@ -80,6 +80,7 @@ public class PainelDeDesenho extends JPanel {
 		case OUT:
 			window.zoomOut();
 		}
+		this.repaint();
 	}
 
 	public void moverWindow(Direcao direcao) {
@@ -97,6 +98,7 @@ public class PainelDeDesenho extends JPanel {
 			window.moverEsquerda();
 			break;
 		}
+		this.repaint();
 	}
 
 }
