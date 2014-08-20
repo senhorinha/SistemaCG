@@ -2,50 +2,86 @@ package modelo;
 
 public class Window {
 
-	int xwMin, ywMin, xwMax, ywMax;
+	private int xMin, yMin, xMax, yMax;
 
 	public Window(int xMax, int yMax) {
-		this.xwMin = 0;
-		this.ywMin = 0;
-		this.xwMax = xMax;
-		this.ywMax = yMax;
+		this.xMin = 0;
+		this.yMin = 0;
+		this.xMax = xMax;
+		this.yMax = yMax;
+	}
+
+	public Window() {
 	}
 
 	public void zoomIn() {
-		int proporcaoX = xwMax / 10;
-		int proporcaoY = ywMax / 10;
-		xwMax = xwMax - proporcaoX;
-		ywMax = ywMax - proporcaoY;
-		xwMin = xwMin - proporcaoX;
-		ywMin = ywMin - proporcaoY;
+		int proporcaoX = xMax / 10;
+		int proporcaoY = yMax / 10;
+		xMax = xMax - proporcaoX;
+		yMax = yMax - proporcaoY;
+		xMin = xMin - proporcaoX;
+		yMin = yMin - proporcaoY;
 	}
 
 	public void zoomOut() {
-		int proporcaoX = xwMax / 10;
-		int proporcaoY = ywMax / 10;
-		xwMax = xwMax + proporcaoX;
-		ywMax = ywMax + proporcaoY;
-		xwMin = xwMin + proporcaoX;
-		ywMin = ywMin + proporcaoY;
+		int proporcaoX = xMax / 10;
+		int proporcaoY = yMax / 10;
+		xMax = xMax + proporcaoX;
+		yMax = yMax + proporcaoY;
+		xMin = xMin + proporcaoX;
+		yMin = yMin + proporcaoY;
 	}
 
 	public void moverEsquerda() {
-		xwMin = xwMin + 10;
-		xwMax = xwMax + 10;
+		xMin = xMin + 10;
+		xMax = xMax + 10;
 	}
 
 	public void moverDireita() {
-		xwMin = xwMin - 10;
-		xwMax = xwMax - 10;
+		xMin = xMin - 10;
+		xMax = xMax - 10;
 	}
 
 	public void moverCima() {
-		ywMin = ywMin - 10;
-		ywMax = ywMax - 10;
+		yMin = yMin - 10;
+		yMax = yMax - 10;
 	}
 
 	public void moverBaixo() {
-		ywMin = ywMin + 10;
-		ywMax = ywMax + 10;
+		yMin = yMin + 10;
+		yMax = yMax + 10;
 	}
+
+	public int getxMin() {
+		return xMin;
+	}
+
+	public void setxMin(int xMin) {
+		this.xMin = xMin;
+	}
+
+	public int getyMin() {
+		return yMin;
+	}
+
+	public void setyMin(int yMin) {
+		this.yMin = yMin;
+	}
+
+	public int getxMax() {
+		return xMax;
+	}
+
+	public void setxMax(int xMax) {
+		this.xMax = xMax;
+	}
+
+	public int getyMax() {
+		return yMax;
+	}
+
+	public void setyMax(int yMax) {
+		this.yMax = yMax;
+	}
+
 }
