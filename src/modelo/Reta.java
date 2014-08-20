@@ -3,9 +3,12 @@ package modelo;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Reta extends ObjetoGeometrico {
+
+	public Reta() {
+
+	}
 
 	public Reta(String nome, Coordenada a, Coordenada b) {
 		this.nome = nome;
@@ -17,11 +20,6 @@ public class Reta extends ObjetoGeometrico {
 	@Override
 	public String getNome() {
 		return nome;
-	}
-
-	@Override
-	public List<Coordenada> obterCoordenadas() {
-		return coordenadas;
 	}
 
 	public Coordenada obterP1() {

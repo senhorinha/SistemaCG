@@ -3,9 +3,12 @@ package view;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
+import modelo.Coordenada;
 import modelo.Direcao;
 import modelo.DisplayFile;
 import modelo.ObjetoGeometrico;
@@ -61,15 +64,26 @@ public class PainelDeDesenho extends JPanel {
 		DisplayFile instance = DisplayFile.obterInstancia();
 		for (ObjetoGeometrico objetoGrafico : instance.getObjetos()) {
 			try {
-				ObjetoGeometrico clone = (ObjetoGeometrico) objetoGrafico
-						.clone();
-				clone.transformarCoordenadas(transformacaoDeViewport);
-				clone.desenhar(g, Color.RED);
+				ObjetoGeometrico copia = copiarObjeto(objetoGrafico);
+				copia.transformarCoordenadas(transformacaoDeViewport);
+				copia.desenhar(g, Color.RED);
 			} catch (CloneNotSupportedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public ObjetoGeometrico copiarObjeto(ObjetoGeometrico objeto)
+			throws CloneNotSupportedException {
+		ObjetoGeometrico copia = (ObjetoGeometrico) objeto.clone();
+		List<Coordenada> coordenadas = new ArrayList<Coordenada>();
+		for (Coordenada coordenada : copia.getCoordenadas()) {
+			coordenadas
+					.add(new Coordenada(coordenada.getX(), coordenada.getY()));
+		}
+		copia.setCoordenadas(coordenadas);
+		return copia;
 	}
 
 	public void aplicarZoom(Zoom zoom) {

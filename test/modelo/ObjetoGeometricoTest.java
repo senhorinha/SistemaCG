@@ -16,7 +16,7 @@ public class ObjetoGeometricoTest {
 		Reta reta = new Reta("Reta", a, b);
 		Reta retaClone = (Reta) reta.clone();
 		Assert.assertEquals(reta.getNome(), retaClone.getNome());
-		Assert.assertEquals(reta.obterCoordenadas(),
-				retaClone.obterCoordenadas());
+		Assert.assertEquals(reta.getCoordenadas(),
+				retaClone.getCoordenadas());
 	}
 }
