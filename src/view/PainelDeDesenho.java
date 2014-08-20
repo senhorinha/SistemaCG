@@ -31,9 +31,9 @@ public class PainelDeDesenho extends JPanel {
 		if (!viewportConfigurado) {
 			Rectangle medidas = this.getBounds();
 			((TransformacaoDeViewport) this.transformacaoDeViewport)
-					.setXvpMin((int) medidas.getMinX());
+					.setXvpMin(0);
 			((TransformacaoDeViewport) this.transformacaoDeViewport)
-					.setYvpMin((int) medidas.getMinY());
+					.setYvpMin(0);
 			((TransformacaoDeViewport) this.transformacaoDeViewport)
 					.setXvpMax((int) medidas.getMaxX());
 			((TransformacaoDeViewport) this.transformacaoDeViewport)
@@ -45,8 +45,8 @@ public class PainelDeDesenho extends JPanel {
 	public void configurarWindowCom() {
 		if (!windowConfigurado) {
 			Rectangle medidas = this.getBounds();
-			window.setxMin((int) medidas.getMinX());
-			window.setyMin((int) medidas.getMinY());
+			window.setxMin(0);
+			window.setyMin(0);
 			window.setxMax((int) medidas.getMaxX());
 			window.setyMax((int) medidas.getMaxY());
 			windowConfigurado = true;
