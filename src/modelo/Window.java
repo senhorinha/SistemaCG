@@ -19,8 +19,8 @@ public class Window {
 		int proporcaoY = yMax / 10;
 		xMax = xMax - proporcaoX;
 		yMax = yMax - proporcaoY;
-		xMin = xMin - proporcaoX;
-		yMin = yMin - proporcaoY;
+		xMin = xMin + proporcaoX;
+		yMin = yMin + proporcaoY;
 	}
 
 	public void zoomOut() {
@@ -28,8 +28,8 @@ public class Window {
 		int proporcaoY = yMax / 10;
 		xMax = xMax + proporcaoX;
 		yMax = yMax + proporcaoY;
-		xMin = xMin + proporcaoX;
-		yMin = yMin + proporcaoY;
+		xMin = xMin - proporcaoX;
+		yMin = yMin - proporcaoY;
 	}
 
 	public void moverEsquerda() {
