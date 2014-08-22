@@ -8,14 +8,14 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnalisadorDeObj {
+public class LeitorDeObj {
 
 	private FileInputStream stream;
 	private List<ObjetoGeometrico> objetos;
 	private List<Coordenada> coordenadas;
 	private String nome;
 
-	public AnalisadorDeObj(String caminhoDoArquivo) throws FileNotFoundException {
+	public LeitorDeObj(String caminhoDoArquivo) throws FileNotFoundException {
 		stream = new FileInputStream(caminhoDoArquivo);
 		objetos = new ArrayList<ObjetoGeometrico>();
 		coordenadas = new ArrayList<Coordenada>();

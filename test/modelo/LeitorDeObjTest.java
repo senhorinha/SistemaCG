@@ -8,12 +8,12 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class AnalisadorDeObjTest {
+public class LeitorDeObjTest {
 
-	AnalisadorDeObj analisador;
+	LeitorDeObj analisador;
 
 	public void construirAnalisador(String caminho) throws FileNotFoundException {
-		analisador = new AnalisadorDeObj(System.getProperty("user.dir").concat(caminho));
+		analisador = new LeitorDeObj(System.getProperty("user.dir").concat(caminho));
 	}
 
 	@Test
