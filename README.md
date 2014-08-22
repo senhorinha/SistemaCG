@@ -14,7 +14,7 @@
 
 ## Versões #
 
-### 1.1 ###
+### [1.1](https://github.com/thisenrose/SistemaCG/releases/tag/1.1) ###
 
 
 * Display file capaz de representar retas, polígonos e pontos
