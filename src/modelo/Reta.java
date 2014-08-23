@@ -7,15 +7,19 @@ import java.util.ArrayList;
 public class Reta extends ObjetoGeometrico {
 
 	public Reta() {
-
+		this.cor = Color.BLACK;
 	}
 
 	public Reta(String nome, Color cor, Coordenada a, Coordenada b) {
 		this.nome = nome;
-		this.cor = cor;
 		this.coordenadas = new ArrayList<Coordenada>();
 		this.coordenadas.add(a);
 		this.coordenadas.add(b);
+		if (cor == null) {
+			this.cor = Color.BLACK;
+		} else {
+			this.cor = cor;
+		}
 	}
 
 	@Override

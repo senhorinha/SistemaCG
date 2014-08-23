@@ -7,13 +7,17 @@ import java.util.List;
 public class Poligono extends ObjetoGeometrico {
 
 	public Poligono() {
-
+		this.cor = Color.BLACK;
 	}
 
 	public Poligono(String nome, Color cor, List<Coordenada> coordenadas) {
 		this.nome = nome;
 		this.coordenadas = coordenadas;
-		this.cor = cor;
+		if (cor == null) {
+			this.cor = Color.BLACK;
+		} else {
+			this.cor = cor;
+		}
 	}
 
 	@Override
