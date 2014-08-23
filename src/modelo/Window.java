@@ -2,8 +2,9 @@ package modelo;
 
 public class Window {
 
-	private int xMin, yMin, xMax, yMax;
+	private int xMin, yMin, xMax, yMax, proporcaoX, proporcaoY;
 
+	
 	public Window(int xMax, int yMax) {
 		this.xMin = 0;
 		this.yMin = 0;
@@ -15,8 +16,6 @@ public class Window {
 	}
 
 	public void zoomIn() {
-		int proporcaoX = xMax / 10;
-		int proporcaoY = yMax / 10;
 		xMax = xMax - proporcaoX;
 		yMax = yMax - proporcaoY;
 		xMin = xMin + proporcaoX;
@@ -24,8 +23,6 @@ public class Window {
 	}
 
 	public void zoomOut() {
-		int proporcaoX = xMax / 10;
-		int proporcaoY = yMax / 10;
 		xMax = xMax + proporcaoX;
 		yMax = yMax + proporcaoY;
 		xMin = xMin - proporcaoX;
@@ -82,6 +79,14 @@ public class Window {
 
 	public void setyMax(int yMax) {
 		this.yMax = yMax;
+	}
+	
+	public void setProporcaoX(int proporcaoX) {
+		this.proporcaoX = proporcaoX;
+	}
+	
+	public void setProporcaoY(int proporcaoY) {
+		this.proporcaoY = proporcaoY;
 	}
 
 }
