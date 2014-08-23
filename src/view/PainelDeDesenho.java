@@ -34,8 +34,8 @@ public class PainelDeDesenho extends JPanel {
 			Rectangle medidas = this.getBounds();
 			((TransformacaoDeViewport) this.transformacaoDeViewport).setXvpMin(0);
 			((TransformacaoDeViewport) this.transformacaoDeViewport).setYvpMin(0);
-			((TransformacaoDeViewport) this.transformacaoDeViewport).setXvpMax((int) medidas.getMaxX());
-			((TransformacaoDeViewport) this.transformacaoDeViewport).setYvpMax((int) medidas.getMaxY());
+			((TransformacaoDeViewport) this.transformacaoDeViewport).setXvpMax((int) medidas.getWidth());
+			((TransformacaoDeViewport) this.transformacaoDeViewport).setYvpMax((int) medidas.getHeight());
 			viewportConfigurado = true;
 		}
 	}
@@ -45,8 +45,10 @@ public class PainelDeDesenho extends JPanel {
 			Rectangle medidas = this.getBounds();
 			window.setxMin(0);
 			window.setyMin(0);
-			window.setxMax((int) medidas.getMaxX());
-			window.setyMax((int) medidas.getMaxY());
+			window.setxMax((int) medidas.getWidth());
+			window.setyMax((int) medidas.getHeight());
+			window.setProporcaoX( (int) medidas.getWidth() / 10);
+			window.setProporcaoY( (int) medidas.getHeight() / 10);
 			windowConfigurado = true;
 		}
 	}
