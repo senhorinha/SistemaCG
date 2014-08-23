@@ -68,8 +68,8 @@ public class LeitorDeObj {
 	private void adicionarVertice(String linha) {
 		String[] tokens = separarEntreEspacos(linha);
 		if (tokens.length >= 3) {
-			int x = Integer.valueOf(tokens[1]);
-			int y = Integer.valueOf(tokens[2]);
+			int x = Double.valueOf(tokens[1]).intValue();
+			int y = Double.valueOf(tokens[2]).intValue();
 			coordenadas.add(new Coordenada(x, y));
 		}
 	}
