@@ -19,8 +19,16 @@ public class DisplayFile {
 		return displayFile;
 	}
 
+	public void iniciarCom(List<ObjetoGeometrico> objetos) {
+		this.objetos = objetos;
+	}
+
 	public boolean adicionar(ObjetoGeometrico objeto) {
 		return objetos.add(objeto);
+	}
+
+	public void trocarObjetoDoIndice(ObjetoGeometrico objeto, int indice) {
+		objetos.set(indice, objeto);
 	}
 
 	public void remover(int indice) {
