@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.ArrayList;
@@ -33,14 +32,10 @@ public class PainelDeDesenho extends JPanel {
 	public void configurarViewport() {
 		if (!viewportConfigurado) {
 			Rectangle medidas = this.getBounds();
-			((TransformacaoDeViewport) this.transformacaoDeViewport)
-					.setXvpMin(0);
-			((TransformacaoDeViewport) this.transformacaoDeViewport)
-					.setYvpMin(0);
-			((TransformacaoDeViewport) this.transformacaoDeViewport)
-					.setXvpMax((int) medidas.getMaxX());
-			((TransformacaoDeViewport) this.transformacaoDeViewport)
-					.setYvpMax((int) medidas.getMaxY());
+			((TransformacaoDeViewport) this.transformacaoDeViewport).setXvpMin(0);
+			((TransformacaoDeViewport) this.transformacaoDeViewport).setYvpMin(0);
+			((TransformacaoDeViewport) this.transformacaoDeViewport).setXvpMax((int) medidas.getMaxX());
+			((TransformacaoDeViewport) this.transformacaoDeViewport).setYvpMax((int) medidas.getMaxY());
 			viewportConfigurado = true;
 		}
 	}
@@ -66,7 +61,7 @@ public class PainelDeDesenho extends JPanel {
 			try {
 				ObjetoGeometrico copia = copiarObjeto(objetoGrafico);
 				copia.transformarCoordenadas(transformacaoDeViewport);
-				copia.desenhar(g, Color.RED);
+				copia.desenhar(g);
 			} catch (CloneNotSupportedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -74,13 +69,11 @@ public class PainelDeDesenho extends JPanel {
 		}
 	}
 
-	public ObjetoGeometrico copiarObjeto(ObjetoGeometrico objeto)
-			throws CloneNotSupportedException {
+	public ObjetoGeometrico copiarObjeto(ObjetoGeometrico objeto) throws CloneNotSupportedException {
 		ObjetoGeometrico copia = (ObjetoGeometrico) objeto.clone();
 		List<Coordenada> coordenadas = new ArrayList<Coordenada>();
 		for (Coordenada coordenada : copia.getCoordenadas()) {
-			coordenadas
-					.add(new Coordenada(coordenada.getX(), coordenada.getY()));
+			coordenadas.add(new Coordenada(coordenada.getX(), coordenada.getY()));
 		}
 		copia.setCoordenadas(coordenadas);
 		return copia;
