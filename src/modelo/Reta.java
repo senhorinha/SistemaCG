@@ -10,8 +10,9 @@ public class Reta extends ObjetoGeometrico {
 
 	}
 
-	public Reta(String nome, Coordenada a, Coordenada b) {
+	public Reta(String nome, Color cor, Coordenada a, Coordenada b) {
 		this.nome = nome;
+		this.cor = cor;
 		this.coordenadas = new ArrayList<Coordenada>();
 		this.coordenadas.add(a);
 		this.coordenadas.add(b);
@@ -31,12 +32,13 @@ public class Reta extends ObjetoGeometrico {
 	}
 
 	@Override
-	public void desenhar(Graphics grafico, Color cor) {
+	public void desenhar(Graphics grafico) {
 		grafico.setColor(cor);
 		int coordenadaX1 = this.obterP1().getX();
 		int coordenadaY1 = this.obterP1().getY();
 		int coordenadaX2 = this.obterP2().getX();
 		int coordenadaY2 = this.obterP2().getY();
+		grafico.setColor(cor);
 		grafico.drawLine(coordenadaX1, coordenadaY1, coordenadaX2, coordenadaY2);
 	}
 

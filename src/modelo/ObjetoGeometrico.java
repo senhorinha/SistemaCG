@@ -8,8 +8,9 @@ public abstract class ObjetoGeometrico implements Cloneable {
 
 	String nome;
 	List<Coordenada> coordenadas;
+	Color cor;
 
-	public abstract void desenhar(Graphics grafico, Color cor);
+	public abstract void desenhar(Graphics grafico);
 
 	public String getNome() {
 		return nome;
@@ -27,10 +28,18 @@ public abstract class ObjetoGeometrico implements Cloneable {
 		this.coordenadas = coordenadas;
 	}
 
+	public Color getCor() {
+		return cor;
+	}
+
+	public void setCor(Color cor) {
+		this.cor = cor;
+	}
+
 	public void transformarCoordenadas(Transformacao transformacao) {
 		transformacao.executar(this.coordenadas);
 	}
-	
+
 	public Coordenada getCentroGeometrico() {
 		int x = 0, y = 0;
 		for (Coordenada coordenada : coordenadas) {
