@@ -1,5 +1,6 @@
 package modelo;
 
+import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,15 +12,17 @@ import org.junit.Test;
 public class GravadorDeObjTest {
 
 	GravadorDeObj gravador;
+	private Color cor;
 
 	@Before
 	public void setup() throws FileNotFoundException {
 		gravador = new GravadorDeObj();
+		cor = new Color(101010);
 	}
 
 	@Test
 	public void deve_gravar_ponto_com_nome_um_vertice_e_uma_faceta() throws IOException {
-		Ponto p = new Ponto("Ponto", new Coordenada(10, 10));
+		Ponto p = new Ponto("Ponto", cor, new Coordenada(10, 10));
 		List<ObjetoGeometrico> objetos = new ArrayList<ObjetoGeometrico>();
 		objetos.add(p);
 		gravador.executar(System.getProperty("user.dir").concat("/test/resources/test_gravacao_ponto.obj"), objetos);
@@ -27,7 +30,7 @@ public class GravadorDeObjTest {
 
 	@Test
 	public void deve_gravar_reta_com_nome_dois_vertices_e_uma_faceta() throws IOException {
-		Reta reta = new Reta("Reta", new Coordenada(10, 10), new Coordenada(20, 20));
+		Reta reta = new Reta("Reta", cor, new Coordenada(10, 10), new Coordenada(20, 20));
 		List<ObjetoGeometrico> objetos = new ArrayList<ObjetoGeometrico>();
 		objetos.add(reta);
 		gravador.executar(System.getProperty("user.dir").concat("/test/resources/test_gravacao_reta.obj"), objetos);

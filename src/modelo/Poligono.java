@@ -7,16 +7,21 @@ import java.util.List;
 public class Poligono extends ObjetoGeometrico {
 
 	public Poligono() {
-
+		this.cor = Color.BLACK;
 	}
 
-	public Poligono(String nome, List<Coordenada> coordenadas) {
+	public Poligono(String nome, Color cor, List<Coordenada> coordenadas) {
 		this.nome = nome;
 		this.coordenadas = coordenadas;
+		if (cor == null) {
+			this.cor = Color.BLACK;
+		} else {
+			this.cor = cor;
+		}
 	}
 
 	@Override
-	public void desenhar(Graphics grafico, Color cor) {
+	public void desenhar(Graphics grafico) {
 		int nPoints = this.getCoordenadas().size();
 		int[] xPoints = new int[nPoints];
 		int[] yPoints = new int[nPoints];
@@ -25,7 +30,7 @@ public class Poligono extends ObjetoGeometrico {
 			xPoints[i] = this.getCoordenadas().get(i).getX();
 			yPoints[i] = this.getCoordenadas().get(i).getY();
 		}
-
+		grafico.setColor(cor);
 		grafico.drawPolygon(xPoints, yPoints, nPoints);
 	}
 

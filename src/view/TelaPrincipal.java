@@ -405,6 +405,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 			try {
 				LeitorDeObj leitorDeObj = new LeitorDeObj(file.getPath());
 				List<ObjetoGeometrico> objetosCarregados = leitorDeObj.executar();
+				for (ObjetoGeometrico objeto : objetosCarregados) {
+					String nome = objeto.getNome();
+					if (nome == null || nome.isEmpty()) {
+						nome = "Sem nome ".concat(String.valueOf(listaDeObjetos.getItemCount() + 1));
+					}
+					listaDeObjetos.add(nome);
+				}
 				DisplayFile.obterInstancia().iniciarCom(objetosCarregados);
 				this.atualizarPainelDeDesenho();
 			} catch (IOException e) {
