@@ -38,9 +38,9 @@ public class PainelDeDesenho extends JPanel {
 			((TransformacaoDeViewport) this.transformacaoDeViewport)
 					.setYvpMin(0);
 			((TransformacaoDeViewport) this.transformacaoDeViewport)
-					.setXvpMax((int) medidas.getMaxX());
+					.setXvpMax((int) medidas.getWidth());
 			((TransformacaoDeViewport) this.transformacaoDeViewport)
-					.setYvpMax((int) medidas.getMaxY());
+					.setYvpMax((int) medidas.getHeight());
 			viewportConfigurado = true;
 		}
 	}
@@ -50,8 +50,8 @@ public class PainelDeDesenho extends JPanel {
 			Rectangle medidas = this.getBounds();
 			window.setxMin(0);
 			window.setyMin(0);
-			window.setxMax((int) medidas.getMaxX());
-			window.setyMax((int) medidas.getMaxY());
+			window.setxMax((int) medidas.getWidth());
+			window.setyMax((int) medidas.getHeight());
 			windowConfigurado = true;
 		}
 	}
@@ -66,7 +66,7 @@ public class PainelDeDesenho extends JPanel {
 			try {
 				ObjetoGeometrico copia = copiarObjeto(objetoGrafico);
 				copia.transformarCoordenadas(transformacaoDeViewport);
-				copia.desenhar(g, Color.RED);
+				copia.desenhar(g, Color.BLACK);
 			} catch (CloneNotSupportedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
