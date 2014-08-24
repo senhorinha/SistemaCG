@@ -149,12 +149,14 @@
                   <Component id="painelDeObjetos" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="botaoAcoesDeMovimento" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoConfigurarObjeto" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoAdicionarObjeto" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoRemoverObjeto" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -168,6 +170,7 @@
                           <Component id="botaoAdicionarObjeto" min="-2" max="-2" attributes="0"/>
                           <Component id="botaoRemoverObjeto" min="-2" max="-2" attributes="0"/>
                           <Component id="botaoConfigurarObjeto" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoAcoesDeMovimento" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="painelWindow" max="32767" attributes="0"/>
@@ -204,7 +207,7 @@
                           <Component id="painelDeZoom" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="painelDeNavegacao" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="213" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="219" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -225,7 +228,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="botaoZoomIn" pref="42" max="32767" attributes="0"/>
+                              <Component id="botaoZoomIn" max="32767" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="botaoZoomOut" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -417,6 +420,17 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoConfigurarObjetoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="botaoAcoesDeMovimento">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/resources/imagens/acoes_movimento.png"/>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Clique para para rotacionar, transladar ou  escalonar."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoAcoesDeMovimentoActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

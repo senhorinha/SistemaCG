@@ -54,6 +54,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
@@ -73,6 +74,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		botaoAdicionarObjeto = new javax.swing.JButton();
 		botaoRemoverObjeto = new javax.swing.JButton();
 		botaoConfigurarObjeto = new javax.swing.JButton();
+		botaoAcoesDeMovimento = new javax.swing.JButton();
 		painelDeDesenho = new PainelDeDesenho();
 		menuBar = new javax.swing.JMenuBar();
 		fileMenu = new javax.swing.JMenu();
@@ -127,7 +129,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		javax.swing.GroupLayout painelDeZoomLayout = new javax.swing.GroupLayout(painelDeZoom);
 		painelDeZoom.setLayout(painelDeZoomLayout);
 		painelDeZoomLayout.setHorizontalGroup(painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				painelDeZoomLayout.createSequentialGroup().addContainerGap().addComponent(botaoZoomIn, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+				painelDeZoomLayout.createSequentialGroup().addContainerGap()
+						.addComponent(botaoZoomIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(botaoZoomOut).addGap(21, 21, 21)));
 		painelDeZoomLayout.setVerticalGroup(painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
 				painelDeZoomLayout.createSequentialGroup()
@@ -227,7 +230,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 						.addComponent(painelDeZoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 						.addComponent(painelDeNavegacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-								javax.swing.GroupLayout.PREFERRED_SIZE).addGap(0, 213, Short.MAX_VALUE)));
+								javax.swing.GroupLayout.PREFERRED_SIZE).addGap(0, 219, Short.MAX_VALUE)));
 
 		painelDeObjetos.setBorder(javax.swing.BorderFactory.createTitledBorder("Objetos"));
 		painelDeObjetos.setToolTipText("Painel de Objetos");
@@ -260,6 +263,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 			}
 		});
 
+		botaoAcoesDeMovimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/acoes_movimento.png"))); // NOI18N
+		botaoAcoesDeMovimento.setToolTipText("Clique para para rotacionar, transladar ou  escalonar.");
+		botaoAcoesDeMovimento.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botaoAcoesDeMovimentoActionPerformed(evt);
+			}
+		});
+
 		javax.swing.GroupLayout painelDeAcoesLayout = new javax.swing.GroupLayout(painelDeAcoes);
 		painelDeAcoes.setLayout(painelDeAcoesLayout);
 		painelDeAcoesLayout.setHorizontalGroup(painelDeAcoesLayout
@@ -268,9 +280,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 				.addComponent(painelDeObjetos, javax.swing.GroupLayout.Alignment.TRAILING)
 				.addGroup(
 						painelDeAcoesLayout.createSequentialGroup().addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(botaoConfigurarObjeto).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(botaoAdicionarObjeto).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(botaoRemoverObjeto).addGap(24, 24, 24)));
+								.addComponent(botaoAcoesDeMovimento).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(botaoConfigurarObjeto).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(botaoAdicionarObjeto).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(botaoRemoverObjeto)
+								.addContainerGap()));
 		painelDeAcoesLayout.setVerticalGroup(painelDeAcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
 				painelDeAcoesLayout
 						.createSequentialGroup()
@@ -279,7 +292,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 						.addGroup(
 								painelDeAcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(botaoAdicionarObjeto)
-										.addComponent(botaoRemoverObjeto).addComponent(botaoConfigurarObjeto))
+										.addComponent(botaoRemoverObjeto).addComponent(botaoConfigurarObjeto).addComponent(botaoAcoesDeMovimento))
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 						.addComponent(painelWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
@@ -382,6 +395,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
+
+	private void botaoAcoesDeMovimentoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAcoesDeMovimentoActionPerformed
+		int indiceSelecionado = this.listaDeObjetos.getSelectedIndex();
+		if (indiceSelecionado != -1) {
+			ObjetoGeometrico objetoASofrerAcao = DisplayFile.obterInstancia().getObjetos().get(indiceSelecionado);
+			ListaDeAcoesDeMovimentosDialog listaDeAcoes = new ListaDeAcoesDeMovimentosDialog(this, true, objetoASofrerAcao);
+			listaDeAcoes.setLocationRelativeTo(this);
+			listaDeAcoes.setVisible(true);
+		}
+	}// GEN-LAST:event_botaoAcoesDeMovimentoActionPerformed
 
 	private void formAncestorMoved(java.awt.event.HierarchyEvent evt) {// GEN-FIRST:event_formAncestorMoved
 		// TODO add your handling code here:
@@ -492,6 +515,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JMenuItem adionarFormaMenuItem;
+	private javax.swing.JButton botaoAcoesDeMovimento;
 	private javax.swing.JButton botaoAdicionarObjeto;
 	private javax.swing.JButton botaoConfigurarObjeto;
 	private javax.swing.JButton botaoNavegacaoParaBaixo;
