@@ -17,8 +17,7 @@ import javax.swing.KeyStroke;
 
 import modelo.Coordenada;
 import modelo.ObjetoGeometrico;
-import modelo.RotacionadorArbitrario;
-import modelo.RotacionadorSobreOrigem;
+import modelo.Rotacionador;
 
 /**
  *
@@ -35,12 +34,12 @@ public class RotacionarDialog extends javax.swing.JDialog {
 	 */
 	public static final int RET_OK = 1;
 
-	public static final int TAB_ROTACIONAR_PELO_PONTO = 0;
-	public static final int TAB_ROTACIONAR_PELA_ORIGEM = 1;
+	public static final int TAB_ROTACIONAR_PELA_ORIGEM = 0;
+	public static final int TAB_ROTACIONAR_PELO_PONTO = 1;
 
 	private ObjetoGeometrico objeto;
-	private RotacionadorArbitrario rotacionadorAbitrario;
-	private RotacionadorSobreOrigem rotacionadorSobreOrigem;
+	private Rotacionador rotacionadorAbitrario;
+	private Rotacionador rotacionadorSobreOrigem;
 
 	/**
 	 * Creates new form EscalonarDialog
@@ -263,7 +262,7 @@ public class RotacionarDialog extends javax.swing.JDialog {
 			int x = Integer.valueOf(this.pontoXFieldText.getText());
 			int y = Integer.valueOf(this.pontoYFieldText.getText());
 			Coordenada fatorDeEscala = new Coordenada(x, y);
-			rotacionadorAbitrario = new RotacionadorArbitrario(objeto, fatorDeEscala, angulo);
+			rotacionadorAbitrario = new Rotacionador(objeto, fatorDeEscala, angulo);
 			rotacionadorAbitrario.movimentar();
 		}
 		return semErro;

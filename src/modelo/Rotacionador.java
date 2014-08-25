@@ -3,12 +3,12 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RotacionadorArbitrario extends Movimentador {
+public class Rotacionador extends Movimentador {
 
 	int angulo;
 	double seno, cosseno, radiano;
 
-	public RotacionadorArbitrario(ObjetoGeometrico objeto, Coordenada vetor, int angulo) {
+	public Rotacionador(ObjetoGeometrico objeto, Coordenada vetor, int angulo) {
 		super(objeto, vetor);
 		this.angulo = angulo;
 	}
