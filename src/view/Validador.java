@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 
 public class Validador {
 
-	public static final String REGEX_PARA_INTEIRO = "\\d+";
+	public static final String REGEX_PARA_INTEIRO = "^\\-?[1-9]+";
 
 	public static boolean validarInteiro(JTextField textField, JLabel label) {
 		String valor = textField.getText();
