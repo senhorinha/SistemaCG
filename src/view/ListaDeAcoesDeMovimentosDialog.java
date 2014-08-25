@@ -97,6 +97,7 @@ public class ListaDeAcoesDeMovimentosDialog extends javax.swing.JDialog {
 	private void botaoAbrirDialogEscalonarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAbrirDialogEscalonarActionPerformed
 		EscalonarDialog escalonarDialog = new EscalonarDialog(null, true, objeto);
 		escalonarDialog.setLocationRelativeTo(this);
+		this.setVisible(false);
 		escalonarDialog.setVisible(true);
 		((TelaPrincipal) this.getParent()).atualizarPainelDeDesenho();
 	}// GEN-LAST:event_botaoAbrirDialogEscalonarActionPerformed
@@ -104,6 +105,7 @@ public class ListaDeAcoesDeMovimentosDialog extends javax.swing.JDialog {
 	private void botaoAbrirDialogRotacionarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAbrirDialogRotacionarActionPerformed
 		RotacionarDialog rotacionarDialog = new RotacionarDialog(null, true, objeto);
 		rotacionarDialog.setLocationRelativeTo(this);
+		this.setVisible(false);
 		rotacionarDialog.setVisible(true);
 		((TelaPrincipal) this.getParent()).atualizarPainelDeDesenho();
 	}// GEN-LAST:event_botaoAbrirDialogRotacionarActionPerformed
@@ -111,6 +113,7 @@ public class ListaDeAcoesDeMovimentosDialog extends javax.swing.JDialog {
 	private void botaoAbrirDialogTransladarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAbrirDialogTransladarActionPerformed
 		TransladarDialog transladarDialog = new TransladarDialog(null, true, objeto);
 		transladarDialog.setLocationRelativeTo(this);
+		this.setVisible(false);
 		transladarDialog.setVisible(true);
 		((TelaPrincipal) this.getParent()).atualizarPainelDeDesenho();
 	}// GEN-LAST:event_botaoAbrirDialogTransladarActionPerformed
