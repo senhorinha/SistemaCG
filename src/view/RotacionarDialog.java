@@ -35,8 +35,8 @@ public class RotacionarDialog extends javax.swing.JDialog {
 	 */
 	public static final int RET_OK = 1;
 
-	public static final int TAB_ROTACIONAR_PELO_PONTO = 0;
-	public static final int TAB_ROTACIONAR_PELA_ORIGEM = 1;
+	public static final int TAB_ROTACIONAR_PELA_ORIGEM = 0;
+	public static final int TAB_ROTACIONAR_PELO_PONTO = 1;
 
 	private ObjetoGeometrico objeto;
 	private RotacionadorArbitrario rotacionadorAbitrario;
