@@ -55,6 +55,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
@@ -129,9 +131,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		javax.swing.GroupLayout painelDeZoomLayout = new javax.swing.GroupLayout(painelDeZoom);
 		painelDeZoom.setLayout(painelDeZoomLayout);
 		painelDeZoomLayout.setHorizontalGroup(painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				painelDeZoomLayout.createSequentialGroup().addContainerGap()
-						.addComponent(botaoZoomIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(botaoZoomOut).addGap(21, 21, 21)));
+				painelDeZoomLayout.createSequentialGroup().addGap(26, 26, 26).addComponent(botaoZoomIn).addGap(18, 18, 18).addComponent(botaoZoomOut)
+						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 		painelDeZoomLayout.setVerticalGroup(painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
 				painelDeZoomLayout.createSequentialGroup()
 						.addGroup(painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(botaoZoomOut).addComponent(botaoZoomIn))
@@ -178,59 +179,47 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 		javax.swing.GroupLayout painelDeNavegacaoLayout = new javax.swing.GroupLayout(painelDeNavegacao);
 		painelDeNavegacao.setLayout(painelDeNavegacaoLayout);
-		painelDeNavegacaoLayout.setHorizontalGroup(painelDeNavegacaoLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						painelDeNavegacaoLayout
-								.createSequentialGroup()
-								.addGroup(
-										painelDeNavegacaoLayout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addGroup(
-														painelDeNavegacaoLayout
-																.createSequentialGroup()
-																.addContainerGap()
-																.addComponent(botaoNavegacaoParaEsquerda)
-																.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-																		javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(botaoNavegacaoParaDireita))
-												.addGroup(
-														painelDeNavegacaoLayout.createSequentialGroup().addGap(43, 43, 43).addComponent(botaoNavegacaoParaCima)
-																.addGap(0, 0, Short.MAX_VALUE))).addContainerGap())
-				.addGroup(
-						painelDeNavegacaoLayout.createSequentialGroup().addGap(42, 42, 42).addComponent(botaoNavegacaoParaBaixo)
-								.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		painelDeNavegacaoLayout.setHorizontalGroup(painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
+				javax.swing.GroupLayout.Alignment.TRAILING,
+				painelDeNavegacaoLayout
+						.createSequentialGroup()
+						.addContainerGap()
+						.addComponent(botaoNavegacaoParaEsquerda)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+						.addGroup(
+								painelDeNavegacaoLayout
+										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addGroup(painelDeNavegacaoLayout.createSequentialGroup().addComponent(botaoNavegacaoParaCima).addGap(0, 48, Short.MAX_VALUE))
+										.addGroup(
+												painelDeNavegacaoLayout
+														.createSequentialGroup()
+														.addComponent(botaoNavegacaoParaBaixo)
+														.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+														.addComponent(botaoNavegacaoParaDireita, javax.swing.GroupLayout.DEFAULT_SIZE,
+																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))).addContainerGap()));
 		painelDeNavegacaoLayout.setVerticalGroup(painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
 				javax.swing.GroupLayout.Alignment.TRAILING,
 				painelDeNavegacaoLayout
 						.createSequentialGroup()
-						.addComponent(botaoNavegacaoParaCima, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoNavegacaoParaCima)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 						.addGroup(
-								painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(botaoNavegacaoParaEsquerda, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(botaoNavegacaoParaDireita, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(botaoNavegacaoParaBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+								painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(botaoNavegacaoParaEsquerda)
+										.addComponent(botaoNavegacaoParaDireita).addComponent(botaoNavegacaoParaBaixo))
 						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
 		javax.swing.GroupLayout painelWindowLayout = new javax.swing.GroupLayout(painelWindow);
 		painelWindow.setLayout(painelWindowLayout);
-		painelWindowLayout.setHorizontalGroup(painelWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				javax.swing.GroupLayout.Alignment.TRAILING,
-				painelWindowLayout
-						.createSequentialGroup()
-						.addGroup(
-								painelWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-										.addComponent(painelDeNavegacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(painelDeZoom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-						.addContainerGap()));
+		painelWindowLayout.setHorizontalGroup(painelWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addComponent(painelDeNavegacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+				.addComponent(painelDeZoom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 		painelWindowLayout.setVerticalGroup(painelWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
 				painelWindowLayout
 						.createSequentialGroup()
 						.addComponent(painelDeZoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 						.addComponent(painelDeNavegacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-								javax.swing.GroupLayout.PREFERRED_SIZE).addGap(0, 219, Short.MAX_VALUE)));
+								javax.swing.GroupLayout.PREFERRED_SIZE).addGap(0, 241, Short.MAX_VALUE)));
 
 		painelDeObjetos.setBorder(javax.swing.BorderFactory.createTitledBorder("Objetos"));
 		painelDeObjetos.setToolTipText("Painel de Objetos");
@@ -279,11 +268,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 				.addComponent(painelWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 				.addComponent(painelDeObjetos, javax.swing.GroupLayout.Alignment.TRAILING)
 				.addGroup(
-						painelDeAcoesLayout.createSequentialGroup().addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(botaoAcoesDeMovimento).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(botaoConfigurarObjeto).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(botaoAdicionarObjeto).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(botaoRemoverObjeto)
-								.addContainerGap()));
+						painelDeAcoesLayout.createSequentialGroup().addContainerGap(20, Short.MAX_VALUE).addComponent(botaoAcoesDeMovimento)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(botaoConfigurarObjeto)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(botaoAdicionarObjeto)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(botaoRemoverObjeto).addContainerGap()));
 		painelDeAcoesLayout.setVerticalGroup(painelDeAcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
 				painelDeAcoesLayout
 						.createSequentialGroup()
