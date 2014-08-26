@@ -25,7 +25,7 @@ public class GravadorDeObj {
 		escritor.write(ComandoObj.FACETA.toString().concat(" "));
 		for (int i = numeroDeCoordenadas; i != 0; i--) {
 			indice = (i * -1);
-			if (indice == 0) {
+			if (indice == -1) {
 				escritor.write(String.valueOf(indice).concat(caractereDeNovaLinha));
 			} else {
 				escritor.write(String.valueOf(indice).concat(" "));
@@ -42,6 +42,8 @@ public class GravadorDeObj {
 	}
 
 	private void gravarNome(String nome) throws IOException {
-		escritor.write(ComandoObj.NOME.toString().concat(" ").concat(nome).concat(caractereDeNovaLinha));
+		if (nome != null) {
+			escritor.write(ComandoObj.NOME.toString().concat(" ").concat(nome).concat(caractereDeNovaLinha));
+		}
 	}
 }
