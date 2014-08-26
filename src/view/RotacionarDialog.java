@@ -291,7 +291,7 @@ public class RotacionarDialog extends javax.swing.JDialog {
 	private boolean rotacionarPelaOrigem() {
 		boolean semErro = Validador.validarInteiro(this.anguloRotacionarOrigemTextField, anguloOrigemLabel);
 		if (semErro) {
-			int angulo = Integer.valueOf(this.anguloRotacionarPontoTextField.getText());
+			int angulo = Integer.valueOf(this.anguloRotacionarOrigemTextField.getText());
 			Coordenada origem = new Coordenada(0, 0);
 			rotencionar = new Rotacionador(objeto, origem, angulo);
 			rotencionar.movimentar();
