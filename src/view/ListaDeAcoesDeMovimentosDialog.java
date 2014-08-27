@@ -33,6 +33,7 @@ public class ListaDeAcoesDeMovimentosDialog extends javax.swing.JDialog {
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
@@ -46,10 +47,28 @@ public class ListaDeAcoesDeMovimentosDialog extends javax.swing.JDialog {
 		setResizable(false);
 
 		botaoAbrirDialogEscalonar.setText("Escalonar");
+		botaoAbrirDialogEscalonar.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botaoAbrirDialogEscalonarActionPerformed(evt);
+			}
+		});
 
 		botaoAbrirDialogRotacionar.setText("Rotacionar");
+		botaoAbrirDialogRotacionar.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botaoAbrirDialogRotacionarActionPerformed(evt);
+			}
+		});
 
 		botaoAbrirDialogTransladar.setText("Transladar");
+		botaoAbrirDialogTransladar.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botaoAbrirDialogTransladarActionPerformed(evt);
+			}
+		});
 
 		botaoCancelar.setText("Cancelar");
 		botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -73,11 +92,35 @@ public class ListaDeAcoesDeMovimentosDialog extends javax.swing.JDialog {
 		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
 				layout.createSequentialGroup().addComponent(botaoAbrirDialogEscalonar).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 						.addComponent(botaoAbrirDialogRotacionar).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(botaoAbrirDialogTransladar).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-						.addComponent(botaoCancelar).addContainerGap()));
+						.addComponent(botaoAbrirDialogTransladar).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(botaoCancelar)
+						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
+
+	private void botaoAbrirDialogEscalonarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAbrirDialogEscalonarActionPerformed
+		EscalonarDialog escalonarDialog = new EscalonarDialog(null, true, objeto);
+		escalonarDialog.setLocationRelativeTo(this);
+		this.setVisible(false);
+		escalonarDialog.setVisible(true);
+		((TelaPrincipal) this.getParent()).atualizarPainelDeDesenho();
+	}// GEN-LAST:event_botaoAbrirDialogEscalonarActionPerformed
+
+	private void botaoAbrirDialogRotacionarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAbrirDialogRotacionarActionPerformed
+		RotacionarDialog rotacionadorDialog = new RotacionarDialog(null, true, objeto);
+		rotacionadorDialog.setLocationRelativeTo(this);
+		this.setVisible(false);
+		rotacionadorDialog.setVisible(true);
+		((TelaPrincipal) this.getParent()).atualizarPainelDeDesenho();
+	}// GEN-LAST:event_botaoAbrirDialogRotacionarActionPerformed
+
+	private void botaoAbrirDialogTransladarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAbrirDialogTransladarActionPerformed
+		TransladarDialog transladarDialog = new TransladarDialog(null, true, objeto);
+		transladarDialog.setLocationRelativeTo(this);
+		this.setVisible(false);
+		transladarDialog.setVisible(true);
+		((TelaPrincipal) this.getParent()).atualizarPainelDeDesenho();
+	}// GEN-LAST:event_botaoAbrirDialogTransladarActionPerformed
 
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoCancelarActionPerformed
 		this.setVisible(false);
