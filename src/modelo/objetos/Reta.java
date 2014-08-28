@@ -1,8 +1,10 @@
-package modelo;
+package modelo.objetos;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+
+import modelo.Coordenada;
 
 public class Reta extends ObjetoGeometrico {
 

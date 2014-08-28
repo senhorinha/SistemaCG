@@ -10,11 +10,11 @@ import javax.swing.JPanel;
 import modelo.Coordenada;
 import modelo.Direcao;
 import modelo.DisplayFile;
-import modelo.ObjetoGeometrico;
-import modelo.Transformacao;
-import modelo.TransformacaoDeViewport;
 import modelo.Window;
 import modelo.Zoom;
+import modelo.objetos.ObjetoGeometrico;
+import modelo.transformacoes.Transformacao;
+import modelo.transformacoes.TransformacaoDeViewport;
 
 public class PainelDeDesenho extends JPanel {
 

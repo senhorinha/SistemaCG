@@ -11,12 +11,15 @@ import java.util.List;
 
 import javax.swing.JFileChooser;
 
+import view.dialogs.AdicionarFormaDialog;
+import view.dialogs.ListaDeAcoesDeMovimentosDialog;
+import view.dialogs.SobreDialog;
 import modelo.Direcao;
 import modelo.DisplayFile;
-import modelo.GravadorDeObj;
-import modelo.LeitorDeObj;
-import modelo.ObjetoGeometrico;
 import modelo.Zoom;
+import modelo.objetos.ObjetoGeometrico;
+import modelo.utils.GravadorDeObj;
+import modelo.utils.LeitorDeObj;
 
 /**
  *

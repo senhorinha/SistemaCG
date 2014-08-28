@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package view;
+package view.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -15,9 +15,10 @@ import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
+import view.Validador;
 import modelo.Coordenada;
-import modelo.ObjetoGeometrico;
-import modelo.Rotacionador;
+import modelo.movimentos.Rotacionador;
+import modelo.objetos.ObjetoGeometrico;
 
 /**
  *

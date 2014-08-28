@@ -4,10 +4,11 @@
  * and open the template in the editor.
  */
 
-package view;
+package view.dialogs;
 
 import javax.swing.JDialog;
 
+import view.Validador;
 import modelo.Coordenada;
 
 /**

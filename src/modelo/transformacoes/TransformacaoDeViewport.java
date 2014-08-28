@@ -1,6 +1,9 @@
-package modelo;
+package modelo.transformacoes;
 
 import java.util.List;
+
+import modelo.Coordenada;
+import modelo.Window;
 
 public class TransformacaoDeViewport implements Transformacao {
 

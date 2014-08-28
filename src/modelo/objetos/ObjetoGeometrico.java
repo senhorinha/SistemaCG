@@ -1,8 +1,11 @@
-package modelo;
+package modelo.objetos;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.List;
+
+import modelo.Coordenada;
+import modelo.transformacoes.Transformacao;
 
 public abstract class ObjetoGeometrico implements Cloneable {
 

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package view;
+package view.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;

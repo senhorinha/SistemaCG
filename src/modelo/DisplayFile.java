@@ -3,6 +3,8 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.objetos.ObjetoGeometrico;
+
 public class DisplayFile {
 
 	private static DisplayFile displayFile = null;

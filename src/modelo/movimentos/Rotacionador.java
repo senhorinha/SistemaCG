@@ -1,7 +1,10 @@
-package modelo;
+package modelo.movimentos;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import modelo.Coordenada;
+import modelo.objetos.ObjetoGeometrico;
 
 public class Rotacionador extends Movimentador {
 

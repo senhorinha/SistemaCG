@@ -1,4 +1,4 @@
-package modelo;
+package modelo.utils;
 
 public enum ComandoObj {
 

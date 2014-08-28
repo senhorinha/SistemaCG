@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 
-package view;
+package view.dialogs;
 
-import modelo.ObjetoGeometrico;
+import view.TelaPrincipal;
+import modelo.objetos.ObjetoGeometrico;
 
 /**
  *

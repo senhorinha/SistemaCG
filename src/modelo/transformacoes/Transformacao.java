@@ -1,6 +1,8 @@
-package modelo;
+package modelo.transformacoes;
 
 import java.util.List;
+
+import modelo.Coordenada;
 
 public interface Transformacao {
 

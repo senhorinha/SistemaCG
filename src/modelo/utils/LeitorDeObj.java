@@ -1,4 +1,4 @@
-package modelo;
+package modelo.utils;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -7,6 +7,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import modelo.Coordenada;
+import modelo.objetos.ObjetoGeometrico;
+import modelo.objetos.Poligono;
+import modelo.objetos.Ponto;
+import modelo.objetos.Reta;
 
 public class LeitorDeObj {
 

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package view;
+package view.dialogs;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -27,12 +27,14 @@ import javax.swing.JSpinner;
 import javax.swing.KeyStroke;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 
+import view.TelaPrincipal;
+import view.Validador;
 import modelo.Coordenada;
 import modelo.DisplayFile;
-import modelo.ObjetoGeometrico;
-import modelo.Poligono;
-import modelo.Ponto;
-import modelo.Reta;
+import modelo.objetos.ObjetoGeometrico;
+import modelo.objetos.Poligono;
+import modelo.objetos.Ponto;
+import modelo.objetos.Reta;
 
 /**
  *
