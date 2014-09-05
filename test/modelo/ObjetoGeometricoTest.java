@@ -2,6 +2,8 @@ package modelo;
 
 import java.awt.Color;
 
+import modelo.objetos.Reta;
+
 import org.junit.Assert;
 import org.junit.Test;
 

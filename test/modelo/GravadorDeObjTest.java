@@ -6,6 +6,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.objetos.ObjetoGeometrico;
+import modelo.objetos.Poligono;
+import modelo.objetos.Ponto;
+import modelo.objetos.Reta;
+import modelo.utils.GravadorDeObj;
+
 import org.junit.Before;
 import org.junit.Test;
 
