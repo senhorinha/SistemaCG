@@ -148,7 +148,7 @@
                   <Component id="painelWindow" max="32767" attributes="0"/>
                   <Component id="painelDeObjetos" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="botaoAcoesDeMovimento" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoConfigurarObjeto" min="-2" max="-2" attributes="0"/>
@@ -194,6 +194,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="painelDeNavegacao" max="32767" attributes="0"/>
                       <Component id="painelDeZoom" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -202,7 +203,9 @@
                           <Component id="painelDeZoom" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="painelDeNavegacao" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="241" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="201" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -287,7 +290,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="botaoNavegacaoParaCima" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="botaoNavegacaoParaBaixo" min="-2" max="-2" attributes="0"/>
@@ -357,6 +360,68 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoNavegacaoParaEsquerdaActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="jPanel1">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Rotacionar"/>
+                      </Border>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="labelAnguloDeRotacaoDaWindow" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="anguloDeRotacaoDaWindowTextField" min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="botaoRotacionarWindow" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="botaoRotacionarWindow" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="anguloDeRotacaoDaWindowTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelAnguloDeRotacaoDaWindow" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="labelAnguloDeRotacaoDaWindow">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="15" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="&#xc2;ngulo:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="anguloDeRotacaoDaWindowTextField">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="botaoRotacionarWindow">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/resources/imagens/rotacionar.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Clique para rotacionar."/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoRotacionarWindowActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>

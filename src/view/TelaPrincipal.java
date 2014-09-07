@@ -60,332 +60,393 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
-	// desc="Generated Code">//GEN-BEGIN:initComponents
-	private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-		painelPrincipal = new javax.swing.JPanel();
-		painelDeAcoes = new javax.swing.JPanel();
-		painelWindow = new javax.swing.JPanel();
-		painelDeZoom = new javax.swing.JPanel();
-		botaoZoomIn = new javax.swing.JButton();
-		botaoZoomOut = new javax.swing.JButton();
-		painelDeNavegacao = new javax.swing.JPanel();
-		botaoNavegacaoParaBaixo = new javax.swing.JButton();
-		botaoNavegacaoParaCima = new javax.swing.JButton();
-		botaoNavegacaoParaDireita = new javax.swing.JButton();
-		botaoNavegacaoParaEsquerda = new javax.swing.JButton();
-		painelDeObjetos = new javax.swing.JScrollPane();
-		listaDeObjetos = new java.awt.List();
-		botaoAdicionarObjeto = new javax.swing.JButton();
-		botaoRemoverObjeto = new javax.swing.JButton();
-		botaoConfigurarObjeto = new javax.swing.JButton();
-		botaoAcoesDeMovimento = new javax.swing.JButton();
-		painelDeDesenho = new PainelDeDesenho();
-		menuBar = new javax.swing.JMenuBar();
-		fileMenu = new javax.swing.JMenu();
-		importarObjMenuItem = new javax.swing.JMenuItem();
-		exportarObjMenuItem = new javax.swing.JMenuItem();
-		sairMenuItem = new javax.swing.JMenuItem();
-		editMenu = new javax.swing.JMenu();
-		adionarFormaMenuItem = new javax.swing.JMenuItem();
-		helpMenu = new javax.swing.JMenu();
-		sobreMenuItem = new javax.swing.JMenuItem();
+        painelPrincipal = new javax.swing.JPanel();
+        painelDeAcoes = new javax.swing.JPanel();
+        painelWindow = new javax.swing.JPanel();
+        painelDeZoom = new javax.swing.JPanel();
+        botaoZoomIn = new javax.swing.JButton();
+        botaoZoomOut = new javax.swing.JButton();
+        painelDeNavegacao = new javax.swing.JPanel();
+        botaoNavegacaoParaBaixo = new javax.swing.JButton();
+        botaoNavegacaoParaCima = new javax.swing.JButton();
+        botaoNavegacaoParaDireita = new javax.swing.JButton();
+        botaoNavegacaoParaEsquerda = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        labelAnguloDeRotacaoDaWindow = new javax.swing.JLabel();
+        anguloDeRotacaoDaWindowTextField = new javax.swing.JTextField();
+        botaoRotacionarWindow = new javax.swing.JButton();
+        painelDeObjetos = new javax.swing.JScrollPane();
+        listaDeObjetos = new java.awt.List();
+        botaoAdicionarObjeto = new javax.swing.JButton();
+        botaoRemoverObjeto = new javax.swing.JButton();
+        botaoConfigurarObjeto = new javax.swing.JButton();
+        botaoAcoesDeMovimento = new javax.swing.JButton();
+        painelDeDesenho = new PainelDeDesenho();
+        menuBar = new javax.swing.JMenuBar();
+        fileMenu = new javax.swing.JMenu();
+        importarObjMenuItem = new javax.swing.JMenuItem();
+        exportarObjMenuItem = new javax.swing.JMenuItem();
+        sairMenuItem = new javax.swing.JMenuItem();
+        editMenu = new javax.swing.JMenu();
+        adionarFormaMenuItem = new javax.swing.JMenuItem();
+        helpMenu = new javax.swing.JMenu();
+        sobreMenuItem = new javax.swing.JMenuItem();
 
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		setTitle("Atividade de Computação Gráfica");
-		setResizable(false);
-		addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
-			@Override
-			public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
-				formAncestorMoved(evt);
-			}
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Atividade de Computação Gráfica");
+        setResizable(false);
+        addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
+            public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
+                formAncestorMoved(evt);
+            }
+            public void ancestorResized(java.awt.event.HierarchyEvent evt) {
+            }
+        });
 
-			@Override
-			public void ancestorResized(java.awt.event.HierarchyEvent evt) {
-			}
-		});
+        painelDeAcoes.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu de Funcoes"));
 
-		painelDeAcoes.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu de Funcoes"));
+        painelWindow.setBorder(javax.swing.BorderFactory.createTitledBorder("Window"));
+        painelWindow.setToolTipText("Window");
 
-		painelWindow.setBorder(javax.swing.BorderFactory.createTitledBorder("Window"));
-		painelWindow.setToolTipText("Window");
+        painelDeZoom.setBorder(javax.swing.BorderFactory.createTitledBorder("Zoom"));
+        painelDeZoom.setToolTipText("Painel de Zoom");
 
-		painelDeZoom.setBorder(javax.swing.BorderFactory.createTitledBorder("Zoom"));
-		painelDeZoom.setToolTipText("Painel de Zoom");
+        botaoZoomIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/zoom_in.png"))); // NOI18N
+        botaoZoomIn.setToolTipText("Zoom in");
+        botaoZoomIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoZoomInActionPerformed(evt);
+            }
+        });
 
-		botaoZoomIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/zoom_in.png"))); // NOI18N
-		botaoZoomIn.setToolTipText("Zoom in");
-		botaoZoomIn.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botaoZoomInActionPerformed(evt);
-			}
-		});
+        botaoZoomOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/zoom_out.png"))); // NOI18N
+        botaoZoomOut.setToolTipText("Zoom out");
+        botaoZoomOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoZoomOutActionPerformed(evt);
+            }
+        });
 
-		botaoZoomOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/zoom_out.png"))); // NOI18N
-		botaoZoomOut.setToolTipText("Zoom out");
-		botaoZoomOut.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botaoZoomOutActionPerformed(evt);
-			}
-		});
+        javax.swing.GroupLayout painelDeZoomLayout = new javax.swing.GroupLayout(painelDeZoom);
+        painelDeZoom.setLayout(painelDeZoomLayout);
+        painelDeZoomLayout.setHorizontalGroup(
+            painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelDeZoomLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(botaoZoomIn)
+                .addGap(18, 18, 18)
+                .addComponent(botaoZoomOut)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        painelDeZoomLayout.setVerticalGroup(
+            painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelDeZoomLayout.createSequentialGroup()
+                .addGroup(painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoZoomOut)
+                    .addComponent(botaoZoomIn))
+                .addGap(0, 2, Short.MAX_VALUE))
+        );
 
-		javax.swing.GroupLayout painelDeZoomLayout = new javax.swing.GroupLayout(painelDeZoom);
-		painelDeZoom.setLayout(painelDeZoomLayout);
-		painelDeZoomLayout.setHorizontalGroup(painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				painelDeZoomLayout.createSequentialGroup().addGap(26, 26, 26).addComponent(botaoZoomIn).addGap(18, 18, 18).addComponent(botaoZoomOut)
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		painelDeZoomLayout.setVerticalGroup(painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				painelDeZoomLayout.createSequentialGroup()
-						.addGroup(painelDeZoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(botaoZoomOut).addComponent(botaoZoomIn))
-						.addGap(0, 2, Short.MAX_VALUE)));
+        painelDeNavegacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Navegação"));
+        painelDeNavegacao.setToolTipText("Painel de Navegacao");
 
-		painelDeNavegacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Navegação"));
-		painelDeNavegacao.setToolTipText("Painel de Navegacao");
+        botaoNavegacaoParaBaixo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/seta_baixo.png"))); // NOI18N
+        botaoNavegacaoParaBaixo.setToolTipText("Mover para baixo");
+        botaoNavegacaoParaBaixo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoNavegacaoParaBaixoActionPerformed(evt);
+            }
+        });
 
-		botaoNavegacaoParaBaixo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/seta_baixo.png"))); // NOI18N
-		botaoNavegacaoParaBaixo.setToolTipText("Mover para baixo");
-		botaoNavegacaoParaBaixo.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botaoNavegacaoParaBaixoActionPerformed(evt);
-			}
-		});
+        botaoNavegacaoParaCima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/seta_cima.png"))); // NOI18N
+        botaoNavegacaoParaCima.setToolTipText("Mover para cima");
+        botaoNavegacaoParaCima.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoNavegacaoParaCimaActionPerformed(evt);
+            }
+        });
 
-		botaoNavegacaoParaCima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/seta_cima.png"))); // NOI18N
-		botaoNavegacaoParaCima.setToolTipText("Mover para cima");
-		botaoNavegacaoParaCima.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botaoNavegacaoParaCimaActionPerformed(evt);
-			}
-		});
+        botaoNavegacaoParaDireita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/seta_direita.png"))); // NOI18N
+        botaoNavegacaoParaDireita.setToolTipText("Mover para direita");
+        botaoNavegacaoParaDireita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoNavegacaoParaDireitaActionPerformed(evt);
+            }
+        });
 
-		botaoNavegacaoParaDireita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/seta_direita.png"))); // NOI18N
-		botaoNavegacaoParaDireita.setToolTipText("Mover para direita");
-		botaoNavegacaoParaDireita.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botaoNavegacaoParaDireitaActionPerformed(evt);
-			}
-		});
+        botaoNavegacaoParaEsquerda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/seta_esquerda.png"))); // NOI18N
+        botaoNavegacaoParaEsquerda.setToolTipText("Mover para esquerda");
+        botaoNavegacaoParaEsquerda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoNavegacaoParaEsquerdaActionPerformed(evt);
+            }
+        });
 
-		botaoNavegacaoParaEsquerda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/seta_esquerda.png"))); // NOI18N
-		botaoNavegacaoParaEsquerda.setToolTipText("Mover para esquerda");
-		botaoNavegacaoParaEsquerda.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botaoNavegacaoParaEsquerdaActionPerformed(evt);
-			}
-		});
+        javax.swing.GroupLayout painelDeNavegacaoLayout = new javax.swing.GroupLayout(painelDeNavegacao);
+        painelDeNavegacao.setLayout(painelDeNavegacaoLayout);
+        painelDeNavegacaoLayout.setHorizontalGroup(
+            painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDeNavegacaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botaoNavegacaoParaEsquerda)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelDeNavegacaoLayout.createSequentialGroup()
+                        .addComponent(botaoNavegacaoParaCima)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(painelDeNavegacaoLayout.createSequentialGroup()
+                        .addComponent(botaoNavegacaoParaBaixo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoNavegacaoParaDireita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        painelDeNavegacaoLayout.setVerticalGroup(
+            painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDeNavegacaoLayout.createSequentialGroup()
+                .addComponent(botaoNavegacaoParaCima)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoNavegacaoParaEsquerda)
+                    .addComponent(botaoNavegacaoParaDireita)
+                    .addComponent(botaoNavegacaoParaBaixo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-		javax.swing.GroupLayout painelDeNavegacaoLayout = new javax.swing.GroupLayout(painelDeNavegacao);
-		painelDeNavegacao.setLayout(painelDeNavegacaoLayout);
-		painelDeNavegacaoLayout.setHorizontalGroup(painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				javax.swing.GroupLayout.Alignment.TRAILING,
-				painelDeNavegacaoLayout
-						.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(botaoNavegacaoParaEsquerda)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(
-								painelDeNavegacaoLayout
-										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addGroup(painelDeNavegacaoLayout.createSequentialGroup().addComponent(botaoNavegacaoParaCima).addGap(0, 48, Short.MAX_VALUE))
-										.addGroup(
-												painelDeNavegacaoLayout
-														.createSequentialGroup()
-														.addComponent(botaoNavegacaoParaBaixo)
-														.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-														.addComponent(botaoNavegacaoParaDireita, javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))).addContainerGap()));
-		painelDeNavegacaoLayout.setVerticalGroup(painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				javax.swing.GroupLayout.Alignment.TRAILING,
-				painelDeNavegacaoLayout
-						.createSequentialGroup()
-						.addComponent(botaoNavegacaoParaCima)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(
-								painelDeNavegacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(botaoNavegacaoParaEsquerda)
-										.addComponent(botaoNavegacaoParaDireita).addComponent(botaoNavegacaoParaBaixo))
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Rotacionar"));
 
-		javax.swing.GroupLayout painelWindowLayout = new javax.swing.GroupLayout(painelWindow);
-		painelWindow.setLayout(painelWindowLayout);
-		painelWindowLayout.setHorizontalGroup(painelWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addComponent(painelDeNavegacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(painelDeZoom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
-		painelWindowLayout.setVerticalGroup(painelWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				painelWindowLayout
-						.createSequentialGroup()
-						.addComponent(painelDeZoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(painelDeNavegacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-								javax.swing.GroupLayout.PREFERRED_SIZE).addGap(0, 241, Short.MAX_VALUE)));
+        labelAnguloDeRotacaoDaWindow.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        labelAnguloDeRotacaoDaWindow.setText("Ângulo:");
 
-		painelDeObjetos.setBorder(javax.swing.BorderFactory.createTitledBorder("Objetos"));
-		painelDeObjetos.setToolTipText("Painel de Objetos");
-		painelDeObjetos.setViewportView(listaDeObjetos);
+        botaoRotacionarWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/rotacionar.png"))); // NOI18N
+        botaoRotacionarWindow.setToolTipText("Clique para rotacionar.");
+        botaoRotacionarWindow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRotacionarWindowActionPerformed(evt);
+            }
+        });
 
-		botaoAdicionarObjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/add.png"))); // NOI18N
-		botaoAdicionarObjeto.setToolTipText("Adicionar Objeto");
-		botaoAdicionarObjeto.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botaoAdicionarObjetoActionPerformed(evt);
-			}
-		});
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(labelAnguloDeRotacaoDaWindow)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(anguloDeRotacaoDaWindowTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(botaoRotacionarWindow)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(3, 3, 3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoRotacionarWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(anguloDeRotacaoDaWindowTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelAnguloDeRotacaoDaWindow)))
+                .addGap(0, 15, Short.MAX_VALUE))
+        );
 
-		botaoRemoverObjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/remove.png"))); // NOI18N
-		botaoRemoverObjeto.setToolTipText("Remover Objeto");
-		botaoRemoverObjeto.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botaoRemoverObjetoActionPerformed(evt);
-			}
-		});
+        javax.swing.GroupLayout painelWindowLayout = new javax.swing.GroupLayout(painelWindow);
+        painelWindow.setLayout(painelWindowLayout);
+        painelWindowLayout.setHorizontalGroup(
+            painelWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(painelDeNavegacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(painelDeZoom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        painelWindowLayout.setVerticalGroup(
+            painelWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelWindowLayout.createSequentialGroup()
+                .addComponent(painelDeZoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(painelDeNavegacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 201, Short.MAX_VALUE))
+        );
 
-		botaoConfigurarObjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/setting.png"))); // NOI18N
-		botaoConfigurarObjeto.setToolTipText("Adicionar Objeto");
-		botaoConfigurarObjeto.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botaoConfigurarObjetoActionPerformed(evt);
-			}
-		});
+        painelDeObjetos.setBorder(javax.swing.BorderFactory.createTitledBorder("Objetos"));
+        painelDeObjetos.setToolTipText("Painel de Objetos");
+        painelDeObjetos.setViewportView(listaDeObjetos);
 
-		botaoAcoesDeMovimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/acoes_movimento.png"))); // NOI18N
-		botaoAcoesDeMovimento.setToolTipText("Clique para para rotacionar, transladar ou  escalonar.");
-		botaoAcoesDeMovimento.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botaoAcoesDeMovimentoActionPerformed(evt);
-			}
-		});
+        botaoAdicionarObjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/add.png"))); // NOI18N
+        botaoAdicionarObjeto.setToolTipText("Adicionar Objeto");
+        botaoAdicionarObjeto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAdicionarObjetoActionPerformed(evt);
+            }
+        });
 
-		javax.swing.GroupLayout painelDeAcoesLayout = new javax.swing.GroupLayout(painelDeAcoes);
-		painelDeAcoes.setLayout(painelDeAcoesLayout);
-		painelDeAcoesLayout.setHorizontalGroup(painelDeAcoesLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addComponent(painelWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(painelDeObjetos, javax.swing.GroupLayout.Alignment.TRAILING)
-				.addGroup(
-						painelDeAcoesLayout.createSequentialGroup().addContainerGap(20, Short.MAX_VALUE).addComponent(botaoAcoesDeMovimento)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(botaoConfigurarObjeto)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(botaoAdicionarObjeto)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(botaoRemoverObjeto).addContainerGap()));
-		painelDeAcoesLayout.setVerticalGroup(painelDeAcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				painelDeAcoesLayout
-						.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(painelDeObjetos, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(
-								painelDeAcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(botaoAdicionarObjeto)
-										.addComponent(botaoRemoverObjeto).addComponent(botaoConfigurarObjeto).addComponent(botaoAcoesDeMovimento))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(painelWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+        botaoRemoverObjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/remove.png"))); // NOI18N
+        botaoRemoverObjeto.setToolTipText("Remover Objeto");
+        botaoRemoverObjeto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRemoverObjetoActionPerformed(evt);
+            }
+        });
 
-		painelDeDesenho.setBackground(new java.awt.Color(254, 254, 254));
-		painelDeDesenho.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Viewport", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.darkGray));
-		painelDeDesenho.setToolTipText("Viewport");
+        botaoConfigurarObjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/setting.png"))); // NOI18N
+        botaoConfigurarObjeto.setToolTipText("Adicionar Objeto");
+        botaoConfigurarObjeto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfigurarObjetoActionPerformed(evt);
+            }
+        });
 
-		javax.swing.GroupLayout painelDeDesenhoLayout = new javax.swing.GroupLayout(painelDeDesenho);
-		painelDeDesenho.setLayout(painelDeDesenhoLayout);
-		painelDeDesenhoLayout.setHorizontalGroup(painelDeDesenhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 777, Short.MAX_VALUE));
-		painelDeDesenhoLayout.setVerticalGroup(painelDeDesenhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
+        botaoAcoesDeMovimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/acoes_movimento.png"))); // NOI18N
+        botaoAcoesDeMovimento.setToolTipText("Clique para para rotacionar, transladar ou  escalonar.");
+        botaoAcoesDeMovimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAcoesDeMovimentoActionPerformed(evt);
+            }
+        });
 
-		javax.swing.GroupLayout painelPrincipalLayout = new javax.swing.GroupLayout(painelPrincipal);
-		painelPrincipal.setLayout(painelPrincipalLayout);
-		painelPrincipalLayout.setHorizontalGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						painelPrincipalLayout
-								.createSequentialGroup()
-								.addComponent(painelDeAcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(painelDeDesenho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE).addContainerGap()));
-		painelPrincipalLayout.setVerticalGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addComponent(painelDeAcoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(painelDeDesenho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+        javax.swing.GroupLayout painelDeAcoesLayout = new javax.swing.GroupLayout(painelDeAcoes);
+        painelDeAcoes.setLayout(painelDeAcoesLayout);
+        painelDeAcoesLayout.setHorizontalGroup(
+            painelDeAcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(painelWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(painelDeObjetos, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(painelDeAcoesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoAcoesDeMovimento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoConfigurarObjeto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoAdicionarObjeto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoRemoverObjeto)
+                .addContainerGap())
+        );
+        painelDeAcoesLayout.setVerticalGroup(
+            painelDeAcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelDeAcoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(painelDeObjetos, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelDeAcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoAdicionarObjeto)
+                    .addComponent(botaoRemoverObjeto)
+                    .addComponent(botaoConfigurarObjeto)
+                    .addComponent(botaoAcoesDeMovimento))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(painelWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-		fileMenu.setMnemonic('f');
-		fileMenu.setText("Arquivo");
+        painelDeDesenho.setBackground(new java.awt.Color(254, 254, 254));
+        painelDeDesenho.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Viewport", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.darkGray));
+        painelDeDesenho.setToolTipText("Viewport");
 
-		importarObjMenuItem.setText("Importar Obj");
-		importarObjMenuItem.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				importarObjMenuItemActionPerformed(evt);
-			}
-		});
-		fileMenu.add(importarObjMenuItem);
+        javax.swing.GroupLayout painelDeDesenhoLayout = new javax.swing.GroupLayout(painelDeDesenho);
+        painelDeDesenho.setLayout(painelDeDesenhoLayout);
+        painelDeDesenhoLayout.setHorizontalGroup(
+            painelDeDesenhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 777, Short.MAX_VALUE)
+        );
+        painelDeDesenhoLayout.setVerticalGroup(
+            painelDeDesenhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
-		exportarObjMenuItem.setText("Exportar Obj");
-		exportarObjMenuItem.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				exportarObjMenuItemActionPerformed(evt);
-			}
-		});
-		fileMenu.add(exportarObjMenuItem);
+        javax.swing.GroupLayout painelPrincipalLayout = new javax.swing.GroupLayout(painelPrincipal);
+        painelPrincipal.setLayout(painelPrincipalLayout);
+        painelPrincipalLayout.setHorizontalGroup(
+            painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelPrincipalLayout.createSequentialGroup()
+                .addComponent(painelDeAcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(painelDeDesenho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        painelPrincipalLayout.setVerticalGroup(
+            painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(painelDeAcoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(painelDeDesenho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
-		sairMenuItem.setMnemonic('x');
-		sairMenuItem.setText("Sair");
-		sairMenuItem.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				sairMenuItemActionPerformed(evt);
-			}
-		});
-		fileMenu.add(sairMenuItem);
+        fileMenu.setMnemonic('f');
+        fileMenu.setText("Arquivo");
 
-		menuBar.add(fileMenu);
+        importarObjMenuItem.setText("Importar Obj");
+        importarObjMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importarObjMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(importarObjMenuItem);
 
-		editMenu.setMnemonic('e');
-		editMenu.setText("Editar");
+        exportarObjMenuItem.setText("Exportar Obj");
+        exportarObjMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportarObjMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(exportarObjMenuItem);
 
-		adionarFormaMenuItem.setMnemonic('t');
-		adionarFormaMenuItem.setText("Adicionar Forma");
-		adionarFormaMenuItem.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				adionarFormaMenuItemActionPerformed(evt);
-			}
-		});
-		editMenu.add(adionarFormaMenuItem);
+        sairMenuItem.setMnemonic('x');
+        sairMenuItem.setText("Sair");
+        sairMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(sairMenuItem);
 
-		menuBar.add(editMenu);
+        menuBar.add(fileMenu);
 
-		helpMenu.setMnemonic('h');
-		helpMenu.setText("Ajuda");
+        editMenu.setMnemonic('e');
+        editMenu.setText("Editar");
 
-		sobreMenuItem.setMnemonic('a');
-		sobreMenuItem.setText("Sobre");
-		sobreMenuItem.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				sobreMenuItemActionPerformed(evt);
-			}
-		});
-		helpMenu.add(sobreMenuItem);
+        adionarFormaMenuItem.setMnemonic('t');
+        adionarFormaMenuItem.setText("Adicionar Forma");
+        adionarFormaMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adionarFormaMenuItemActionPerformed(evt);
+            }
+        });
+        editMenu.add(adionarFormaMenuItem);
 
-		menuBar.add(helpMenu);
+        menuBar.add(editMenu);
 
-		setJMenuBar(menuBar);
+        helpMenu.setMnemonic('h');
+        helpMenu.setText("Ajuda");
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(painelPrincipal,
-				javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
-		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(painelPrincipal,
-				javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
+        sobreMenuItem.setMnemonic('a');
+        sobreMenuItem.setText("Sobre");
+        sobreMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sobreMenuItemActionPerformed(evt);
+            }
+        });
+        helpMenu.add(sobreMenuItem);
 
-		pack();
-	}// </editor-fold>//GEN-END:initComponents
+        menuBar.add(helpMenu);
+
+        setJMenuBar(menuBar);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(painelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(painelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void botaoRotacionarWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRotacionarWindowActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoRotacionarWindowActionPerformed
 
 	private void botaoAcoesDeMovimentoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAcoesDeMovimentoActionPerformed
 		int indiceSelecionado = this.listaDeObjetos.getSelectedIndex();
@@ -504,34 +565,38 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		adicionarFormDialog.setVisible(true);
 	}// GEN-LAST:event_adionarFormaMenuItemActionPerformed
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JMenuItem adionarFormaMenuItem;
-	private javax.swing.JButton botaoAcoesDeMovimento;
-	private javax.swing.JButton botaoAdicionarObjeto;
-	private javax.swing.JButton botaoConfigurarObjeto;
-	private javax.swing.JButton botaoNavegacaoParaBaixo;
-	private javax.swing.JButton botaoNavegacaoParaCima;
-	private javax.swing.JButton botaoNavegacaoParaDireita;
-	private javax.swing.JButton botaoNavegacaoParaEsquerda;
-	private javax.swing.JButton botaoRemoverObjeto;
-	private javax.swing.JButton botaoZoomIn;
-	private javax.swing.JButton botaoZoomOut;
-	private javax.swing.JMenu editMenu;
-	private javax.swing.JMenuItem exportarObjMenuItem;
-	private javax.swing.JMenu fileMenu;
-	private javax.swing.JMenu helpMenu;
-	private javax.swing.JMenuItem importarObjMenuItem;
-	private java.awt.List listaDeObjetos;
-	private javax.swing.JMenuBar menuBar;
-	private javax.swing.JPanel painelDeAcoes;
-	private PainelDeDesenho painelDeDesenho;
-	private javax.swing.JPanel painelDeNavegacao;
-	private javax.swing.JScrollPane painelDeObjetos;
-	private javax.swing.JPanel painelDeZoom;
-	private javax.swing.JPanel painelPrincipal;
-	private javax.swing.JPanel painelWindow;
-	private javax.swing.JMenuItem sairMenuItem;
-	private javax.swing.JMenuItem sobreMenuItem;
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem adionarFormaMenuItem;
+    private javax.swing.JTextField anguloDeRotacaoDaWindowTextField;
+    private javax.swing.JButton botaoAcoesDeMovimento;
+    private javax.swing.JButton botaoAdicionarObjeto;
+    private javax.swing.JButton botaoConfigurarObjeto;
+    private javax.swing.JButton botaoNavegacaoParaBaixo;
+    private javax.swing.JButton botaoNavegacaoParaCima;
+    private javax.swing.JButton botaoNavegacaoParaDireita;
+    private javax.swing.JButton botaoNavegacaoParaEsquerda;
+    private javax.swing.JButton botaoRemoverObjeto;
+    private javax.swing.JButton botaoRotacionarWindow;
+    private javax.swing.JButton botaoZoomIn;
+    private javax.swing.JButton botaoZoomOut;
+    private javax.swing.JMenu editMenu;
+    private javax.swing.JMenuItem exportarObjMenuItem;
+    private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenuItem importarObjMenuItem;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelAnguloDeRotacaoDaWindow;
+    private java.awt.List listaDeObjetos;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JPanel painelDeAcoes;
+    private PainelDeDesenho painelDeDesenho;
+    private javax.swing.JPanel painelDeNavegacao;
+    private javax.swing.JScrollPane painelDeObjetos;
+    private javax.swing.JPanel painelDeZoom;
+    private javax.swing.JPanel painelPrincipal;
+    private javax.swing.JPanel painelWindow;
+    private javax.swing.JMenuItem sairMenuItem;
+    private javax.swing.JMenuItem sobreMenuItem;
+    // End of variables declaration//GEN-END:variables
 
 }
