@@ -11,8 +11,8 @@ public class Rotacionador extends Movimentador {
 	int angulo;
 	double seno, cosseno, radiano;
 
-	public Rotacionador(ObjetoGeometrico objeto, Coordenada vetor, int angulo) {
-		super(objeto, vetor);
+	public Rotacionador(ObjetoGeometrico objeto, Coordenada ponto, int angulo) {
+		super(objeto, ponto);
 		this.angulo = angulo;
 	}
 
@@ -21,15 +21,14 @@ public class Rotacionador extends Movimentador {
 		radiano = Math.toRadians(angulo);
 		seno = Math.sin(radiano);
 		cosseno = Math.cos(radiano);
-		int dx = coordenadaDeReferencia.getX();
-		int dy = coordenadaDeReferencia.getY();
+		double dx = coordenadaDeReferencia.getX();
+		double dy = coordenadaDeReferencia.getY();
 
 		List<Coordenada> novasCoordenadas = new ArrayList<Coordenada>();
 
 		for (Coordenada coordenada : objeto.getCoordenadas()) {
-			novasCoordenadas.add(new Coordenada(
-					(int) ( (coordenada.getX() - dx) * cosseno + (coordenada.getY() - dy) * seno + dx ),
-					(int) ( (coordenada.getX() - dx) * -seno + (coordenada.getY() - dy) * cosseno + dy ) ));
+			novasCoordenadas.add(new Coordenada((int) ((coordenada.getX() - dx) * cosseno + (coordenada.getY() - dy) * seno + dx),
+					(int) ((coordenada.getX() - dx) * -seno + (coordenada.getY() - dy) * cosseno + dy)));
 
 		}
 
