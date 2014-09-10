@@ -40,10 +40,10 @@ public class Reta extends ObjetoGeometrico {
 	@Override
 	public void desenhar(Graphics grafico) {
 		grafico.setColor(cor);
-		int coordenadaX1 = this.obterP1().getX();
-		int coordenadaY1 = this.obterP1().getY();
-		int coordenadaX2 = this.obterP2().getX();
-		int coordenadaY2 = this.obterP2().getY();
+		int coordenadaX1 = (int) this.obterP1().getX();
+		int coordenadaY1 = (int) this.obterP1().getY();
+		int coordenadaX2 = (int) this.obterP2().getX();
+		int coordenadaY2 = (int) this.obterP2().getY();
 		grafico.setColor(cor);
 		grafico.drawLine(coordenadaX1, coordenadaY1, coordenadaX2, coordenadaY2);
 	}
