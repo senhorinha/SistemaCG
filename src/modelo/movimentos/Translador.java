@@ -14,13 +14,12 @@ public class Translador extends Movimentador {
 
 	@Override
 	public void movimentar() {
-		int dx = coordenadaDeReferencia.getX();
-		int dy = coordenadaDeReferencia.getY();
+		double dx = coordenadaDeReferencia.getX();
+		double dy = coordenadaDeReferencia.getY();
 		List<Coordenada> novasCoordenadas = new ArrayList<Coordenada>();
 
 		for (Coordenada coordenada : objeto.getCoordenadas()) {
-			novasCoordenadas.add(new Coordenada(coordenada.getX() + dx, 
-												coordenada.getY() + dy ));
+			novasCoordenadas.add(new Coordenada(coordenada.getX() + dx, coordenada.getY() + dy));
 
 		}
 
