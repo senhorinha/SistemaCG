@@ -14,35 +14,35 @@ public class Normalizador {
 	double fatorDeEscalaX;
 	double fatorDeEscalaY;
 	public static final int AJUSTE = 1;
-	List<ObjetoGeometrico> objetos = DisplayFile.obterInstancia().getObjetos();
+	List<ObjetoGeometrico> objetos;
 
 	public Normalizador(Window window) {
 		this.window = window;
 
 	}
 
-	public void gerarDescricaoEmSCN() {
-
+	public void gerarDescricaoEmSCN() throws CloneNotSupportedException {
+		objetos = DisplayFile.obterInstancia().getObjetos();
 		fatorDeEscalaX = (window.getxMax() - window.getxMin()) / 2;
 		fatorDeEscalaY = (window.getyMax() - window.getyMin()) / 2;
 		double xNormalizado, yNormalizado;
 		List<Coordenada> coordenadasNormalizadas;
 
 		for (ObjetoGeometrico objeto : objetos) {
-
+			ObjetoGeometrico clone = (ObjetoGeometrico) objeto.clone();
 			coordenadasNormalizadas = new ArrayList<Coordenada>();
 
-			for (Coordenada coordenada : objeto.getCoordenadas()) {
+			for (Coordenada coordenada : clone.getCoordenadas()) {
 
-				xNormalizado = (coordenada.getX() - objeto.getCentroGeometrico().getX()) * fatorDeEscalaX
-						+ objeto.getCentroGeometrico().getX() - AJUSTE;
+				xNormalizado = (coordenada.getX() - clone.getCentroGeometrico().getX()) * fatorDeEscalaX
+						+ clone.getCentroGeometrico().getX() - AJUSTE;
 
-				yNormalizado = (coordenada.getY() - objeto.getCentroGeometrico().getY()) * fatorDeEscalaY
-						+ objeto.getCentroGeometrico().getY() - AJUSTE;
+				yNormalizado = (coordenada.getY() - clone.getCentroGeometrico().getY()) * fatorDeEscalaY
+						+ clone.getCentroGeometrico().getY() - AJUSTE;
 
 				coordenadasNormalizadas.add(new Coordenada(xNormalizado, yNormalizado));
 			}
-			objeto.setCoordenadasNormalizadas(coordenadasNormalizadas);
+			clone.setCoordenadas(coordenadasNormalizadas);
 		}
 
 	}

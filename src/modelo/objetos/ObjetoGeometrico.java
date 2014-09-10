@@ -12,7 +12,6 @@ public abstract class ObjetoGeometrico implements Cloneable {
 	String nome;
 	List<Coordenada> coordenadas;
 	Color cor;
-	List<Coordenada> coordenadasNormalizadas;
 
 	public abstract void desenhar(Graphics grafico);
 
@@ -53,14 +52,6 @@ public abstract class ObjetoGeometrico implements Cloneable {
 		x = x / coordenadas.size();
 		y = y / coordenadas.size();
 		return new Coordenada(x, y);
-	}
-
-	public List<Coordenada> getCoordenadasNormalizadas() {
-		return coordenadasNormalizadas;
-	}
-
-	public void setCoordenadasNormalizadas(List<Coordenada> coordenadasNormalizadas) {
-		this.coordenadas = coordenadasNormalizadas;
 	}
 
 	@Override
