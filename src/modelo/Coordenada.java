@@ -2,14 +2,14 @@ package modelo;
 
 public class Coordenada {
 
-	private int x, y;
+	private double x, y;
 
-	public Coordenada(int x, int y) {
+	public Coordenada(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
 
-	public int getX() {
+	public double getX() {
 		return this.x;
 	}
 
@@ -17,7 +17,7 @@ public class Coordenada {
 		this.x = x;
 	}
 
-	public int getY() {
+	public double getY() {
 		return this.y;
 	}
 
