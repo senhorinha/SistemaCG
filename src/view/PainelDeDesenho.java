@@ -61,7 +61,7 @@ public class PainelDeDesenho extends JPanel {
 		DisplayFile instance = DisplayFile.obterInstancia();
 		for (ObjetoGeometrico objetoGrafico : instance.getObjetos()) {
 			try {
-				ObjetoGeometrico copia = copiarObjeto(objetoGrafico);
+				ObjetoGeometrico copia = (ObjetoGeometrico) objetoGrafico.clone();
 				copia.transformarCoordenadas(transformacaoDeViewport);
 				copia.desenhar(g);
 			} catch (CloneNotSupportedException e) {
@@ -69,16 +69,6 @@ public class PainelDeDesenho extends JPanel {
 				e.printStackTrace();
 			}
 		}
-	}
-
-	public ObjetoGeometrico copiarObjeto(ObjetoGeometrico objeto) throws CloneNotSupportedException {
-		ObjetoGeometrico copia = (ObjetoGeometrico) objeto.clone();
-		List<Coordenada> coordenadas = new ArrayList<Coordenada>();
-		for (Coordenada coordenada : copia.getCoordenadas()) {
-			coordenadas.add(new Coordenada(coordenada.getX(), coordenada.getY()));
-		}
-		copia.setCoordenadas(coordenadas);
-		return copia;
 	}
 
 	public void aplicarZoom(Zoom zoom) {

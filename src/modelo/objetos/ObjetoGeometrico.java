@@ -2,6 +2,7 @@ package modelo.objetos;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Coordenada;
@@ -56,6 +57,12 @@ public abstract class ObjetoGeometrico implements Cloneable {
 
 	@Override
 	public Object clone() throws CloneNotSupportedException {
-		return super.clone();
+		ObjetoGeometrico copia = (ObjetoGeometrico) super.clone();
+		List<Coordenada> coordenadas = new ArrayList<Coordenada>();
+		for (Coordenada coordenada : copia.getCoordenadas()) {
+			coordenadas.add(new Coordenada(coordenada.getX(), coordenada.getY()));
+		}
+		copia.setCoordenadas(coordenadas);
+		return copia;
 	}
 }
