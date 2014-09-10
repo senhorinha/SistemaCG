@@ -27,8 +27,8 @@ public class Ponto extends ObjetoGeometrico {
 	@Override
 	public void desenhar(Graphics grafico) {
 		grafico.setColor(cor);
-		int coordenadaX = this.getCoordenadas().get(0).getX();
-		int coordenadaY = this.getCoordenadas().get(0).getY();
+		int coordenadaX = (int) this.getCoordenadas().get(0).getX();
+		int coordenadaY = (int) this.getCoordenadas().get(0).getY();
 		grafico.setColor(cor);
 		grafico.drawLine(coordenadaX, coordenadaY, coordenadaX, coordenadaY);
 	}
