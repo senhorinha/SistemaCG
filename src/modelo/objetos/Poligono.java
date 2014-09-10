@@ -29,8 +29,8 @@ public class Poligono extends ObjetoGeometrico {
 		int[] yPoints = new int[nPoints];
 
 		for (int i = 0; i < this.getCoordenadas().size(); i++) {
-			xPoints[i] = this.getCoordenadas().get(i).getX();
-			yPoints[i] = this.getCoordenadas().get(i).getY();
+			xPoints[i] = (int) this.getCoordenadas().get(i).getX();
+			yPoints[i] = (int) this.getCoordenadas().get(i).getY();
 		}
 		grafico.setColor(cor);
 		grafico.drawPolygon(xPoints, yPoints, nPoints);
