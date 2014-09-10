@@ -15,15 +15,15 @@ public class Escalonador extends Movimentador {
 	@Override
 	public void movimentar() {
 		Coordenada centroDoObjeto = objeto.getCentroGeometrico();
-		int cx = centroDoObjeto.getX();
-		int cy = centroDoObjeto.getY();
-		int sx = coordenadaDeReferencia.getX();
-		int sy = coordenadaDeReferencia.getY();
+		double cx = centroDoObjeto.getX();
+		double cy = centroDoObjeto.getY();
+		double sx = coordenadaDeReferencia.getX();
+		double sy = coordenadaDeReferencia.getY();
 		List<Coordenada> novasCoordenadas = new ArrayList<Coordenada>();
 
 		for (Coordenada coordenada : objeto.getCoordenadas()) {
-			int x = coordenada.getX();
-			int y = coordenada.getY();
+			double x = coordenada.getX();
+			double y = coordenada.getY();
 			novasCoordenadas.add(new Coordenada((x - cx) * sx + cx, (y - cy) * sy + cy));
 
 		}
