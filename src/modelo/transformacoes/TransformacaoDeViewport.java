@@ -14,8 +14,7 @@ public class TransformacaoDeViewport implements Transformacao {
 		this.window = window;
 	}
 
-	public TransformacaoDeViewport(Window window, int xvpMin, int yvpMin,
-			int xvpMax, int yvpMax) {
+	public TransformacaoDeViewport(Window window, int xvpMin, int yvpMin, int xvpMax, int yvpMax) {
 		this.window = window;
 		this.xvpMin = xvpMin;
 		this.yvpMin = yvpMin;
@@ -25,7 +24,7 @@ public class TransformacaoDeViewport implements Transformacao {
 
 	@Override
 	public void executar(List<Coordenada> coordenadas) {
-		float xw, yw, xvp, yvp;
+		double xw, yw, xvp, yvp;
 		float xwMin = window.getxMin();
 		float ywMin = window.getyMin();
 		float xwMax = window.getxMax();
