@@ -4,7 +4,7 @@ public class Window {
 
 	private Coordenada minimo;
 	private Coordenada maximo;
-	private int xMin, yMin, xMax, yMax, proporcaoX, proporcaoY;
+	private int proporcaoX, proporcaoY;
 
 	public Window(int xMax, int yMax) {
 		minimo = new Coordenada(0, 0);
