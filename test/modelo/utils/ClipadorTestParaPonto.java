@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Coordenada;
-import modelo.Window;
 import modelo.objetos.ObjetoGeometrico;
 import modelo.objetos.Ponto;
 
@@ -14,22 +13,22 @@ import org.junit.Test;
 
 public class ClipadorTestParaPonto {
 
-	private Window window;
-	private Clipador clipador;
+	private Coordenada minimaViewport;
+	private Coordenada maximaViewport;
 	List<ObjetoGeometrico> objetos;
 	private ObjetoGeometrico objeto;
 
 	@Before
 	public void setup() {
-		window = new Window(100, 100);
-		clipador = new Clipador();
+		minimaViewport = new Coordenada(0, 0);
+		maximaViewport = new Coordenada(100, 100);
 		objetos = new ArrayList<ObjetoGeometrico>();
 	}
 
 	public void criarPontoAdicionarNaListaExecutarClipador(Coordenada coordenada) {
 		objeto = new Ponto("teste", null, coordenada);
 		objetos.add(objeto);
-		objetos = clipador.executar(objetos, window);
+		objetos = Clipador.executar(objetos, minimaViewport, maximaViewport);
 	}
 
 	@Test

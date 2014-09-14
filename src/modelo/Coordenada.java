@@ -24,5 +24,14 @@ public class Coordenada {
 	public void setY(double y) {
 		this.y = y;
 	}
+	
+	public void somarAoX(int valor) {
+		x += valor;
+	}
+	
+	public void somarAoY(int valor) {
+		y += valor;
+	}
+
 
 }

@@ -23,8 +23,8 @@ public class Normalizador {
 
 	public void gerarDescricaoEmSCN() throws CloneNotSupportedException {
 		objetos = DisplayFile.obterInstancia().getObjetos();
-		fatorDeEscalaX = (window.getxMax() - window.getxMin()) / 2;
-		fatorDeEscalaY = (window.getyMax() - window.getyMin()) / 2;
+		fatorDeEscalaX = (window.getMaximo().getX() - window.getMinimo().getX()) / 2;
+		fatorDeEscalaY = (window.getMaximo().getY() - window.getMinimo().getY()) / 2;
 		double xNormalizado, yNormalizado;
 		List<Coordenada> coordenadasNormalizadas;
 

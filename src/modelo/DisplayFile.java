@@ -41,4 +41,11 @@ public class DisplayFile {
 		return objetos;
 	}
 
+	public List<ObjetoGeometrico> clonarObjetos() throws CloneNotSupportedException {
+		List<ObjetoGeometrico> objetosClonados = new ArrayList<ObjetoGeometrico>();
+		for (ObjetoGeometrico objeto : objetos) {
+			objetosClonados.add((ObjetoGeometrico) objeto.clone());
+		}
+		return objetosClonados;
+	}
 }

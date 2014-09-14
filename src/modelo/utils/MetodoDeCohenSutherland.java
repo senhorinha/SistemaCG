@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Coordenada;
-import modelo.Window;
 import modelo.objetos.Reta;
 
 public class MetodoDeCohenSutherland {
 
-	public static Reta clipar(Reta reta, Window window) {
-		List<RegiaoParaClipping> regioes = formarCodigos(reta, window);
+	public static Reta clipar(Reta reta, Coordenada minimo, Coordenada maximo) {
+		List<RegiaoParaClipping> regioes = formarCodigos(reta, minimo, maximo);
 		RegiaoParaClipping regiaoUm = regioes.get(0);
 		RegiaoParaClipping regiaoDois = regioes.get(1);
 		switch (regioes.get(0).valueOf() & regioes.get(1).valueOf()) {
@@ -20,8 +19,8 @@ public class MetodoDeCohenSutherland {
 				double y1 = reta.getCoordenadas().get(0).getY();
 				double x2 = reta.getCoordenadas().get(1).getX();
 				double y2 = reta.getCoordenadas().get(1).getY();
-				int alturaDaWindow = window.getyMax();
-				int larguraDaWindow = window.getxMax();
+				int alturaDaWindow = (int) maximo.getY();
+				int larguraDaWindow = (int) maximo.getX();
 				for (int i = 0; i < regioes.size(); i++) {
 					double x = 0;
 					double y = 0;
@@ -61,7 +60,7 @@ public class MetodoDeCohenSutherland {
 		return reta;
 	}
 
-	private static List<RegiaoParaClipping> formarCodigos(Reta reta, Window window) {
+	private static List<RegiaoParaClipping> formarCodigos(Reta reta, Coordenada minimo, Coordenada maximo) {
 		List<Coordenada> coordenadas = reta.getCoordenadas();
 		List<RegiaoParaClipping> regioes = new ArrayList<RegiaoParaClipping>();
 		double x;
@@ -70,10 +69,10 @@ public class MetodoDeCohenSutherland {
 			String codigo = "";
 			x = coordenada.getX();
 			y = coordenada.getY();
-			codigo += y > window.getyMax() ? "1" : "0";
-			codigo += y < window.getyMin() ? "1" : "0";
-			codigo += x > window.getxMax() ? "1" : "0";
-			codigo += x < window.getxMin() ? "1" : "0";
+			codigo += y > maximo.getY() ? "1" : "0";
+			codigo += y < minimo.getY() ? "1" : "0";
+			codigo += x > maximo.getX() ? "1" : "0";
+			codigo += x < minimo.getX() ? "1" : "0";
 			regioes.add(transformarEmRegiao(codigo));
 		}
 		return regioes;

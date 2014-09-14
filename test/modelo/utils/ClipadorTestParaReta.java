@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Coordenada;
-import modelo.Window;
 import modelo.objetos.ObjetoGeometrico;
 import modelo.objetos.Reta;
 
@@ -16,22 +15,22 @@ import org.junit.Test;
 
 public class ClipadorTestParaReta {
 
-	private Window window;
-	private Clipador clipador;
+	private Coordenada minimaViewport;
+	private Coordenada maximaViewport;
 	List<ObjetoGeometrico> objetos;
 	private ObjetoGeometrico objeto;
 
 	@Before
 	public void setup() {
-		window = new Window(100, 100);
-		clipador = new Clipador();
+		minimaViewport = new Coordenada(0, 0);
+		maximaViewport = new Coordenada(100, 100);
 		objetos = new ArrayList<ObjetoGeometrico>();
 	}
 
 	public void criarRetaAdicionarNaListaExecutarClipador(double x1, double y1, double x2, double y2) {
 		objeto = new Reta("teste", null, new Coordenada(x1, y1), new Coordenada(x2, y2));
 		objetos.add(objeto);
-		objetos = clipador.executar(objetos, window);
+		objetos = Clipador.executar(objetos, minimaViewport, maximaViewport);
 	}
 
 	@Test

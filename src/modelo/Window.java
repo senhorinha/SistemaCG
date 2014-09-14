@@ -2,91 +2,71 @@ package modelo;
 
 public class Window {
 
+	private Coordenada minimo;
+	private Coordenada maximo;
 	private int xMin, yMin, xMax, yMax, proporcaoX, proporcaoY;
 
-	
 	public Window(int xMax, int yMax) {
-		this.xMin = 0;
-		this.yMin = 0;
-		this.xMax = xMax;
-		this.yMax = yMax;
+		minimo = new Coordenada(0, 0);
+		maximo = new Coordenada(xMax, yMax);
+	}
+
+	public Window(Coordenada minimo, Coordenada maximo) {
+		this.minimo = minimo;
+		this.maximo = maximo;
 	}
 
 	public Window() {
 	}
 
 	public void zoomIn() {
-		xMax = xMax - proporcaoX;
-		yMax = yMax - proporcaoY;
-		xMin = xMin + proporcaoX;
-		yMin = yMin + proporcaoY;
+		maximo.somarAoX(-proporcaoX);
+		maximo.somarAoY(-proporcaoY);
+		minimo.somarAoX(proporcaoX);
+		minimo.somarAoY(proporcaoY);
 	}
 
 	public void zoomOut() {
-		xMax = xMax + proporcaoX;
-		yMax = yMax + proporcaoY;
-		xMin = xMin - proporcaoX;
-		yMin = yMin - proporcaoY;
+		maximo.somarAoX(proporcaoX);
+		maximo.somarAoY(proporcaoY);
+		minimo.somarAoX(-proporcaoX);
+		minimo.somarAoY(-proporcaoY);
 	}
 
 	public void moverEsquerda() {
-		xMin = xMin - 10;
-		xMax = xMax - 10;
+		maximo.somarAoX(-10);
+		minimo.somarAoX(-10);
 	}
 
 	public void moverDireita() {
-		xMin = xMin + 10;
-		xMax = xMax + 10;
+		maximo.somarAoX(10);
+		minimo.somarAoX(10);
 	}
 
 	public void moverCima() {
-		yMin = yMin + 10;
-		yMax = yMax + 10;
+		maximo.somarAoY(10);
+		minimo.somarAoY(10);
 	}
 
 	public void moverBaixo() {
-		yMin = yMin - 10;
-		yMax = yMax - 10;
+		maximo.somarAoY(-10);
+		minimo.somarAoY(-10);
 	}
 
-	public int getxMin() {
-		return xMin;
-	}
-
-	public void setxMin(int xMin) {
-		this.xMin = xMin;
-	}
-
-	public int getyMin() {
-		return yMin;
-	}
-
-	public void setyMin(int yMin) {
-		this.yMin = yMin;
-	}
-
-	public int getxMax() {
-		return xMax;
-	}
-
-	public void setxMax(int xMax) {
-		this.xMax = xMax;
-	}
-
-	public int getyMax() {
-		return yMax;
-	}
-
-	public void setyMax(int yMax) {
-		this.yMax = yMax;
-	}
-	
 	public void setProporcaoX(int proporcaoX) {
 		this.proporcaoX = proporcaoX;
 	}
-	
+
 	public void setProporcaoY(int proporcaoY) {
 		this.proporcaoY = proporcaoY;
+	}
+
+	public Coordenada getMinimo() {
+		return minimo;
+	}
+
+	public Coordenada getMaximo() {
+		return maximo;
 	}
 
 }

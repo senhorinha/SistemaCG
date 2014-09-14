@@ -7,69 +7,35 @@ import modelo.Window;
 
 public class TransformacaoDeViewport implements Transformacao {
 
-	private int xvpMin, yvpMin, xvpMax, yvpMax;
+	private Coordenada minimo;
+	private Coordenada maximo;
 	private final Window window;
 
 	public TransformacaoDeViewport(Window window) {
 		this.window = window;
 	}
 
-	public TransformacaoDeViewport(Window window, int xvpMin, int yvpMin, int xvpMax, int yvpMax) {
+	public TransformacaoDeViewport(Window window, Coordenada minimo, Coordenada maximo) {
 		this.window = window;
-		this.xvpMin = xvpMin;
-		this.yvpMin = yvpMin;
-		this.xvpMax = xvpMax;
-		this.yvpMax = yvpMax;
+		this.minimo = minimo;
+		this.maximo = maximo;
 	}
 
 	@Override
 	public void executar(List<Coordenada> coordenadas) {
 		double xw, yw, xvp, yvp;
-		float xwMin = window.getxMin();
-		float ywMin = window.getyMin();
-		float xwMax = window.getxMax();
-		float ywMax = window.getyMax();
+		float xwMin = (float) window.getMinimo().getX();
+		float ywMin = (float) window.getMinimo().getY();
+		float xwMax = (float) window.getMaximo().getX();
+		float ywMax = (float) window.getMaximo().getY();
 		for (Coordenada c : coordenadas) {
-
 			xw = c.getX();
 			yw = c.getY();
-			xvp = ((xw - xwMin) / (xwMax - xwMin) * (xvpMax - xvpMin));
-			yvp = ((1 - (yw - ywMin) / (ywMax - ywMin)) * (yvpMax - yvpMin));
+			xvp = ((xw - xwMin) / (xwMax - xwMin) * (maximo.getX() - minimo.getX()));
+			yvp = ((1 - (yw - ywMin) / (ywMax - ywMin)) * (maximo.getY() - minimo.getY()));
 			c.setX((int) xvp);
 			c.setY((int) yvp);
 		}
-	}
-
-	public int getXvpMin() {
-		return xvpMin;
-	}
-
-	public void setXvpMin(int xvpMin) {
-		this.xvpMin = xvpMin;
-	}
-
-	public int getYvpMin() {
-		return yvpMin;
-	}
-
-	public void setYvpMin(int yvpMin) {
-		this.yvpMin = yvpMin;
-	}
-
-	public int getXvpMax() {
-		return xvpMax;
-	}
-
-	public void setXvpMax(int xvpMax) {
-		this.xvpMax = xvpMax;
-	}
-
-	public int getYvpMax() {
-		return yvpMax;
-	}
-
-	public void setYvpMax(int yvpMax) {
-		this.yvpMax = yvpMax;
 	}
 
 }
