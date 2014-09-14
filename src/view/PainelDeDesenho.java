@@ -20,8 +20,7 @@ public class PainelDeDesenho extends JPanel {
 
 	private Transformacao transformacaoDeViewport;
 	private Window window;
-	private boolean viewportConfigurado;
-	private boolean windowConfigurado;
+	private boolean windowEViewportConfigurados;
 	private Coordenada minimaViewport;
 	private Coordenada maximaViewport;
 
@@ -30,31 +29,23 @@ public class PainelDeDesenho extends JPanel {
 
 	}
 
-	public void configurarViewport() {
-		if (!viewportConfigurado) {
-			Rectangle medidas = this.getBounds();
-			minimaViewport = new Coordenada(0, 0);
-			maximaViewport = new Coordenada(medidas.getWidth(), medidas.getHeight());
-			transformacaoDeViewport = new TransformacaoDeViewport(window, minimaViewport, maximaViewport);
-			viewportConfigurado = true;
-		}
-	}
-
-	public void configurarWindowCom() {
-		if (!windowConfigurado) {
+	public void configurarWindowEViewport() {
+		if (!windowEViewportConfigurados) {
 			Rectangle medidas = this.getBounds();
 			window = new Window(new Coordenada(0, 0), new Coordenada(medidas.getWidth(), medidas.getHeight()));
 			window.setProporcaoX((int) medidas.getWidth() / 10);
 			window.setProporcaoY((int) medidas.getHeight() / 10);
-			windowConfigurado = true;
+			minimaViewport = new Coordenada(0, 0);
+			maximaViewport = new Coordenada(medidas.getWidth(), medidas.getHeight());
+			transformacaoDeViewport = new TransformacaoDeViewport(window, minimaViewport, maximaViewport);
+			windowEViewportConfigurados = true;
 		}
 	}
 
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		this.configurarWindowCom();
-		this.configurarViewport();
+		this.configurarWindowEViewport();
 		DisplayFile instance = DisplayFile.obterInstancia();
 		List<ObjetoGeometrico> objetosClonados;
 		try {
