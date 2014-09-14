@@ -8,13 +8,16 @@ import modelo.Coordenada;
 
 public class Poligono extends ObjetoGeometrico {
 
+	private boolean preenchido;
+
 	public Poligono() {
 		this.cor = Color.BLACK;
 	}
 
-	public Poligono(String nome, Color cor, List<Coordenada> coordenadas) {
+	public Poligono(String nome, Color cor, List<Coordenada> coordenadas, boolean preenchido) {
 		this.nome = nome;
 		this.coordenadas = coordenadas;
+		this.preenchido = preenchido;
 		if (cor == null) {
 			this.cor = Color.BLACK;
 		} else {
@@ -33,7 +36,11 @@ public class Poligono extends ObjetoGeometrico {
 			yPoints[i] = (int) this.getCoordenadas().get(i).getY();
 		}
 		grafico.setColor(cor);
-		grafico.drawPolygon(xPoints, yPoints, nPoints);
+		if (preenchido) {
+			grafico.fillPolygon(xPoints, yPoints, nPoints);
+		} else {
+			grafico.drawPolygon(xPoints, yPoints, nPoints);
+		}
 	}
 
 }
