@@ -167,12 +167,12 @@
                           <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                           <Component id="coordenadaPontoXLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="coordenadaPontoXTextField" min="-2" pref="45" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="coordenadaPontoXTextField" min="-2" pref="64" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="coordenadaPontoYLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="coordenadaPontoYTextField" min="-2" pref="45" max="-2" attributes="0"/>
-                          <EmptySpace pref="100" max="32767" attributes="0"/>
+                          <Component id="coordenadaPontoYTextField" min="-2" pref="64" max="-2" attributes="0"/>
+                          <EmptySpace pref="81" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -267,12 +267,12 @@
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="coordenadaFInalRetaXLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="coordenadaFinalRetaXTextField" min="-2" pref="45" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="coordenadaFinalRetaXTextField" min="-2" pref="64" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="coordenadaFinalRetaYLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="coordenadaFinalRetaYTextField" min="-2" pref="45" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="coordenadaFinalRetaYTextField" min="-2" pref="64" max="-2" attributes="0"/>
+                          <EmptySpace pref="101" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -330,12 +330,12 @@
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="coordenadaInicialRetaXLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="coordenadaInicialRetaXTextField" min="-2" pref="45" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="coordenadaInicialRetaXTextField" min="-2" pref="64" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="coordenadaInicialRetaYLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="coordenadaInicialRetaYTextField" min="-2" pref="45" max="-2" attributes="0"/>
-                          <EmptySpace pref="127" max="32767" attributes="0"/>
+                          <Component id="coordenadaInicialRetaYTextField" min="-2" pref="64" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
