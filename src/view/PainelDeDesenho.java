@@ -50,7 +50,7 @@ public class PainelDeDesenho extends JPanel {
 		List<ObjetoGeometrico> objetosClonados;
 		try {
 			objetosClonados = instance.clonarObjetos();
-			Clipador.executar(objetosClonados, minimaViewport, maximaViewport);
+			objetosClonados = Clipador.executar(objetosClonados, minimaViewport, maximaViewport);
 			for (ObjetoGeometrico objeto : objetosClonados) {
 				objeto.transformarCoordenadas(transformacaoDeViewport);
 				objeto.desenhar(g);
