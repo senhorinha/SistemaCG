@@ -1,7 +1,9 @@
 package modelo.utils;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import modelo.Coordenada;
 import modelo.objetos.ObjetoGeometrico;
@@ -49,7 +51,29 @@ public class Clipador {
 	}
 
 	private static Poligono cliparPoligono(Poligono poligono, Coordenada minimo, Coordenada maximo) {
-		return poligono;
+		List<Reta> retasClipadas = separarPoligonoEmRetas(poligono);
+		Set<Coordenada> novasCoordenadas = new HashSet<Coordenada>();
+		for (Reta reta : retasClipadas) {
+			reta = cliparReta(reta, minimo, maximo);
+			if (reta != null) {
+				novasCoordenadas.add(reta.getCoordenadas().get(0));
+				novasCoordenadas.add(reta.getCoordenadas().get(1));
+			}
+		}
+		poligono.setCoordenadas(new ArrayList<Coordenada>(novasCoordenadas));
+		return novasCoordenadas.size() < 2 ? null : poligono;
 	}
 
+	private static List<Reta> separarPoligonoEmRetas(Poligono poligono) {
+		List<Reta> retas = new ArrayList<Reta>();
+		List<Coordenada> coordenadas = poligono.getCoordenadas();
+		Coordenada c1;
+		Coordenada c2;
+		for (int i = 0; i < coordenadas.size(); i++) {
+			c1 = coordenadas.get(i);
+			c2 = i == coordenadas.size() - 1 ? coordenadas.get(0) : coordenadas.get(i + 1);
+			retas.add(new Reta("", null, c1, c2));
+		}
+		return retas;
+	}
 }
