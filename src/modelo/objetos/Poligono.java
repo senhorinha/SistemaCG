@@ -43,4 +43,16 @@ public class Poligono extends ObjetoGeometrico {
 		}
 	}
 
+	@Override
+	public String toString() {
+		// StringBuilder stringBuilder = new
+		// StringBuilder(this.getClass().getSimpleName());
+		// stringBuilder.append(": ").append(nome).append(" ");
+		StringBuilder stringBuilder = new StringBuilder();
+		for (Coordenada coordenada : coordenadas) {
+			stringBuilder.append(coordenada);
+		}
+		return stringBuilder.toString();
+	}
+	
 }
