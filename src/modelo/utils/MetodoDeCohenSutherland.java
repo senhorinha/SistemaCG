@@ -9,6 +9,7 @@ import modelo.objetos.Reta;
 public class MetodoDeCohenSutherland {
 
 	public static Reta clipar(Reta reta, Coordenada minimo, Coordenada maximo) {
+		System.out.println("Reta Original: " + reta.getCoordenadas().get(0) + " " + reta.getCoordenadas().get(1));
 		List<RegiaoParaClipping> regioes = formarCodigos(reta, minimo, maximo);
 		RegiaoParaClipping regiaoUm = regioes.get(0);
 		RegiaoParaClipping regiaoDois = regioes.get(1);
@@ -19,8 +20,8 @@ public class MetodoDeCohenSutherland {
 				double y1 = reta.getCoordenadas().get(0).getY();
 				double x2 = reta.getCoordenadas().get(1).getX();
 				double y2 = reta.getCoordenadas().get(1).getY();
-				int alturaDaWindow = (int) maximo.getY();
-				int larguraDaWindow = (int) maximo.getX();
+				int altura = (int) maximo.getY();
+				int largura = (int) maximo.getX();
 				for (int i = 0; i < regioes.size(); i++) {
 					double x = 0;
 					double y = 0;
@@ -30,8 +31,8 @@ public class MetodoDeCohenSutherland {
 					case NORTE:
 					case NORDESTE:
 					case NOROESTE:
-						x = x1 + (x2 - x1) * (alturaDaWindow - y1) / (y2 - y1);
-						y = alturaDaWindow;
+						x = x1 + (x2 - x1) * (altura - y1) / (y2 - y1);
+						y = altura;
 						break;
 					case SUL:
 					case SUDOESTE:
@@ -40,8 +41,8 @@ public class MetodoDeCohenSutherland {
 						y = 0;
 						break;
 					case LESTE:
-						y = y1 + (y2 - y1) * (larguraDaWindow - x1) / (x2 - x1);
-						x = larguraDaWindow;
+						y = y1 + (y2 - y1) * (largura - x1) / (x2 - x1);
+						x = largura;
 						break;
 					case OESTE:
 						y = y1 + (y2 - y1) * -x1 / (x2 - x1);
@@ -56,6 +57,11 @@ public class MetodoDeCohenSutherland {
 			break;
 		default:
 			reta = null;
+		}
+		if (reta != null) {
+			System.out.println("Reta Clipada: " + reta.getCoordenadas().get(0) + " " + reta.getCoordenadas().get(1));
+		} else {
+			System.out.println("Reta Clipada: null");
 		}
 		return reta;
 	}
