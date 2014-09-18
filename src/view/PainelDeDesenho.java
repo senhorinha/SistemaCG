@@ -36,7 +36,7 @@ public class PainelDeDesenho extends JPanel {
 			window.setProporcaoX((int) medidas.getWidth() / 10);
 			window.setProporcaoY((int) medidas.getHeight() / 10);
 			minimaViewport = new Coordenada(0, 0);
-			maximaViewport = new Coordenada(medidas.getWidth(), medidas.getHeight());
+			maximaViewport = new Coordenada(medidas.getWidth() - 0, medidas.getHeight() - 0);
 			transformacaoDeViewport = new TransformacaoDeViewport(window, minimaViewport, maximaViewport);
 			windowEViewportConfigurados = true;
 		}
@@ -50,10 +50,12 @@ public class PainelDeDesenho extends JPanel {
 		List<ObjetoGeometrico> objetosClonados;
 		try {
 			objetosClonados = instance.clonarObjetos();
-			objetosClonados = Clipador.executar(objetosClonados, minimaViewport, maximaViewport);
 			for (ObjetoGeometrico objeto : objetosClonados) {
 				objeto.transformarCoordenadas(transformacaoDeViewport);
-				objeto.desenhar(g);
+				objeto = Clipador.executar(objeto, minimaViewport, maximaViewport);
+				if (objeto != null) {
+					objeto.desenhar(g);
+				}
 			}
 		} catch (CloneNotSupportedException e1) {
 			e1.printStackTrace();
