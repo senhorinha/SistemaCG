@@ -1,7 +1,7 @@
 package modelo.utils;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -31,6 +31,17 @@ public class Clipador {
 		return objetosClipados;
 	}
 
+	public static ObjetoGeometrico executar(ObjetoGeometrico objeto, final Coordenada minimo, final Coordenada maximo) {
+		if (objeto instanceof Ponto) {
+			objeto = cliparPonto((Ponto) objeto, minimo, maximo);
+		} else if (objeto instanceof Reta) {
+			objeto = cliparReta((Reta) objeto, minimo, maximo);
+		} else if (objeto instanceof Poligono) {
+			objeto = cliparPoligono((Poligono) objeto, minimo, maximo);
+		}
+		return objeto;
+	}
+
 	private static Ponto cliparPonto(Ponto ponto, Coordenada minimo, Coordenada maximo) {
 		Coordenada coordenada = ponto.getCoordenadas().get(0);
 		if (coordenada != null) {
@@ -51,16 +62,22 @@ public class Clipador {
 	}
 
 	private static Poligono cliparPoligono(Poligono poligono, Coordenada minimo, Coordenada maximo) {
+		System.out.printf("Polígono original: %s", poligono);
 		List<Reta> retasClipadas = separarPoligonoEmRetas(poligono);
-		Set<Coordenada> novasCoordenadas = new HashSet<Coordenada>();
+		Set<Coordenada> novasCoordenadas = new LinkedHashSet<Coordenada>();
 		for (Reta reta : retasClipadas) {
-			reta = cliparReta(reta, minimo, maximo);
-			if (reta != null) {
-				novasCoordenadas.add(reta.getCoordenadas().get(0));
-				novasCoordenadas.add(reta.getCoordenadas().get(1));
+			try {
+				reta = cliparReta((Reta) reta.clone(), minimo, maximo);
+				if (reta != null) {
+					novasCoordenadas.add(reta.getCoordenadas().get(0));
+					novasCoordenadas.add(reta.getCoordenadas().get(1));
+				}
+			} catch (CloneNotSupportedException e) {
+				e.printStackTrace();
 			}
 		}
 		poligono.setCoordenadas(new ArrayList<Coordenada>(novasCoordenadas));
+		System.out.printf("Polígono clipado: %s", poligono);
 		return novasCoordenadas.size() < 2 ? null : poligono;
 	}
 
