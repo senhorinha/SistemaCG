@@ -2,9 +2,13 @@ package modelo.objetos;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import modelo.Coordenada;
+import modelo.utils.MetodoDeCohenSutherland;
 
 public class Poligono extends ObjetoGeometrico {
 
@@ -54,5 +58,34 @@ public class Poligono extends ObjetoGeometrico {
 		}
 		return stringBuilder.toString();
 	}
-	
+
+	@Override
+	public ObjetoGeometrico toClip(Coordenada minima, Coordenada maxima) {
+		System.out.printf("Polígono original: %s", this);
+		List<Reta> retasClipadas = separarEmRetas();
+		Set<Coordenada> novasCoordenadas = new LinkedHashSet<Coordenada>();
+		for (Reta reta : retasClipadas) {
+			reta = MetodoDeCohenSutherland.clipar(reta, minima, maxima);
+			if (reta != null) {
+				novasCoordenadas.add(reta.getCoordenadas().get(0));
+				novasCoordenadas.add(reta.getCoordenadas().get(1));
+			}
+		}
+		coordenadas = new ArrayList<Coordenada>(novasCoordenadas);
+		System.out.printf("Polígono clipado: %s", this);
+		return novasCoordenadas.size() < 2 ? null : this;
+	}
+
+	private List<Reta> separarEmRetas() {
+		List<Reta> retas = new ArrayList<Reta>();
+		Coordenada c1;
+		Coordenada c2;
+		for (int i = 0; i < coordenadas.size(); i++) {
+			c1 = coordenadas.get(i);
+			c2 = i == coordenadas.size() - 1 ? coordenadas.get(0) : coordenadas.get(i + 1);
+			retas.add(new Reta("", null, c1, c2));
+		}
+		return retas;
+	}
+
 }

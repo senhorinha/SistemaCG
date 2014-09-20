@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import modelo.Coordenada;
+import modelo.utils.MetodoDeCohenSutherland;
 
 public class Reta extends ObjetoGeometrico {
 
@@ -46,6 +47,11 @@ public class Reta extends ObjetoGeometrico {
 		int coordenadaY2 = (int) this.obterP2().getY();
 		grafico.setColor(cor);
 		grafico.drawLine(coordenadaX1, coordenadaY1, coordenadaX2, coordenadaY2);
+	}
+
+	@Override
+	public ObjetoGeometrico toClip(Coordenada minima, Coordenada maxima) {
+		return MetodoDeCohenSutherland.clipar(this, minima, maxima);
 	}
 
 }

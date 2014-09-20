@@ -16,6 +16,8 @@ public abstract class ObjetoGeometrico implements Cloneable {
 
 	public abstract void desenhar(Graphics grafico);
 
+	public abstract ObjetoGeometrico toClip(Coordenada minima, Coordenada maxima);
+
 	public String getNome() {
 		return nome;
 	}
@@ -65,4 +67,5 @@ public abstract class ObjetoGeometrico implements Cloneable {
 		copia.setCoordenadas(coordenadas);
 		return copia;
 	}
+
 }

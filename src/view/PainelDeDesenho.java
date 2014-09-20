@@ -14,7 +14,6 @@ import modelo.Zoom;
 import modelo.objetos.ObjetoGeometrico;
 import modelo.transformacoes.Transformacao;
 import modelo.transformacoes.TransformacaoDeViewport;
-import modelo.utils.Clipador;
 
 public class PainelDeDesenho extends JPanel {
 
@@ -52,7 +51,7 @@ public class PainelDeDesenho extends JPanel {
 			objetosClonados = instance.clonarObjetos();
 			for (ObjetoGeometrico objeto : objetosClonados) {
 				objeto.transformarCoordenadas(transformacaoDeViewport);
-				objeto = Clipador.executar(objeto, minimaViewport, maximaViewport);
+				objeto = objeto.toClip(minimaViewport, maximaViewport);
 				if (objeto != null) {
 					objeto.desenhar(g);
 				}

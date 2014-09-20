@@ -33,4 +33,20 @@ public class Ponto extends ObjetoGeometrico {
 		grafico.drawLine(coordenadaX, coordenadaY, coordenadaX, coordenadaY);
 	}
 
+	@Override
+	public ObjetoGeometrico toClip(Coordenada minimo, Coordenada maximo) {
+		Coordenada coordenada = coordenadas.get(0);
+		if (coordenada != null) {
+			if (estaNoIntervalo(coordenada.getX(), minimo.getX(), maximo.getX())
+					&& estaNoIntervalo(coordenada.getY(), minimo.getY(), maximo.getY())) {
+				return this;
+			}
+		}
+		return null;
+	}
+
+	private boolean estaNoIntervalo(double valor, double minimo, double maximo) {
+		return (valor >= minimo) && (valor <= maximo);
+	}
+
 }
