@@ -23,8 +23,8 @@ public class MetodoDeCohenSutherland {
 				int altura = (int) maximo.getY();
 				int largura = (int) maximo.getX();
 				for (int i = 0; i < regioes.size(); i++) {
-					double x = 0;
-					double y = 0;
+					double x = minimo.getX();
+					double y = minimo.getY();
 					switch (regioes.get(i)) {
 					case CENTRO:
 						continue;
@@ -38,15 +38,15 @@ public class MetodoDeCohenSutherland {
 					case SUDOESTE:
 					case SUDESTE:
 						x = x1 + (x2 - x1) * -y1 / (y2 - y1);
-						y = 0;
+						y = minimo.getY();
 						break;
 					case LESTE:
-						y = y1 + (y2 - y1) * (largura - x1) / (x2 - x1);
 						x = largura;
+						y = y1 + (y2 - y1) * (largura - x1) / (x2 - x1);
 						break;
 					case OESTE:
+						x = minimo.getX();
 						y = y1 + (y2 - y1) * -x1 / (x2 - x1);
-						x = 0;
 						break;
 					}
 					Coordenada coordenada = reta.getCoordenadas().get(i);
