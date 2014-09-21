@@ -31,8 +31,8 @@ public class PainelDeDesenho extends JPanel {
 			window = new Window(new Coordenada(0, 0), new Coordenada(medidas.getWidth(), medidas.getHeight()));
 			window.setProporcaoX((int) medidas.getWidth() / 10);
 			window.setProporcaoY((int) medidas.getHeight() / 10);
-			Coordenada minimaViewport = new Coordenada(0, 0);
-			Coordenada maximaViewport = new Coordenada(medidas.getWidth() - 0, medidas.getHeight() - 0);
+			Coordenada minimaViewport = new Coordenada(55, 70);
+			Coordenada maximaViewport = new Coordenada(690, 690);
 			windowEViewportConfigurados = true;
 			this.displayFile = new DisplayFile(new TransformacaoDeViewport(window, minimaViewport, maximaViewport),
 					minimaViewport, maximaViewport);
@@ -54,7 +54,7 @@ public class PainelDeDesenho extends JPanel {
 		int largura = 700;
 		int altura = 700;
 		g.drawRoundRect(50, 65, largura, altura, 5, 5);
-		g.drawRoundRect(55, 70, largura - 10, altura -10, 5, 5);
+		g.drawRoundRect(55, 70, largura - 10, altura - 10, 5, 5);
 	}
 
 	public void aplicarZoom(Zoom zoom) {
@@ -104,6 +104,20 @@ public class PainelDeDesenho extends JPanel {
 
 	public void trocarObjetoDoIndice(ObjetoGeometrico objetoGeometrico, int indice) {
 		displayFile.trocarObjetoDoIndice(objetoGeometrico, indice);
+		this.repaint();
+	}
+
+	public List<ObjetoGeometrico> getObjetos() {
+		return displayFile.getObjetos();
+	}
+
+	public void iniciarCom(List<ObjetoGeometrico> objetos) {
+		displayFile.iniciarCom(objetos);
+		this.repaint();
+	}
+
+	public void atualizarObjeto(ObjetoGeometrico objeto) {
+		displayFile.atualizarObjeto(objeto);
 		this.repaint();
 	}
 

@@ -16,9 +16,9 @@ import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
 import modelo.Coordenada;
-import modelo.DisplayFile;
 import modelo.movimentos.Escalonador;
 import modelo.objetos.ObjetoGeometrico;
+import view.PainelDeDesenho;
 import view.Validador;
 
 /**
@@ -37,17 +37,17 @@ public class EscalonarDialog extends javax.swing.JDialog {
 	public static final int RET_OK = 1;
 	private ObjetoGeometrico objeto;
 	private Escalonador escalonador;
-	private DisplayFile displayFile;
+	private PainelDeDesenho painelDeDesenho;
 
 	/**
 	 * Creates new form EscalonarDialog
 	 * 
 	 * @param displayFile
 	 */
-	public EscalonarDialog(java.awt.Frame parent, boolean modal, ObjetoGeometrico objeto, DisplayFile displayFile) {
+	public EscalonarDialog(java.awt.Frame parent, boolean modal, ObjetoGeometrico objeto, PainelDeDesenho painelDeDesenho) {
 		super(parent, modal);
 		this.objeto = objeto;
-		this.displayFile = displayFile;
+		this.painelDeDesenho = painelDeDesenho;
 		initComponents();
 
 		// Close the dialog when Esc is pressed
@@ -199,7 +199,7 @@ public class EscalonarDialog extends javax.swing.JDialog {
 			Coordenada fatorDeEscala = new Coordenada(x, y);
 			escalonador = new Escalonador(objeto, fatorDeEscala);
 			escalonador.movimentar();
-			displayFile.atualizarObjeto(objeto);
+			painelDeDesenho.atualizarObjeto(objeto);
 			doClose(RET_OK);
 		}
 	}// GEN-LAST:event_okButtonActionPerformed

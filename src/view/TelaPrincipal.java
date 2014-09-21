@@ -498,10 +498,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	private void botaoAcoesDeMovimentoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAcoesDeMovimentoActionPerformed
 		int indiceSelecionado = this.listaDeObjetos.getSelectedIndex();
 		if (indiceSelecionado != -1) {
-			ObjetoGeometrico objetoASofrerAcao = this.painelDeDesenho.getDisplayFile().getObjetos()
-					.get(indiceSelecionado);
+			ObjetoGeometrico objetoASofrerAcao = this.painelDeDesenho.getObjetos().get(indiceSelecionado);
 			ListaDeAcoesDeMovimentosDialog listaDeAcoes = new ListaDeAcoesDeMovimentosDialog(this, true,
-					objetoASofrerAcao, painelDeDesenho.getDisplayFile());
+					objetoASofrerAcao, painelDeDesenho);
 			listaDeAcoes.setLocationRelativeTo(this);
 			listaDeAcoes.setVisible(true);
 		}
@@ -515,7 +514,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		int indiceSelecionado = this.listaDeObjetos.getSelectedIndex();
 		if (indiceSelecionado != -1) {
 			AdicionarFormaDialog edicao = new AdicionarFormaDialog(this, rootPaneCheckingEnabled, true,
-					indiceSelecionado, this.painelDeDesenho.getDisplayFile());
+					indiceSelecionado, this.painelDeDesenho);
 			edicao.setLocationRelativeTo(this);
 			edicao.setVisible(true);
 		}
@@ -537,7 +536,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 					}
 					listaDeObjetos.add(nome);
 				}
-				this.painelDeDesenho.getDisplayFile().iniciarCom(objetosCarregados);
+				this.painelDeDesenho.iniciarCom(objetosCarregados);
 			} catch (IOException e) {
 
 			}
@@ -552,7 +551,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 			File file = fc.getSelectedFile();
 			try {
 				GravadorDeObj leitorDeObj = new GravadorDeObj();
-				leitorDeObj.executar(file.getPath(), this.painelDeDesenho.getDisplayFile().getObjetos());
+				leitorDeObj.executar(file.getPath(), this.painelDeDesenho.getObjetos());
 			} catch (IOException e) {
 
 			}
@@ -585,7 +584,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 	private void botaoAdicionarObjetoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAdicionarObjetoActionPerformed
 		AdicionarFormaDialog adicionarFormDialog = new AdicionarFormaDialog(this, rootPaneCheckingEnabled, false, 0,
-				this.painelDeDesenho.getDisplayFile());
+				this.painelDeDesenho);
 		adicionarFormDialog.setLocationRelativeTo(this);
 		adicionarFormDialog.setVisible(true);
 	}// GEN-LAST:event_botaoAdicionarObjetoActionPerformed
@@ -610,7 +609,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 	private void adionarFormaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_adionarFormaMenuItemActionPerformed
 		AdicionarFormaDialog adicionarFormDialog = new AdicionarFormaDialog(this, rootPaneCheckingEnabled, false, 0,
-				this.painelDeDesenho.getDisplayFile());
+				this.painelDeDesenho);
 		adicionarFormDialog.setLocationRelativeTo(this);
 		adicionarFormDialog.setVisible(true);
 	}// GEN-LAST:event_adionarFormaMenuItemActionPerformed

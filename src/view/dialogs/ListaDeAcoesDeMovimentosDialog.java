@@ -6,8 +6,8 @@
 
 package view.dialogs;
 
-import modelo.DisplayFile;
 import modelo.objetos.ObjetoGeometrico;
+import view.PainelDeDesenho;
 
 /**
  *
@@ -16,15 +16,16 @@ import modelo.objetos.ObjetoGeometrico;
 public class ListaDeAcoesDeMovimentosDialog extends javax.swing.JDialog {
 
 	private ObjetoGeometrico objeto;
-	private DisplayFile displayFile;
+	private PainelDeDesenho painelDeDesenho;
 
 	/**
 	 * Creates new form ListaDeMovimentosDialog
 	 */
-	public ListaDeAcoesDeMovimentosDialog(java.awt.Frame parent, boolean modal, ObjetoGeometrico objeto, DisplayFile displayFile) {
+	public ListaDeAcoesDeMovimentosDialog(java.awt.Frame parent, boolean modal, ObjetoGeometrico objeto,
+			PainelDeDesenho painelDeDesenho) {
 		super(parent, modal);
 		this.objeto = objeto;
-		this.displayFile = displayFile;
+		this.painelDeDesenho = painelDeDesenho;
 		initComponents();
 	}
 
@@ -85,38 +86,44 @@ public class ListaDeAcoesDeMovimentosDialog extends javax.swing.JDialog {
 		getContentPane().setLayout(layout);
 		layout.setHorizontalGroup(layout
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addComponent(botaoAbrirDialogEscalonar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+				.addComponent(botaoAbrirDialogEscalonar, javax.swing.GroupLayout.DEFAULT_SIZE,
+						javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 				.addComponent(botaoAbrirDialogRotacionar, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
 				.addComponent(botaoAbrirDialogTransladar, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
 				.addGroup(
 						javax.swing.GroupLayout.Alignment.TRAILING,
-						layout.createSequentialGroup().addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(botaoCancelar)
-								.addContainerGap()));
+						layout.createSequentialGroup()
+								.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(botaoCancelar).addContainerGap()));
 		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup().addComponent(botaoAbrirDialogEscalonar).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(botaoAbrirDialogRotacionar).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(botaoAbrirDialogTransladar).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(botaoCancelar)
+				layout.createSequentialGroup().addComponent(botaoAbrirDialogEscalonar)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+						.addComponent(botaoAbrirDialogRotacionar)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+						.addComponent(botaoAbrirDialogTransladar)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+						.addComponent(botaoCancelar)
 						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void botaoAbrirDialogEscalonarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAbrirDialogEscalonarActionPerformed
-		EscalonarDialog escalonarDialog = new EscalonarDialog(null, true, objeto, displayFile);
+		EscalonarDialog escalonarDialog = new EscalonarDialog(null, true, objeto, this.painelDeDesenho);
 		escalonarDialog.setLocationRelativeTo(this);
 		this.setVisible(false);
 		escalonarDialog.setVisible(true);
 	}// GEN-LAST:event_botaoAbrirDialogEscalonarActionPerformed
 
 	private void botaoAbrirDialogRotacionarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAbrirDialogRotacionarActionPerformed
-		RotacionarDialog rotacionadorDialog = new RotacionarDialog(null, true, objeto, displayFile);
+		RotacionarDialog rotacionadorDialog = new RotacionarDialog(null, true, objeto, this.painelDeDesenho);
 		rotacionadorDialog.setLocationRelativeTo(this);
 		this.setVisible(false);
 		rotacionadorDialog.setVisible(true);
 	}// GEN-LAST:event_botaoAbrirDialogRotacionarActionPerformed
 
 	private void botaoAbrirDialogTransladarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAbrirDialogTransladarActionPerformed
-		TransladarDialog transladarDialog = new TransladarDialog(null, true, objeto, displayFile);
+		TransladarDialog transladarDialog = new TransladarDialog(null, true, objeto, this.painelDeDesenho);
 		transladarDialog.setLocationRelativeTo(this);
 		this.setVisible(false);
 		transladarDialog.setVisible(true);
