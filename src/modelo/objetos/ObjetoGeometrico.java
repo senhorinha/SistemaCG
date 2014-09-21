@@ -58,13 +58,19 @@ public abstract class ObjetoGeometrico implements Cloneable {
 	}
 
 	@Override
-	public Object clone() throws CloneNotSupportedException {
-		ObjetoGeometrico copia = (ObjetoGeometrico) super.clone();
-		List<Coordenada> coordenadas = new ArrayList<Coordenada>();
-		for (Coordenada coordenada : copia.getCoordenadas()) {
-			coordenadas.add(new Coordenada(coordenada.getX(), coordenada.getY()));
+	public ObjetoGeometrico clone() {
+		ObjetoGeometrico copia = null;
+		try {
+			copia = (ObjetoGeometrico) super.clone();
+			List<Coordenada> coordenadas = new ArrayList<Coordenada>();
+			for (Coordenada coordenada : copia.getCoordenadas()) {
+				coordenadas.add(new Coordenada(coordenada.getX(), coordenada.getY()));
+			}
+			copia.setCoordenadas(coordenadas);
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		copia.setCoordenadas(coordenadas);
 		return copia;
 	}
 

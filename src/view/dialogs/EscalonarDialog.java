@@ -15,10 +15,11 @@ import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
-import view.Validador;
 import modelo.Coordenada;
+import modelo.DisplayFile;
 import modelo.movimentos.Escalonador;
 import modelo.objetos.ObjetoGeometrico;
+import view.Validador;
 
 /**
  *
@@ -36,13 +37,17 @@ public class EscalonarDialog extends javax.swing.JDialog {
 	public static final int RET_OK = 1;
 	private ObjetoGeometrico objeto;
 	private Escalonador escalonador;
+	private DisplayFile displayFile;
 
 	/**
 	 * Creates new form EscalonarDialog
+	 * 
+	 * @param displayFile
 	 */
-	public EscalonarDialog(java.awt.Frame parent, boolean modal, ObjetoGeometrico objeto) {
+	public EscalonarDialog(java.awt.Frame parent, boolean modal, ObjetoGeometrico objeto, DisplayFile displayFile) {
 		super(parent, modal);
 		this.objeto = objeto;
+		this.displayFile = displayFile;
 		initComponents();
 
 		// Close the dialog when Esc is pressed
@@ -119,13 +124,23 @@ public class EscalonarDialog extends javax.swing.JDialog {
 
 		javax.swing.GroupLayout fatorEscalaPanelLayout = new javax.swing.GroupLayout(fatorEscalaPanel);
 		fatorEscalaPanel.setLayout(fatorEscalaPanelLayout);
-		fatorEscalaPanelLayout.setHorizontalGroup(fatorEscalaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				fatorEscalaPanelLayout.createSequentialGroup().addContainerGap().addComponent(xLabel).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(fatorDeEscalaXTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(18, 18, 18)
-						.addComponent(yLabel).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(fatorDeEscalaYTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+		fatorEscalaPanelLayout.setHorizontalGroup(fatorEscalaPanelLayout.createParallelGroup(
+				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
+				fatorEscalaPanelLayout
+						.createSequentialGroup()
+						.addContainerGap()
+						.addComponent(xLabel)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+						.addComponent(fatorDeEscalaXTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 67,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGap(18, 18, 18)
+						.addComponent(yLabel)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+						.addComponent(fatorDeEscalaYTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 67,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		fatorEscalaPanelLayout.setVerticalGroup(fatorEscalaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
+		fatorEscalaPanelLayout.setVerticalGroup(fatorEscalaPanelLayout.createParallelGroup(
+				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
 				fatorEscalaPanelLayout
 						.createSequentialGroup()
 						.addContainerGap()
@@ -134,10 +149,13 @@ public class EscalonarDialog extends javax.swing.JDialog {
 										.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 										.addComponent(xLabel)
 										.addComponent(yLabel)
-										.addComponent(fatorDeEscalaYTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+										.addComponent(fatorDeEscalaYTextField, javax.swing.GroupLayout.PREFERRED_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(fatorDeEscalaXTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)).addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+										.addComponent(fatorDeEscalaXTextField, javax.swing.GroupLayout.PREFERRED_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
@@ -145,19 +163,26 @@ public class EscalonarDialog extends javax.swing.JDialog {
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGroup(
 						javax.swing.GroupLayout.Alignment.TRAILING,
-						layout.createSequentialGroup().addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(cancelButton).addContainerGap())
-				.addComponent(fatorEscalaPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-						Short.MAX_VALUE));
+						layout.createSequentialGroup()
+								.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(cancelButton).addContainerGap())
+				.addComponent(fatorEscalaPanel, javax.swing.GroupLayout.Alignment.TRAILING,
+						javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
 		layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] { cancelButton, okButton });
 
 		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
 				javax.swing.GroupLayout.Alignment.TRAILING,
-				layout.createSequentialGroup().addComponent(fatorEscalaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+				layout.createSequentialGroup()
+						.addComponent(fatorEscalaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(okButton).addComponent(cancelButton))
+						.addGroup(
+								layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(okButton).addComponent(cancelButton))
 						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
 		getRootPane().setDefaultButton(okButton);
@@ -174,6 +199,7 @@ public class EscalonarDialog extends javax.swing.JDialog {
 			Coordenada fatorDeEscala = new Coordenada(x, y);
 			escalonador = new Escalonador(objeto, fatorDeEscala);
 			escalonador.movimentar();
+			displayFile.atualizarObjeto(objeto);
 			doClose(RET_OK);
 		}
 	}// GEN-LAST:event_okButtonActionPerformed

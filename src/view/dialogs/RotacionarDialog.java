@@ -15,10 +15,11 @@ import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
-import view.Validador;
 import modelo.Coordenada;
+import modelo.DisplayFile;
 import modelo.movimentos.Rotacionador;
 import modelo.objetos.ObjetoGeometrico;
+import view.Validador;
 
 /**
  *
@@ -41,15 +42,18 @@ public class RotacionarDialog extends javax.swing.JDialog {
 
 	private ObjetoGeometrico objeto;
 	private Rotacionador rotencionar;
+	private DisplayFile displayFile;
 
 	/**
 	 * Creates new form EscalonarDialog
 	 * 
 	 * @param objeto
+	 * @param displayFile 
 	 */
-	public RotacionarDialog(java.awt.Frame parent, boolean modal, ObjetoGeometrico objeto) {
+	public RotacionarDialog(java.awt.Frame parent, boolean modal, ObjetoGeometrico objeto, DisplayFile displayFile) {
 		super(parent, modal);
 		this.objeto = objeto;
+		this.displayFile = displayFile;
 		initComponents();
 
 		// Close the dialog when Esc is pressed
@@ -275,6 +279,7 @@ public class RotacionarDialog extends javax.swing.JDialog {
 			break;
 		}
 		if (semErro) {
+			displayFile.atualizarObjeto(objeto);
 			doClose(RET_OK);
 		}
 	}// GEN-LAST:event_okButtonActionPerformed

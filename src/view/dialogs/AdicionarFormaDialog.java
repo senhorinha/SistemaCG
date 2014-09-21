@@ -36,10 +36,6 @@ import modelo.objetos.Reta;
 import view.TelaPrincipal;
 import view.Validador;
 
-/**
- *
- * @author thiago
- */
 public class AdicionarFormaDialog extends javax.swing.JDialog {
 
 	/**
@@ -60,6 +56,7 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 	private boolean isEdicao;
 	private int indiceSelecionado;
 	private Color corSelecionada;
+	private DisplayFile displayFile;
 
 	/**
 	 * Creates new form AdicionarFormaDialog
@@ -67,14 +64,16 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 	 * @param indiceSelecionado
 	 * @param isEdicao
 	 */
-	public AdicionarFormaDialog(java.awt.Frame parent, boolean modal, boolean isEdicao, int indiceSelecionado) {
+	public AdicionarFormaDialog(java.awt.Frame parent, boolean modal, boolean isEdicao, int indiceSelecionado,
+			DisplayFile displayFile) {
 		super(parent, modal);
 		this.isEdicao = isEdicao;
 		this.indiceSelecionado = indiceSelecionado;
+		this.displayFile = displayFile;
 		coordenadasDoPoligono = new ArrayList<Coordenada>();
 		initComponents();
 		if (isEdicao) {
-			ObjetoGeometrico objetoGeometrico = DisplayFile.obterInstancia().getObjetos().get(indiceSelecionado);
+			ObjetoGeometrico objetoGeometrico = displayFile.getObjetos().get(indiceSelecionado);
 			List<Coordenada> coordenadas = objetoGeometrico.getCoordenadas();
 			this.nomeTextField.setText(objetoGeometrico.getNome());
 			this.botaoAlterarCor.setBackground(objetoGeometrico.getCor());
@@ -648,14 +647,13 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 			break;
 		}
 		if (semErros) {
-			List<ObjetoGeometrico> objetos = DisplayFile.obterInstancia().getObjetos();
+			List<ObjetoGeometrico> objetos = displayFile.getObjetos();
 			if (isEdicao) {
 				((TelaPrincipal) this.getParent()).modificarObjeto(objetos.get(indiceSelecionado), indiceSelecionado);
 			} else {
 				int utlimo = objetos.size() - 1;
 				((TelaPrincipal) this.getParent()).adicionarObjeto(objetos.get(utlimo));
 			}
-			((TelaPrincipal) this.getParent()).atualizarPainelDeDesenho();
 			doClose(RET_OK);
 		}
 	}// GEN-LAST:event_okButtonActionPerformed
@@ -674,9 +672,9 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 			Coordenada c = new Coordenada(pontoX, pontoY);
 			Ponto ponto = new Ponto(nome, corSelecionada, c);
 			if (isEdicao) {
-				DisplayFile.obterInstancia().trocarObjetoDoIndice(ponto, indiceSelecionado);
+				displayFile.trocarObjetoDoIndice(ponto, indiceSelecionado);
 			} else {
-				DisplayFile.obterInstancia().adicionar(ponto);
+				displayFile.adicionar(ponto);
 			}
 		}
 		return semErros;
@@ -701,9 +699,9 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 			Reta reta = new Reta(nome, corSelecionada, coordenadaDeA, coordenadaDeB);
 
 			if (isEdicao) {
-				DisplayFile.obterInstancia().trocarObjetoDoIndice(reta, indiceSelecionado);
+				displayFile.trocarObjetoDoIndice(reta, indiceSelecionado);
 			} else {
-				DisplayFile.obterInstancia().adicionar(reta);
+				displayFile.adicionar(reta);
 			}
 		}
 		return semErros;
@@ -717,9 +715,9 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 			Poligono poligono = new Poligono(nomeTextField.getText(), corSelecionada, coordenadasDoPoligono,
 					this.preencherPoligonoCheckBox.isSelected());
 			if (isEdicao) {
-				DisplayFile.obterInstancia().trocarObjetoDoIndice(poligono, indiceSelecionado);
+				displayFile.trocarObjetoDoIndice(poligono, indiceSelecionado);
 			} else {
-				DisplayFile.obterInstancia().adicionar(poligono);
+				displayFile.adicionar(poligono);
 			}
 		}
 		return semErro;

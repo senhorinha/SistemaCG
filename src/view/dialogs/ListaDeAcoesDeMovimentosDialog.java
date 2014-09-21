@@ -6,7 +6,7 @@
 
 package view.dialogs;
 
-import view.TelaPrincipal;
+import modelo.DisplayFile;
 import modelo.objetos.ObjetoGeometrico;
 
 /**
@@ -16,13 +16,15 @@ import modelo.objetos.ObjetoGeometrico;
 public class ListaDeAcoesDeMovimentosDialog extends javax.swing.JDialog {
 
 	private ObjetoGeometrico objeto;
+	private DisplayFile displayFile;
 
 	/**
 	 * Creates new form ListaDeMovimentosDialog
 	 */
-	public ListaDeAcoesDeMovimentosDialog(java.awt.Frame parent, boolean modal, ObjetoGeometrico objeto) {
+	public ListaDeAcoesDeMovimentosDialog(java.awt.Frame parent, boolean modal, ObjetoGeometrico objeto, DisplayFile displayFile) {
 		super(parent, modal);
 		this.objeto = objeto;
+		this.displayFile = displayFile;
 		initComponents();
 	}
 
@@ -100,27 +102,24 @@ public class ListaDeAcoesDeMovimentosDialog extends javax.swing.JDialog {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void botaoAbrirDialogEscalonarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAbrirDialogEscalonarActionPerformed
-		EscalonarDialog escalonarDialog = new EscalonarDialog(null, true, objeto);
+		EscalonarDialog escalonarDialog = new EscalonarDialog(null, true, objeto, displayFile);
 		escalonarDialog.setLocationRelativeTo(this);
 		this.setVisible(false);
 		escalonarDialog.setVisible(true);
-		((TelaPrincipal) this.getParent()).atualizarPainelDeDesenho();
 	}// GEN-LAST:event_botaoAbrirDialogEscalonarActionPerformed
 
 	private void botaoAbrirDialogRotacionarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAbrirDialogRotacionarActionPerformed
-		RotacionarDialog rotacionadorDialog = new RotacionarDialog(null, true, objeto);
+		RotacionarDialog rotacionadorDialog = new RotacionarDialog(null, true, objeto, displayFile);
 		rotacionadorDialog.setLocationRelativeTo(this);
 		this.setVisible(false);
 		rotacionadorDialog.setVisible(true);
-		((TelaPrincipal) this.getParent()).atualizarPainelDeDesenho();
 	}// GEN-LAST:event_botaoAbrirDialogRotacionarActionPerformed
 
 	private void botaoAbrirDialogTransladarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAbrirDialogTransladarActionPerformed
-		TransladarDialog transladarDialog = new TransladarDialog(null, true, objeto);
+		TransladarDialog transladarDialog = new TransladarDialog(null, true, objeto, displayFile);
 		transladarDialog.setLocationRelativeTo(this);
 		this.setVisible(false);
 		transladarDialog.setVisible(true);
-		((TelaPrincipal) this.getParent()).atualizarPainelDeDesenho();
 	}// GEN-LAST:event_botaoAbrirDialogTransladarActionPerformed
 
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoCancelarActionPerformed

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Coordenada;
-import modelo.DisplayFile;
 import modelo.Window;
 import modelo.objetos.ObjetoGeometrico;
 
@@ -21,15 +20,14 @@ public class Normalizador {
 
 	}
 
-	public void gerarDescricaoEmSCN() throws CloneNotSupportedException {
-		objetos = DisplayFile.obterInstancia().getObjetos();
+	public void gerarDescricaoEmSCN(List<ObjetoGeometrico> objetos) throws CloneNotSupportedException {
 		fatorDeEscalaX = (window.getMaximo().getX() - window.getMinimo().getX()) / 2;
 		fatorDeEscalaY = (window.getMaximo().getY() - window.getMinimo().getY()) / 2;
 		double xNormalizado, yNormalizado;
 		List<Coordenada> coordenadasNormalizadas;
 
 		for (ObjetoGeometrico objeto : objetos) {
-			ObjetoGeometrico clone = (ObjetoGeometrico) objeto.clone();
+			ObjetoGeometrico clone = objeto.clone();
 			coordenadasNormalizadas = new ArrayList<Coordenada>();
 
 			for (Coordenada coordenada : clone.getCoordenadas()) {

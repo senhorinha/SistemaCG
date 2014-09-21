@@ -15,10 +15,11 @@ import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
-import view.Validador;
 import modelo.Coordenada;
+import modelo.DisplayFile;
 import modelo.movimentos.Translador;
 import modelo.objetos.ObjetoGeometrico;
+import view.Validador;
 
 /**
  *
@@ -36,13 +37,16 @@ public class TransladarDialog extends javax.swing.JDialog {
 	public static final int RET_OK = 1;
 	private ObjetoGeometrico objeto;
 	private Translador translador;
+	private DisplayFile displayFile;
 
 	/**
 	 * Creates new form EscalonarDialog
+	 * @param displayFile 
 	 */
-	public TransladarDialog(java.awt.Frame parent, boolean modal, ObjetoGeometrico objeto) {
+	public TransladarDialog(java.awt.Frame parent, boolean modal, ObjetoGeometrico objeto, DisplayFile displayFile) {
 		super(parent, modal);
 		this.objeto = objeto;
+		this.displayFile = displayFile;
 		initComponents();
 
 		// Close the dialog when Esc is pressed
@@ -174,6 +178,7 @@ public class TransladarDialog extends javax.swing.JDialog {
 			Coordenada fatorDeEscala = new Coordenada(x, y);
 			translador = new Translador(objeto, fatorDeEscala);
 			translador.movimentar();
+			displayFile.atualizarObjeto(objeto);
 			doClose(RET_OK);
 		}
 

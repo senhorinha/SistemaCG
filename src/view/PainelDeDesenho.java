@@ -12,16 +12,13 @@ import modelo.DisplayFile;
 import modelo.Window;
 import modelo.Zoom;
 import modelo.objetos.ObjetoGeometrico;
-import modelo.transformacoes.Transformacao;
 import modelo.transformacoes.TransformacaoDeViewport;
 
 public class PainelDeDesenho extends JPanel {
 
-	private Transformacao transformacaoDeViewport;
 	private Window window;
 	private boolean windowEViewportConfigurados;
-	private Coordenada minimaViewport;
-	private Coordenada maximaViewport;
+	private DisplayFile displayFile;
 
 	public PainelDeDesenho() {
 		super();
@@ -34,10 +31,11 @@ public class PainelDeDesenho extends JPanel {
 			window = new Window(new Coordenada(0, 0), new Coordenada(medidas.getWidth(), medidas.getHeight()));
 			window.setProporcaoX((int) medidas.getWidth() / 10);
 			window.setProporcaoY((int) medidas.getHeight() / 10);
-			minimaViewport = new Coordenada(0, 0);
-			maximaViewport = new Coordenada(medidas.getWidth() - 0, medidas.getHeight() - 0);
-			transformacaoDeViewport = new TransformacaoDeViewport(window, minimaViewport, maximaViewport);
+			Coordenada minimaViewport = new Coordenada(0, 0);
+			Coordenada maximaViewport = new Coordenada(medidas.getWidth() - 0, medidas.getHeight() - 0);
 			windowEViewportConfigurados = true;
+			this.displayFile = new DisplayFile(new TransformacaoDeViewport(window, minimaViewport, maximaViewport),
+					minimaViewport, maximaViewport);
 		}
 	}
 
@@ -45,20 +43,18 @@ public class PainelDeDesenho extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		this.configurarWindowEViewport();
-		DisplayFile instance = DisplayFile.obterInstancia();
-		List<ObjetoGeometrico> objetosClonados;
-		try {
-			objetosClonados = instance.clonarObjetos();
-			for (ObjetoGeometrico objeto : objetosClonados) {
-				objeto.transformarCoordenadas(transformacaoDeViewport);
-				objeto = objeto.toClip(minimaViewport, maximaViewport);
-				if (objeto != null) {
-					objeto.desenhar(g);
-				}
-			}
-		} catch (CloneNotSupportedException e1) {
-			e1.printStackTrace();
+		desenharBordaDaViewport(g);
+		List<ObjetoGeometrico> objetosClipados = displayFile.getObjetosClipados();
+		for (ObjetoGeometrico objeto : objetosClipados) {
+			objeto.desenhar(g);
 		}
+	}
+
+	private void desenharBordaDaViewport(Graphics g) {
+		int largura = 700;
+		int altura = 700;
+		g.drawRoundRect(50, 65, largura, altura, 5, 5);
+		g.drawRoundRect(55, 70, largura - 10, altura -10, 5, 5);
 	}
 
 	public void aplicarZoom(Zoom zoom) {
@@ -69,6 +65,7 @@ public class PainelDeDesenho extends JPanel {
 		case OUT:
 			window.zoomOut();
 		}
+		this.displayFile.atualizarTodosOsObjetos();
 		this.repaint();
 	}
 
@@ -87,6 +84,26 @@ public class PainelDeDesenho extends JPanel {
 			window.moverEsquerda();
 			break;
 		}
+		this.displayFile.atualizarTodosOsObjetos();
+		this.repaint();
+	}
+
+	public DisplayFile getDisplayFile() {
+		return displayFile;
+	}
+
+	public void removerObjetoDoIndice(int indiceSelecionado) {
+		displayFile.remover(indiceSelecionado);
+		this.repaint();
+	}
+
+	public void adicionarObjeto(ObjetoGeometrico objetoGeometrico) {
+		displayFile.adicionar(objetoGeometrico);
+		this.repaint();
+	}
+
+	public void trocarObjetoDoIndice(ObjetoGeometrico objetoGeometrico, int indice) {
+		displayFile.trocarObjetoDoIndice(objetoGeometrico, indice);
 		this.repaint();
 	}
 

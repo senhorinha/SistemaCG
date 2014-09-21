@@ -49,9 +49,6 @@ public class Poligono extends ObjetoGeometrico {
 
 	@Override
 	public String toString() {
-		// StringBuilder stringBuilder = new
-		// StringBuilder(this.getClass().getSimpleName());
-		// stringBuilder.append(": ").append(nome).append(" ");
 		StringBuilder stringBuilder = new StringBuilder();
 		for (Coordenada coordenada : coordenadas) {
 			stringBuilder.append(coordenada);
@@ -65,10 +62,12 @@ public class Poligono extends ObjetoGeometrico {
 		List<Reta> retasClipadas = separarEmRetas();
 		Set<Coordenada> novasCoordenadas = new LinkedHashSet<Coordenada>();
 		for (Reta reta : retasClipadas) {
-			reta = MetodoDeCohenSutherland.clipar(reta, minima, maxima);
-			if (reta != null) {
-				novasCoordenadas.add(reta.getCoordenadas().get(0));
-				novasCoordenadas.add(reta.getCoordenadas().get(1));
+			Reta retaClonada;
+			retaClonada = (Reta) reta.clone();
+			retaClonada = MetodoDeCohenSutherland.clipar(retaClonada, minima, maxima);
+			if (retaClonada != null) {
+				novasCoordenadas.add(retaClonada.getCoordenadas().get(0));
+				novasCoordenadas.add(retaClonada.getCoordenadas().get(1));
 			}
 		}
 		coordenadas = new ArrayList<Coordenada>(novasCoordenadas);
