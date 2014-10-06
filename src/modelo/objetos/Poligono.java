@@ -58,7 +58,7 @@ public class Poligono extends ObjetoGeometrico {
 
 	@Override
 	public ObjetoGeometrico toClip(Coordenada minima, Coordenada maxima) {
-		System.out.printf("Polígono original: %s", this);
+		System.out.printf("Polígono original: %s\n", this);
 		List<Reta> retasClipadas = separarEmRetas();
 		Set<Coordenada> novasCoordenadas = new LinkedHashSet<Coordenada>();
 		for (Reta reta : retasClipadas) {
@@ -71,7 +71,7 @@ public class Poligono extends ObjetoGeometrico {
 			}
 		}
 		coordenadas = new ArrayList<Coordenada>(novasCoordenadas);
-		System.out.printf("Polígono clipado: %s", this);
+		System.out.printf("Polígono clipado: %s\n", this);
 		return novasCoordenadas.size() < 2 ? null : this;
 	}
 
