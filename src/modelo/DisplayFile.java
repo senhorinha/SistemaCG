@@ -11,7 +11,6 @@ public class DisplayFile {
 	public List<ObjetoGeometrico> objetos;
 	private List<ObjetoGeometrico> objetosClipados;
 
-	private boolean atualizarObjetosClonados;
 	private final Transformacao transformacaoDeViewport;
 	private final Coordenada minimaViewport;
 	private final Coordenada maximaViewport;
