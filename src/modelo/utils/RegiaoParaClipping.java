@@ -20,4 +20,13 @@ public enum RegiaoParaClipping {
 		return bits;
 	}
 
+	public static RegiaoParaClipping toRegiao(int code) throws IllegalArgumentException {
+		for (RegiaoParaClipping regiao : RegiaoParaClipping.values()) {
+			if (code == regiao.valueOf()) {
+				return regiao;
+			}
+		}
+		throw new IllegalArgumentException("O código [" + code + "]" + "não região correspodente");
+	}
+
 }
