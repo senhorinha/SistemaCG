@@ -1,96 +1,120 @@
 package modelo.utils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import modelo.Coordenada;
 import modelo.objetos.Reta;
 
 public class MetodoDeCohenSutherland {
 
+	private static RegiaoParaClipping formarCodigos(Coordenada coordenada, Coordenada minimo, Coordenada maximo) {
+		int code = RegiaoParaClipping.CENTRO.valueOf();
+
+		if (coordenada.getX() < minimo.getX()) {
+			code |= RegiaoParaClipping.OESTE.valueOf();
+		} else if (coordenada.getX() > maximo.getX()) {
+			code |= RegiaoParaClipping.LESTE.valueOf();
+		}
+		if (coordenada.getY() < minimo.getY()) {
+			code |= RegiaoParaClipping.SUL.valueOf();
+		} else if (coordenada.getY() > maximo.getY()) {
+			code |= RegiaoParaClipping.NORTE.valueOf();
+		}
+
+		return RegiaoParaClipping.toRegiao(code);
+	}
+
+	@SuppressWarnings("incomplete-switch")
 	public static Reta clipar(Reta reta, Coordenada minimo, Coordenada maximo) {
-		System.out.println("Reta Original: " + reta.getCoordenadas().get(0) + " " + reta.getCoordenadas().get(1));
-		List<RegiaoParaClipping> regioes = formarCodigos(reta, minimo, maximo);
-		RegiaoParaClipping regiaoUm = regioes.get(0);
-		RegiaoParaClipping regiaoDois = regioes.get(1);
-		switch (regioes.get(0).valueOf() & regioes.get(1).valueOf()) {
-		case 0:
-			if (regiaoUm != regiaoDois) {
-				double x1 = reta.getCoordenadas().get(0).getX();
-				double y1 = reta.getCoordenadas().get(0).getY();
-				double x2 = reta.getCoordenadas().get(1).getX();
-				double y2 = reta.getCoordenadas().get(1).getY();
-				int altura = (int) maximo.getY();
-				int largura = (int) maximo.getX();
-				for (int i = 0; i < regioes.size(); i++) {
-					double x = minimo.getX();
-					double y = minimo.getY();
-					switch (regioes.get(i)) {
-					case CENTRO:
-						continue;
-					case NORTE:
-					case NORDESTE:
-					case NOROESTE:
-						x = x1 + (x2 - x1) * (altura - y1) / (y2 - y1);
-						y = altura;
-						break;
+		Coordenada c1 = reta.getCoordenadas().get(0);
+		Coordenada c2 = reta.getCoordenadas().get(1);
+
+		RegiaoParaClipping regiaoUm = formarCodigos(c1, minimo, maximo);
+		RegiaoParaClipping regiaoDois = formarCodigos(c2, minimo, maximo);
+
+		double x0 = reta.getCoordenadas().get(0).getX();
+		double y0 = reta.getCoordenadas().get(0).getY();
+		double x1 = reta.getCoordenadas().get(1).getX();
+		double y1 = reta.getCoordenadas().get(1).getY();
+
+		while (true) {
+			switch (regiaoUm.valueOf() & regiaoDois.valueOf()) {
+			case 0:
+				if (regiaoUm != regiaoDois) {
+					double x = 0, y = 0;
+					RegiaoParaClipping regiaoFora = regiaoUm != RegiaoParaClipping.CENTRO ? regiaoUm : regiaoDois;
+					switch (regiaoFora) {
 					case SUL:
 					case SUDOESTE:
 					case SUDESTE:
-						x = x1 + (x2 - x1) * -y1 / (y2 - y1);
+						x = x0 + (x1 - x0) * (minimo.getY() - y0) / (y1 - y0);
 						y = minimo.getY();
 						break;
+					case NORTE:
+					case NOROESTE:
+					case NORDESTE:
+						x = x0 + (x1 - x0) * (maximo.getY() - y0) / (y1 - y0);
+						y = maximo.getY();
+						break;
 					case LESTE:
-						x = largura;
-						y = y1 + (y2 - y1) * (largura - x1) / (x2 - x1);
+						y = y0 + (y1 - y0) * (maximo.getX() - x0) / (x1 - x0);
+						x = maximo.getX();
 						break;
 					case OESTE:
+						y = y0 + (y1 - y0) * (minimo.getX() - x0) / (x1 - x0);
 						x = minimo.getX();
-						y = y1 + (y2 - y1) * -x1 / (x2 - x1);
 						break;
 					}
-					Coordenada coordenada = reta.getCoordenadas().get(i);
-					coordenada.setX(x);
-					coordenada.setY(y);
+					if (regiaoFora == regiaoUm) {
+						c1.setX(x);
+						c1.setY(y);
+						regiaoUm = formarCodigos(c1, minimo, maximo);
+					} else {
+						c2.setX(x);
+						c2.setY(y);
+						regiaoDois = formarCodigos(c2, minimo, maximo);
+					}
+				} else {
+					return reta;
 				}
+				break;
+			default:
+				formarBordas(regiaoUm, c1, minimo, maximo);
+				formarBordas(regiaoDois, c2, minimo, maximo);
+				return reta;
 			}
+		}
+	}
+
+	private static void formarBordas(RegiaoParaClipping regiao, Coordenada coordenada, Coordenada minimo,
+			Coordenada maximo) {
+		switch (regiao) {
+		case LESTE:
+			coordenada.setX(maximo.getX());
 			break;
-		default:
-			reta = null;
+		case NORDESTE:
+			coordenada.setY(maximo.getY());
+			coordenada.setX(maximo.getX());
+			break;
+		case NOROESTE:
+			coordenada.setY(maximo.getY());
+			coordenada.setX(minimo.getX());
+			break;
+		case NORTE:
+			coordenada.setY(maximo.getY());
+			break;
+		case OESTE:
+			coordenada.setX(minimo.getX());
+			break;
+		case SUDESTE:
+			coordenada.setY(minimo.getX());
+			coordenada.setX(maximo.getX());
+			break;
+		case SUDOESTE:
+			coordenada.setY(minimo.getY());
+			coordenada.setX(minimo.getX());
+			break;
+		case SUL:
+			coordenada.setY(minimo.getY());
+			break;
 		}
-		if (reta != null) {
-			System.out.println("Reta Clipada: " + reta.getCoordenadas().get(0) + " " + reta.getCoordenadas().get(1));
-		} else {
-			System.out.println("Reta Clipada: null");
-		}
-		return reta;
 	}
-
-	private static List<RegiaoParaClipping> formarCodigos(Reta reta, Coordenada minimo, Coordenada maximo) {
-		List<Coordenada> coordenadas = reta.getCoordenadas();
-		List<RegiaoParaClipping> regioes = new ArrayList<RegiaoParaClipping>();
-		double x;
-		double y;
-		for (Coordenada coordenada : coordenadas) {
-			String codigo = "";
-			x = coordenada.getX();
-			y = coordenada.getY();
-			codigo += y > maximo.getY() ? "1" : "0";
-			codigo += y < minimo.getY() ? "1" : "0";
-			codigo += x > maximo.getX() ? "1" : "0";
-			codigo += x < minimo.getX() ? "1" : "0";
-			regioes.add(transformarEmRegiao(codigo));
-		}
-		return regioes;
-	}
-
-	private static RegiaoParaClipping transformarEmRegiao(String codigo) {
-		for (RegiaoParaClipping regiao : RegiaoParaClipping.values()) {
-			if (codigo.equals(regiao.toString())) {
-				return regiao;
-			}
-		}
-		throw new IllegalArgumentException("Não existe região correspondente para o código informado: {" + codigo + "}");
-	}
-
 }
