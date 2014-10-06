@@ -1,6 +1,6 @@
 package modelo;
 
-public class Coordenada {
+public class Coordenada implements Cloneable {
 
 	private double x, y;
 
@@ -64,6 +64,11 @@ public class Coordenada {
 		if (Double.doubleToLongBits(y) != Double.doubleToLongBits(other.y))
 			return false;
 		return true;
+	}
+
+	@Override
+	public Coordenada clone() throws CloneNotSupportedException {
+		return new Coordenada(this.x, this.y);
 	}
 
 }

@@ -64,7 +64,7 @@ public abstract class ObjetoGeometrico implements Cloneable {
 			copia = (ObjetoGeometrico) super.clone();
 			List<Coordenada> coordenadas = new ArrayList<Coordenada>();
 			for (Coordenada coordenada : copia.getCoordenadas()) {
-				coordenadas.add(new Coordenada(coordenada.getX(), coordenada.getY()));
+				coordenadas.add(coordenada.clone());
 			}
 			copia.setCoordenadas(coordenadas);
 		} catch (CloneNotSupportedException e) {
