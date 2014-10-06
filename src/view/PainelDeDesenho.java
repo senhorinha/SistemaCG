@@ -19,6 +19,7 @@ public class PainelDeDesenho extends JPanel {
 	private Window window;
 	private boolean windowEViewportConfigurados;
 	private DisplayFile displayFile;
+	private TransformacaoDeViewport transformacaoDeViewport;
 
 	public PainelDeDesenho() {
 		super();
@@ -32,10 +33,10 @@ public class PainelDeDesenho extends JPanel {
 			window.setProporcaoX((int) medidas.getWidth() / 10);
 			window.setProporcaoY((int) medidas.getHeight() / 10);
 			Coordenada minimaViewport = new Coordenada(55, 70);
-			Coordenada maximaViewport = new Coordenada(690, 690);
+			Coordenada maximaViewport = new Coordenada(680, 680);
 			windowEViewportConfigurados = true;
-			this.displayFile = new DisplayFile(new TransformacaoDeViewport(window, minimaViewport, maximaViewport),
-					minimaViewport, maximaViewport);
+			transformacaoDeViewport = new TransformacaoDeViewport(window, minimaViewport, maximaViewport);
+			this.displayFile = new DisplayFile(transformacaoDeViewport, minimaViewport, maximaViewport);
 		}
 	}
 
@@ -51,10 +52,10 @@ public class PainelDeDesenho extends JPanel {
 	}
 
 	private void desenharBordaDaViewport(Graphics g) {
-		int largura = 700;
-		int altura = 700;
+		int largura = 635;
+		int altura = 620;
 		g.drawRoundRect(50, 65, largura, altura, 5, 5);
-		g.drawRoundRect(55, 70, largura - 10, altura - 10, 5, 5);
+		g.drawRoundRect(55, 70, largura - 10, altura - 10, 0, 0);
 	}
 
 	public void aplicarZoom(Zoom zoom) {
