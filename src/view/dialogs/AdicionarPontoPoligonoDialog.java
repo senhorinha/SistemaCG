@@ -15,14 +15,14 @@ import modelo.Coordenada;
  *
  * @author thiago
  */
-public class AdicionarPontoDialog extends javax.swing.JDialog {
+public class AdicionarPontoPoligonoDialog extends javax.swing.JDialog {
 
 	private JDialog dialogoPai;
 
 	/**
 	 * Creates new form AdicionarPontoDialog
 	 */
-	public AdicionarPontoDialog(java.awt.Frame parent,
+	public AdicionarPontoPoligonoDialog(java.awt.Frame parent,
 			javax.swing.JDialog dialogoPai, boolean modal) {
 		super(parent, modal);
 		this.dialogoPai = dialogoPai;

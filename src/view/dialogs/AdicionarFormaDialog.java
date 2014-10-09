@@ -28,6 +28,7 @@ import javax.swing.KeyStroke;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 
 import modelo.Coordenada;
+import modelo.objetos.Curva;
 import modelo.objetos.ObjetoGeometrico;
 import modelo.objetos.Poligono;
 import modelo.objetos.Ponto;
@@ -50,9 +51,12 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 	public static final int TAB_PONTO = 0;
 	public static final int TAB_RETA = 1;
 	public static final int TAB_POLIGONO = 2;
+	public static final int TAB_CURVA = 3;
 	public static final String REGEX_PARA_INTEIRO = "\\d+";
 
 	private List<Coordenada> coordenadasDoPoligono;
+	private List<Coordenada> coordenadasDeControleDaCurva;
+	private List<Coordenada> coordenadasNormaisDaCurva;
 	private boolean isEdicao;
 	private int indiceSelecionado;
 	private Color corSelecionada;
@@ -71,6 +75,8 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 		this.indiceSelecionado = indiceSelecionado;
 		this.painelDeDesenho = painelDeDesenho;
 		coordenadasDoPoligono = new ArrayList<Coordenada>();
+		coordenadasDeControleDaCurva = new ArrayList<Coordenada>();
+		coordenadasNormaisDaCurva = new ArrayList<Coordenada>();
 		initComponents();
 		if (isEdicao) {
 			ObjetoGeometrico objetoGeometrico = painelDeDesenho.getObjetos().get(indiceSelecionado);
@@ -131,6 +137,7 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
@@ -162,6 +169,11 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 		botaoAdicionarPonto = new javax.swing.JButton();
 		botaoRemoverPonto = new javax.swing.JButton();
 		preencherPoligonoCheckBox = new javax.swing.JCheckBox();
+		jPanel1 = new javax.swing.JPanel();
+		painelDeRolagemDoPoligono1 = new javax.swing.JScrollPane();
+		listaDeCoordenadasDaCurva = new java.awt.List();
+		botaoAdicionarPontoCurva = new javax.swing.JButton();
+		botaoRemoverPontoCurva = new javax.swing.JButton();
 		nomeTextField = new javax.swing.JTextField();
 		corLabel = new javax.swing.JLabel();
 		botaoAlterarCor = new javax.swing.JButton();
@@ -408,7 +420,7 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 		preencherPoligonoCheckBox.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 		preencherPoligonoCheckBox.setSelected(true);
 		preencherPoligonoCheckBox.setText("Preencher");
-		preencherPoligonoCheckBox.setToolTipText("Marque para preencher o espaço interno do polígono");
+		preencherPoligonoCheckBox.setToolTipText("Marque para preencher espaço interno do polígono");
 
 		javax.swing.GroupLayout painelPoligonoLayout = new javax.swing.GroupLayout(painelPoligono);
 		painelPoligono.setLayout(painelPoligonoLayout);
@@ -448,6 +460,63 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
 		painelFormas.addTab("Polígono", painelPoligono);
+
+		painelDeRolagemDoPoligono1.setBorder(javax.swing.BorderFactory.createTitledBorder("Pontos"));
+		painelDeRolagemDoPoligono1.setViewportView(listaDeCoordenadasDaCurva);
+
+		botaoAdicionarPontoCurva
+				.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imagens/add.png"))); // NOI18N
+		botaoAdicionarPontoCurva.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botaoAdicionarPontoCurvaActionPerformed(evt);
+			}
+		});
+
+		botaoRemoverPontoCurva.setIcon(new javax.swing.ImageIcon(getClass()
+				.getResource("/resources/imagens/remove.png"))); // NOI18N
+		botaoRemoverPontoCurva.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botaoRemoverPontoCurvaActionPerformed(evt);
+			}
+		});
+
+		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+		jPanel1.setLayout(jPanel1Layout);
+		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(
+						javax.swing.GroupLayout.Alignment.TRAILING,
+						jPanel1Layout
+								.createSequentialGroup()
+								.addContainerGap(90, Short.MAX_VALUE)
+								.addGroup(
+										jPanel1Layout
+												.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+												.addComponent(painelDeRolagemDoPoligono1,
+														javax.swing.GroupLayout.PREFERRED_SIZE, 244,
+														javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addGroup(
+														jPanel1Layout.createSequentialGroup()
+																.addComponent(botaoAdicionarPontoCurva)
+																.addGap(18, 18, 18)
+																.addComponent(botaoRemoverPontoCurva)))
+								.addGap(78, 78, 78)));
+		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(
+						jPanel1Layout
+								.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(painelDeRolagemDoPoligono1, javax.swing.GroupLayout.PREFERRED_SIZE, 133,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addGroup(
+										jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(botaoAdicionarPontoCurva)
+												.addComponent(botaoRemoverPontoCurva))
+								.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+
+		painelFormas.addTab("Curva", jPanel1);
 
 		corLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 		corLabel.setText("Cor:");
@@ -535,6 +604,22 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
+
+	private void botaoAdicionarPontoCurvaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAdicionarPontoCurvaActionPerformed
+		AdicionarPontoCurvaDialog adicionarPontoDialog = new AdicionarPontoCurvaDialog(null, this,
+				rootPaneCheckingEnabled, coordenadasDeControleDaCurva.size(), coordenadasNormaisDaCurva.size());
+		adicionarPontoDialog.setLocationRelativeTo(this);
+		adicionarPontoDialog.setVisible(true);
+	}// GEN-LAST:event_botaoAdicionarPontoCurvaActionPerformed
+
+	private void botaoRemoverPontoCurvaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoRemoverPontoCurvaActionPerformed
+		// TODO: Implementar
+		int indiceSelecionado = this.listaDeCoordenadasDaCurva.getSelectedIndex();
+		if (indiceSelecionado != -1) {
+			this.listaDeCoordenadasDaCurva.remove(indiceSelecionado);
+		}
+		revisarBotoesDeAdiciaoDeCurva();
+	}// GEN-LAST:event_botaoRemoverPontoCurvaActionPerformed
 
 	private void botaoAlterarCorActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAlterarCorActionPerformed
 		JColorChooser selecionadorDeCor = new JColorChooser(this.botaoAlterarCor.getBackground());
@@ -629,7 +714,6 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 			this.listaDeCoordenadasDoPoligono.remove(indiceSelecionado);
 			this.coordenadasDoPoligono.remove(indiceSelecionado);
 		}
-		;
 	}// GEN-LAST:event_botaoRemoverPontoActionPerformed
 
 	private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_okButtonActionPerformed
@@ -645,6 +729,8 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 		case TAB_POLIGONO:
 			semErros = criarPoligono();
 			break;
+		case TAB_CURVA:
+			semErros = criarCurva();
 		}
 		if (semErros) {
 			List<ObjetoGeometrico> objetos = painelDeDesenho.getObjetos();
@@ -657,6 +743,22 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 			doClose(RET_OK);
 		}
 	}// GEN-LAST:event_okButtonActionPerformed
+
+	private boolean criarCurva() {
+		boolean semErro = Validador.validarString(nomeTextField, nomeLabel);
+		semErro &= coordenadasDeControleDaCurva.size() == 2;
+		semErro &= coordenadasNormaisDaCurva.size() == 2;
+		if (semErro) {
+			Curva curva = new Curva(nomeTextField.getText(), corSelecionada, coordenadasDeControleDaCurva,
+					coordenadasNormaisDaCurva);
+			if (isEdicao) {
+				painelDeDesenho.trocarObjetoDoIndice(curva, indiceSelecionado);
+			} else {
+				painelDeDesenho.adicionarObjeto(curva);
+			}
+		}
+		return semErro;
+	}
 
 	private boolean criarPonto() {
 		boolean semErros = false;
@@ -730,6 +832,36 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 		this.listaDeCoordenadasDoPoligono.add(descricao);
 	}
 
+	public void adicionarCoordenadaACurva(Coordenada coordenada, boolean isControle) {
+		String descricao = "Ponto ";
+		if (isControle) {
+			coordenadasDeControleDaCurva.add(coordenada);
+			descricao = descricao.concat(
+					String.valueOf(coordenadasDeControleDaCurva.size()).concat(
+							" X:" + coordenada.getX() + " Y:" + coordenada.getY())).concat(" [CONTROLE]");
+		} else {
+			coordenadasNormaisDaCurva.add(coordenada);
+			descricao = descricao.concat(String.valueOf(coordenadasNormaisDaCurva.size()).concat(
+					" X:" + coordenada.getX() + " Y:" + coordenada.getY()));
+		}
+		if (coordenadasDeControleDaCurva.size() + coordenadasNormaisDaCurva.size() == 4) {
+			this.botaoAdicionarPonto.setEnabled(false);
+		}
+		this.listaDeCoordenadasDaCurva.add(descricao);
+		revisarBotoesDeAdiciaoDeCurva();
+	}
+
+	private void revisarBotoesDeAdiciaoDeCurva() {
+		if (coordenadasDeControleDaCurva.size() + coordenadasNormaisDaCurva.size() == 4) {
+			this.botaoAdicionarPontoCurva.setEnabled(false);
+			this.botaoAdicionarPontoCurva.setToolTipText("O número máximo de pontos já foi atingido.");
+		} else {
+			this.botaoAdicionarPontoCurva.setEnabled(true);
+			this.botaoAdicionarPontoCurva.setToolTipText("Adicionar ponto.");
+		}
+
+	}
+
 	private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cancelButtonActionPerformed
 		doClose(RET_CANCEL);
 	}// GEN-LAST:event_cancelButtonActionPerformed
@@ -742,7 +874,8 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 	}// GEN-LAST:event_closeDialog
 
 	private void botaoAdicionarPontoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAdicionarPontoActionPerformed
-		AdicionarPontoDialog adicionarPontoDialog = new AdicionarPontoDialog(null, this, rootPaneCheckingEnabled);
+		AdicionarPontoPoligonoDialog adicionarPontoDialog = new AdicionarPontoPoligonoDialog(null, this,
+				rootPaneCheckingEnabled);
 		adicionarPontoDialog.setLocationRelativeTo(this);
 		adicionarPontoDialog.setVisible(true);
 	}// GEN-LAST:event_botaoAdicionarPontoActionPerformed
@@ -755,8 +888,10 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton botaoAdicionarPonto;
+	private javax.swing.JButton botaoAdicionarPontoCurva;
 	private javax.swing.JButton botaoAlterarCor;
 	private javax.swing.JButton botaoRemoverPonto;
+	private javax.swing.JButton botaoRemoverPontoCurva;
 	private javax.swing.JButton cancelButton;
 	private javax.swing.JLabel coordenadaFInalRetaXLabel;
 	private javax.swing.JTextField coordenadaFinalRetaXTextField;
@@ -772,6 +907,8 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 	private javax.swing.JTextField coordenadaPontoYTextField;
 	private javax.swing.JLabel corLabel;
 	private javax.swing.JLabel jLabel1;
+	private javax.swing.JPanel jPanel1;
+	private java.awt.List listaDeCoordenadasDaCurva;
 	private java.awt.List listaDeCoordenadasDoPoligono;
 	private javax.swing.JLabel nomeLabel;
 	private javax.swing.JTextField nomeTextField;
@@ -780,6 +917,7 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 	private javax.swing.JPanel painelCoordenadasInicialReta;
 	private javax.swing.JPanel painelCoordenadasPonto;
 	private javax.swing.JScrollPane painelDeRolagemDoPoligono;
+	private javax.swing.JScrollPane painelDeRolagemDoPoligono1;
 	private javax.swing.JTabbedPane painelFormas;
 	private javax.swing.JPanel painelPoligono;
 	private javax.swing.JPanel painelPonto;
