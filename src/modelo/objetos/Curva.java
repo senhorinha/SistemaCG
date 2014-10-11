@@ -7,14 +7,11 @@ import java.util.List;
 
 import modelo.Coordenada;
 
-/**
- * Curva de Bézier
- * 
- */
+// TODO: REFATORAR. Remover código duplicado.
 public class Curva extends ObjetoGeometrico {
 
-	double t; // the time interval
-	double k = .025; // time step value for drawing curve
+	double intervalo;
+	double passo = .025;
 	private final List<Reta> retas;
 
 	public Curva(String nome, Color cor, List<Coordenada> coordenadasDeControle, List<Coordenada> coordenadasNormais) {
@@ -36,16 +33,16 @@ public class Curva extends ObjetoGeometrico {
 		double x1, x2, y1, y2;
 		x1 = coordenadas.get(0).getX();
 		y1 = coordenadas.get(0).getY();
-		for (t = k; t <= 1 + k; t += k) {
+		for (intervalo = passo; intervalo <= 1 + passo; intervalo += passo) {
 			// @formatter:off
-			x2 = (coordenadas.get(0).getX() + t * (-coordenadas.get(0).getX() * 3 + t * (3 * coordenadas.get(0).getX() - coordenadas.get(0).getX() * t))) + t
-					* (3 * coordenadas.get(1).getX() + t * (-6 * coordenadas.get(1).getX() + coordenadas.get(1).getX() * 3 * t)) + t * t
-					* (coordenadas.get(2).getX() * 3 - coordenadas.get(2).getX() * 3 * t) + coordenadas.get(3).getX() * t * t * t;
-			y2 = (coordenadas.get(0).getY() + t * (-coordenadas.get(0).getY() * 3 + t * (3 * coordenadas.get(0).getY() - coordenadas.get(0).getY() * t))) + t
-					* (3 * coordenadas.get(1).getY() + t * (-6 * coordenadas.get(1).getY() + coordenadas.get(1).getY() * 3 * t)) + t * t
-					* (coordenadas.get(2).getY() * 3 - coordenadas.get(2).getY() * 3 * t)
+			x2 = (coordenadas.get(0).getX() + intervalo * (-coordenadas.get(0).getX() * 3 + intervalo * (3 * coordenadas.get(0).getX() - coordenadas.get(0).getX() * intervalo))) + intervalo
+					* (3 * coordenadas.get(1).getX() + intervalo * (-6 * coordenadas.get(1).getX() + coordenadas.get(1).getX() * 3 * intervalo)) + intervalo * intervalo
+					* (coordenadas.get(2).getX() * 3 - coordenadas.get(2).getX() * 3 * intervalo) + coordenadas.get(3).getX() * intervalo * intervalo * intervalo;
+			y2 = (coordenadas.get(0).getY() + intervalo * (-coordenadas.get(0).getY() * 3 + intervalo * (3 * coordenadas.get(0).getY() - coordenadas.get(0).getY() * intervalo))) + intervalo
+					* (3 * coordenadas.get(1).getY() + intervalo * (-6 * coordenadas.get(1).getY() + coordenadas.get(1).getY() * 3 * intervalo)) + intervalo * intervalo
+					* (coordenadas.get(2).getY() * 3 - coordenadas.get(2).getY() * 3 * intervalo)
 					+ coordenadas.get(3).getY()
-					* t * t * t;
+					* intervalo * intervalo * intervalo;
 			Coordenada c1 = new Coordenada(x1, y1);
 			Coordenada c2 = new Coordenada(x2, y2);
 			retas.add(new Reta("reta clipada", this.cor, c1, c2));
@@ -77,25 +74,24 @@ public class Curva extends ObjetoGeometrico {
 		double x1, x2, y1, y2;
 		x1 = coordenadas.get(0).getX();
 		y1 = coordenadas.get(0).getY();
-		for (t = k; t <= 1 + k; t += k) {
+		for (intervalo = passo; intervalo <= 1 + passo; intervalo += passo) {
 			// @formatter:off
-			x2 = (coordenadas.get(0).getX() + t * (-coordenadas.get(0).getX() * 3 + t * (3 * coordenadas.get(0).getX() - coordenadas.get(0).getX() * t))) + t
-					* (3 * coordenadas.get(1).getX() + t * (-6 * coordenadas.get(1).getX() + coordenadas.get(1).getX() * 3 * t)) + t * t
-					* (coordenadas.get(2).getX() * 3 - coordenadas.get(2).getX() * 3 * t) + coordenadas.get(3).getX() * t * t * t;
-			y2 = (coordenadas.get(0).getY() + t * (-coordenadas.get(0).getY() * 3 + t * (3 * coordenadas.get(0).getY() - coordenadas.get(0).getY() * t))) + t
-					* (3 * coordenadas.get(1).getY() + t * (-6 * coordenadas.get(1).getY() + coordenadas.get(1).getY() * 3 * t)) + t * t
-					* (coordenadas.get(2).getY() * 3 - coordenadas.get(2).getY() * 3 * t)
+			x2 = (coordenadas.get(0).getX() + intervalo * (-coordenadas.get(0).getX() * 3 + intervalo * (3 * coordenadas.get(0).getX() - coordenadas.get(0).getX() * intervalo))) + intervalo
+					* (3 * coordenadas.get(1).getX() + intervalo * (-6 * coordenadas.get(1).getX() + coordenadas.get(1).getX() * 3 * intervalo)) + intervalo * intervalo
+					* (coordenadas.get(2).getX() * 3 - coordenadas.get(2).getX() * 3 * intervalo) + coordenadas.get(3).getX() * intervalo * intervalo * intervalo;
+			y2 = (coordenadas.get(0).getY() + intervalo * (-coordenadas.get(0).getY() * 3 + intervalo * (3 * coordenadas.get(0).getY() - coordenadas.get(0).getY() * intervalo))) + intervalo
+					* (3 * coordenadas.get(1).getY() + intervalo * (-6 * coordenadas.get(1).getY() + coordenadas.get(1).getY() * 3 * intervalo)) + intervalo * intervalo
+					* (coordenadas.get(2).getY() * 3 - coordenadas.get(2).getY() * 3 * intervalo)
 					+ coordenadas.get(3).getY()
-					* t * t * t;
+					* intervalo * intervalo * intervalo;
 			// @formatter:on
 			Coordenada c1 = new Coordenada(x1, y1);
 			Coordenada c2 = new Coordenada(x2, y2);
 			Reta reta = new Reta("", this.cor, c1, c2);
 			reta = reta.toClip(minima, maxima);
-			if (reta == null) {
-				break;
+			if (reta != null) {
+				retas.add(reta);
 			}
-			retas.add(reta);
 			x1 = x2;
 			y1 = y2;
 		}
