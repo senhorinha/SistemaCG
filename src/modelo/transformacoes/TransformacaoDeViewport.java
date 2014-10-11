@@ -7,13 +7,9 @@ import modelo.Window;
 
 public class TransformacaoDeViewport implements Transformacao {
 
-	private Coordenada minimo;
-	private Coordenada maximo;
+	private final Coordenada minimo;
+	private final Coordenada maximo;
 	private final Window window;
-
-	public TransformacaoDeViewport(Window window) {
-		this.window = window;
-	}
 
 	public TransformacaoDeViewport(Window window, Coordenada minimo, Coordenada maximo) {
 		this.window = window;
