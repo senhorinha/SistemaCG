@@ -15,7 +15,6 @@ public class Curva extends ObjetoGeometrico {
 
 	double t; // the time interval
 	double k = .025; // time step value for drawing curve
-	private List<Coordenada> coordenadasDeControle;
 
 	public Curva() {
 		this.cor = Color.BLACK;
@@ -23,18 +22,17 @@ public class Curva extends ObjetoGeometrico {
 
 	public Curva(String nome, Color cor, List<Coordenada> coordenadasDeControle, List<Coordenada> coordenadasNormais) {
 		this.nome = nome;
-		this.coordenadasDeControle = coordenadasDeControle;
 		this.coordenadas = new ArrayList<Coordenada>();
-		coordenadas.add(coordenadasDeControle.get(0));
+		coordenadas.add(0, coordenadasDeControle.get(0));
 		coordenadas.addAll(coordenadasNormais);
-		coordenadas.add(coordenadasDeControle.get(1));
+		coordenadas.add(3, coordenadasDeControle.get(1));
 		if (cor == null) {
 			this.cor = Color.BLACK;
 		} else {
 			this.cor = cor;
 		}
 	}
-	
+
 	@Override
 	public void desenhar(Graphics grafico) {
 		double x1, x2, y1, y2;
@@ -68,7 +66,7 @@ public class Curva extends ObjetoGeometrico {
 
 	@Override
 	public ObjetoGeometrico toClip(Coordenada minima, Coordenada maxima) {
-		return null;
+		return this;
 	}
 
 }
