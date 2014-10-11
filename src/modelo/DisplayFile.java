@@ -8,7 +8,7 @@ import modelo.transformacoes.Transformacao;
 
 public class DisplayFile {
 
-	public List<ObjetoGeometrico> objetos;
+	private List<ObjetoGeometrico> objetos;
 	private List<ObjetoGeometrico> objetosClipados;
 
 	private final Transformacao transformacaoDeViewport;
