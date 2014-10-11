@@ -85,17 +85,17 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 			this.botaoAlterarCor.setBackground(objetoGeometrico.getCor());
 
 			if (objetoGeometrico instanceof Ponto) {
-				this.painelFormas.setSelectedIndex(0);
+				this.painelFormas.setSelectedIndex(TAB_PONTO);
 				this.coordenadaPontoXTextField.setText(String.valueOf(coordenadas.get(0).getX()));
 				this.coordenadaPontoYTextField.setText(String.valueOf(coordenadas.get(0).getY()));
 			} else if (objetoGeometrico instanceof Reta) {
-				this.painelFormas.setSelectedIndex(1);
+				this.painelFormas.setSelectedIndex(TAB_RETA);
 				this.coordenadaInicialRetaXTextField.setText(String.valueOf(coordenadas.get(0).getX()));
 				this.coordenadaInicialRetaYTextField.setText(String.valueOf(coordenadas.get(0).getY()));
 				this.coordenadaFinalRetaXTextField.setText(String.valueOf(coordenadas.get(1).getX()));
 				this.coordenadaFinalRetaYTextField.setText(String.valueOf(coordenadas.get(1).getY()));
 			} else if (objetoGeometrico instanceof Poligono) {
-				this.painelFormas.setSelectedIndex(2);
+				this.painelFormas.setSelectedIndex(TAB_POLIGONO);
 				int contador = 1;
 				this.coordenadasDoPoligono = coordenadas;
 				for (Coordenada coordenada : coordenadas) {
@@ -103,6 +103,28 @@ public class AdicionarFormaDialog extends javax.swing.JDialog {
 							" X:" + coordenada.getX() + " Y:" + coordenada.getY()));
 					this.listaDeCoordenadasDoPoligono.add(descricao);
 				}
+			} else if (objetoGeometrico instanceof Curva) {
+				this.painelFormas.setSelectedIndex(TAB_CURVA);
+				this.coordenadasDeControleDaCurva.add(0, coordenadas.get(0));
+				this.coordenadasDeControleDaCurva.add(1, coordenadas.get(3));
+				this.coordenadasNormaisDaCurva.add(0, coordenadas.get(1));
+				this.coordenadasNormaisDaCurva.add(1, coordenadas.get(2));
+				for (Coordenada coordenadaDeControle : coordenadasDeControleDaCurva) {
+					String descricao = "Ponto ";
+					descricao = descricao.concat(
+							String.valueOf(coordenadasDeControleDaCurva.size()).concat(
+									" X:" + coordenadaDeControle.getX() + " Y:" + coordenadaDeControle.getY())).concat(
+							" [CONTROLE]");
+					this.listaDeCoordenadasDaCurva.add(descricao);
+				}
+
+				for (Coordenada coordenadaNormal : coordenadasNormaisDaCurva) {
+					String descricao = "Ponto ";
+					descricao = descricao.concat(String.valueOf(coordenadasNormaisDaCurva.size()).concat(
+							" X:" + coordenadaNormal.getX() + " Y:" + coordenadaNormal.getY()));
+					this.listaDeCoordenadasDaCurva.add(descricao);
+				}
+				revisarBotoesDeAdiciaoDeCurva();
 			}
 		}
 		// Close the dialog when Esc is pressed
