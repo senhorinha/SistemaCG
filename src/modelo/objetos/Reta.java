@@ -50,7 +50,7 @@ public class Reta extends ObjetoGeometrico {
 	}
 
 	@Override
-	public ObjetoGeometrico toClip(Coordenada minima, Coordenada maxima) {
+	public Reta toClip(Coordenada minima, Coordenada maxima) {
 		return MetodoDeCohenSutherland.clipar(this, minima, maxima);
 	}
 
