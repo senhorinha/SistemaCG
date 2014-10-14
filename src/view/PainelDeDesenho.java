@@ -20,9 +20,11 @@ public class PainelDeDesenho extends JPanel {
 	private boolean windowEViewportConfigurados;
 	private DisplayFile displayFile;
 	private TransformacaoDeViewport transformacaoDeViewport;
+	private java.awt.List listaDeObjetos;
 
-	public PainelDeDesenho() {
+	public PainelDeDesenho(java.awt.List listaDeObjetos) {
 		super();
+		this.listaDeObjetos = listaDeObjetos;
 
 	}
 
@@ -95,16 +97,20 @@ public class PainelDeDesenho extends JPanel {
 
 	public void removerObjetoDoIndice(int indiceSelecionado) {
 		displayFile.remover(indiceSelecionado);
+		listaDeObjetos.remove(indiceSelecionado);
 		this.repaint();
 	}
 
 	public void adicionarObjeto(ObjetoGeometrico objetoGeometrico) {
 		displayFile.adicionar(objetoGeometrico);
+		listaDeObjetos.add(objetoGeometrico.getNome());
 		this.repaint();
 	}
 
 	public void trocarObjetoDoIndice(ObjetoGeometrico objetoGeometrico, int indice) {
 		displayFile.trocarObjetoDoIndice(objetoGeometrico, indice);
+		listaDeObjetos.remove(indice);
+		listaDeObjetos.add(objetoGeometrico.getNome(), indice);
 		this.repaint();
 	}
 
@@ -114,6 +120,9 @@ public class PainelDeDesenho extends JPanel {
 
 	public void iniciarCom(List<ObjetoGeometrico> objetos) {
 		displayFile.iniciarCom(objetos);
+		for (ObjetoGeometrico objetoGeometrico : objetos) {
+			listaDeObjetos.add(objetoGeometrico.getNome());
+		}
 		this.repaint();
 	}
 

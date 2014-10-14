@@ -13,7 +13,6 @@ public class CurvaBSpline extends ObjetoGeometrico {
 	private int precisao;
 	private double matrizE[][] = new double[4][4];
 	private static double mult = 1.0 / 6.0;
-	private List<Coordenada> coordenadas;
 	private List<Reta> retas;
 
 	//@formatter:off
@@ -119,6 +118,7 @@ public class CurvaBSpline extends ObjetoGeometrico {
 
 	@Override
 	public ObjetoGeometrico toClip(Coordenada minima, Coordenada maxima) {
+		this.retas.clear();
 		int np = coordenadas.size();
 		double geom[][] = new double[4][2];
 		double mg[][];

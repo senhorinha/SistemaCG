@@ -37,11 +37,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		painelDeDesenho.trocarObjetoDoIndice(objetoGeometrico, indice);
 	}
 
-	public void adicionarObjeto(ObjetoGeometrico objetoGeometrico) {
-		listaDeObjetos.add(objetoGeometrico.getNome());
-		this.painelDeDesenho.adicionarObjeto(objetoGeometrico);
-	}
-
 	/**
 	 * This method is called from within the constructor to initialize the form.
 	 * WARNING: Do NOT modify this code. The content of this method is always
@@ -82,7 +77,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		botaoRemoverObjeto = new javax.swing.JButton();
 		botaoConfigurarObjeto = new javax.swing.JButton();
 		botaoAcoesDeMovimento = new javax.swing.JButton();
-		painelDeDesenho = new PainelDeDesenho();
+		painelDeDesenho = new PainelDeDesenho(listaDeObjetos);
 		menuBar = new javax.swing.JMenuBar();
 		fileMenu = new javax.swing.JMenu();
 		importarObjMenuItem = new javax.swing.JMenuItem();
@@ -592,7 +587,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 	private void botaoRemoverObjetoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoRemoverObjetoActionPerformed
 		int indiceSelecionado = this.listaDeObjetos.getSelectedIndex();
 		if (indiceSelecionado != -1) {
-			this.listaDeObjetos.remove(indiceSelecionado);
 			this.painelDeDesenho.removerObjetoDoIndice(indiceSelecionado);
 		}
 	}// GEN-LAST:event_botaoRemoverObjetoActionPerformed

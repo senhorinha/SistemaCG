@@ -6,26 +6,21 @@
 
 package view.dialogs;
 
-import javax.swing.JDialog;
+import java.util.List;
 
-import view.Validador;
 import modelo.Coordenada;
+import view.Validador;
 
-/**
- *
- * @author thiago
- */
-public class AdicionarPontoPoligonoDialog extends javax.swing.JDialog {
+public class AdicionarPontoDialog extends javax.swing.JDialog {
 
-	private JDialog dialogoPai;
+	List<Coordenada> coordenadas;
+	java.awt.List listaTextoDeCoordenadas;
 
-	/**
-	 * Creates new form AdicionarPontoDialog
-	 */
-	public AdicionarPontoPoligonoDialog(java.awt.Frame parent,
-			javax.swing.JDialog dialogoPai, boolean modal) {
+	public AdicionarPontoDialog(java.awt.Frame parent, boolean modal, java.awt.List listaTextoDeCoordenadas,
+			List<Coordenada> coordenadas) {
 		super(parent, modal);
-		this.dialogoPai = dialogoPai;
+		this.coordenadas = coordenadas;
+		this.listaTextoDeCoordenadas = listaTextoDeCoordenadas;
 		initComponents();
 	}
 
@@ -73,94 +68,62 @@ public class AdicionarPontoPoligonoDialog extends javax.swing.JDialog {
 		poligonoPontoYLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 		poligonoPontoYLabel.setText("Y:");
 
-		poligonoPontoXTextField
-				.addActionListener(new java.awt.event.ActionListener() {
-					@Override
-					public void actionPerformed(java.awt.event.ActionEvent evt) {
-						poligonoPontoXTextFieldActionPerformed(evt);
-					}
-				});
+		poligonoPontoXTextField.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				poligonoPontoXTextFieldActionPerformed(evt);
+			}
+		});
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-				getContentPane());
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGroup(
 						layout.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(poligonoPontoXLabel)
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
+										layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 												.addGroup(
 														layout.createSequentialGroup()
-																.addComponent(
-																		poligonoPontoXTextField,
-																		javax.swing.GroupLayout.PREFERRED_SIZE,
-																		66,
+																.addComponent(poligonoPontoXTextField,
+																		javax.swing.GroupLayout.PREFERRED_SIZE, 66,
 																		javax.swing.GroupLayout.PREFERRED_SIZE)
-																.addGap(9, 9, 9)
-																.addComponent(
-																		poligonoPontoYLabel))
-												.addComponent(
-														botaoSalvar,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														72,
+																.addGap(9, 9, 9).addComponent(poligonoPontoYLabel))
+												.addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
 														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(
-														poligonoPontoYTextField,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														66,
+										layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+												.addComponent(poligonoPontoYTextField,
+														javax.swing.GroupLayout.PREFERRED_SIZE, 66,
 														javax.swing.GroupLayout.PREFERRED_SIZE)
 												.addComponent(botaoCancelar))
-								.addContainerGap(
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						javax.swing.GroupLayout.Alignment.TRAILING,
-						layout.createSequentialGroup()
-								.addContainerGap(13, Short.MAX_VALUE)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(
-														poligonoPontoXLabel)
-												.addComponent(
-														poligonoPontoYLabel)
-												.addComponent(
-														poligonoPontoYTextField,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(
-														poligonoPontoXTextField,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(botaoSalvar)
-												.addComponent(botaoCancelar))
-								.addContainerGap()));
+								.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
+				javax.swing.GroupLayout.Alignment.TRAILING,
+				layout.createSequentialGroup()
+						.addContainerGap(13, Short.MAX_VALUE)
+						.addGroup(
+								layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(poligonoPontoXLabel)
+										.addComponent(poligonoPontoYLabel)
+										.addComponent(poligonoPontoYTextField, javax.swing.GroupLayout.PREFERRED_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addComponent(poligonoPontoXTextField, javax.swing.GroupLayout.PREFERRED_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+						.addGroup(
+								layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(botaoSalvar).addComponent(botaoCancelar)).addContainerGap()));
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
-	private void poligonoPontoXTextFieldActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_poligonoPontoXTextFieldActionPerformed
+	private void poligonoPontoXTextFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_poligonoPontoXTextFieldActionPerformed
 		// TODO add your handling code here:
 	}// GEN-LAST:event_poligonoPontoXTextFieldActionPerformed
 
@@ -170,16 +133,16 @@ public class AdicionarPontoPoligonoDialog extends javax.swing.JDialog {
 
 	private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoSalvarActionPerformed
 		boolean semErros = true;
-		semErros = Validador.validarInteiro(poligonoPontoXTextField,
-				poligonoPontoXLabel);
-		semErros &= Validador.validarInteiro(poligonoPontoYTextField,
-				poligonoPontoYLabel);
+		semErros = Validador.validarInteiro(poligonoPontoXTextField, poligonoPontoXLabel);
+		semErros &= Validador.validarInteiro(poligonoPontoYTextField, poligonoPontoYLabel);
 		if (semErros) {
 			int x = Integer.parseInt(poligonoPontoXTextField.getText());
 			int y = Integer.parseInt(poligonoPontoYTextField.getText());
 			Coordenada coordenada = new Coordenada(x, y);
-			((AdicionarFormaDialog) dialogoPai)
-					.adicionarCoordenadaAoPoligono(coordenada);
+			coordenadas.add(coordenada);
+			String descricao = "Ponto ".concat(String.valueOf(coordenadas.size()).concat(
+					" X:" + coordenada.getX() + " Y:" + coordenada.getY()));
+			this.listaTextoDeCoordenadas.add(descricao);
 			this.dispose();
 		}
 

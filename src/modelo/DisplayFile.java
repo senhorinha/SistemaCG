@@ -74,5 +74,5 @@ public class DisplayFile {
 		objetoClonado.transformarCoordenadas(transformacaoDeViewport);
 		objetosClipados.set(indice, (objetoClonado.toClip(minimaViewport, maximaViewport)));
 	}
-
+	
 }

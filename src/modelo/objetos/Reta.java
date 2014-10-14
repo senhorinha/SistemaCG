@@ -54,4 +54,13 @@ public class Reta extends ObjetoGeometrico {
 		return MetodoDeCohenSutherland.clipar(this, minima, maxima);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (Coordenada coordenada : coordenadas) {
+			stringBuilder.append(coordenada);
+		}
+		return stringBuilder.toString();
+	}
+
 }
